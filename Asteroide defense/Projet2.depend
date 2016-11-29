@@ -2680,3 +2680,601 @@
 	<SFML/Graphics/RenderStates.hpp>
 	<cmath>
 
+1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\main.cpp
+	<Application.h>
+	<stdexcept>
+	<iostream>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\application.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<KeyBinding.h>
+	<StateStack.h>
+	<MusicPlayer.h>
+	<SoundPlayer.h>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\resourceholder.hpp
+	<map>
+	<string>
+	<memory>
+	<stdexcept>
+	<cassert>
+	<ResourceHolder.inl>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\resourceholder.inl
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\resourceidentifiers.h
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\keybinding.h
+	<SFML/Window/Keyboard.hpp>
+	<map>
+	<vector>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\statestack.h
+	<State.h>
+	<StateIdentifiers.h>
+	<ResourceIdentifiers.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<utility>
+	<functional>
+	<map>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\state.h
+	<StateIdentifiers.h>
+	<ResourceIdentifiers.h>
+	<SFML/System/Time.hpp>
+	<SFML/Window/Event.hpp>
+	<memory>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\stateidentifiers.h
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\musicplayer.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Audio/Music.hpp>
+	<map>
+	<string>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\soundplayer.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/Sound.hpp>
+	<list>
+
+1474698910 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\aircraft.cpp
+	<Aircraft.h>
+	<DataTables.h>
+	<Utility.h>
+	<Pickup.h>
+	<CommandQueue.h>
+	<SoundNode.h>
+	<NetworkNode.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<cmath>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\aircraft.h
+	<Entity.h>
+	<Command.h>
+	<ResourceIdentifiers.h>
+	<Projectile.h>
+	<TextNode.h>
+	<Animation.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1474554432 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\entity.h
+	<SceneNode.h>
+
+1474547684 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\scenenode.h
+	<Category.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<vector>
+	<set>
+	<memory>
+	<utility>
+	<map>
+
+1474369926 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\category.h
+
+1471966040 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\command.h
+	<Category.h>
+	<SFML/System/Time.hpp>
+	<functional>
+	<cassert>
+
+1474455722 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\projectile.h
+	<Entity.h>
+	<ResourceIdentifiers.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\textnode.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SceneNode.h>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Font.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\animation.h
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/System/Time.hpp>
+
+1474449116 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\datatables.h
+	<ResourceIdentifiers.h>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<vector>
+	<functional>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\utility.h
+	<SFML/Window/Keyboard.hpp>
+	<SFML/System/Vector2.hpp>
+	<sstream>
+	<Utility.inl>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\utility.inl
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\pickup.h
+	<Entity.h>
+	<Command.h>
+	<ResourceIdentifiers.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\commandqueue.h
+	<Command.h>
+	<queue>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\soundnode.h
+	<SceneNode.h>
+	<ResourceIdentifiers.h>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\networknode.h
+	<SceneNode.h>
+	<NetworkProtocol.h>
+	<queue>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\networkprotocol.h
+	<SFML/Config.hpp>
+	<SFML/System/Vector2.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\animation.cpp
+	"Animation.h"
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Texture.hpp>
+
+1474289934 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\application.cpp
+	<Application.h>
+	<Utility.h>
+	<State.h>
+	<StateIdentifiers.h>
+	<TitleState.h>
+	<GameState.h>
+	<MultiplayerGameState.h>
+	<MenuState.h>
+	<PauseState.h>
+	<SettingsState.h>
+	<GameOverState.h>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\titlestate.h
+	<State.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\gamestate.h
+	<State.h>
+	<World.h>
+	<Player.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1474553660 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\world.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SceneNode.h>
+	<SpriteNode.h>
+	<Aircraft.h>
+	<CommandQueue.h>
+	<Command.h>
+	<Pickup.h>
+	<BloomEffect.h>
+	<SoundPlayer.h>
+	<NetworkProtocol.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<array>
+	<queue>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\spritenode.h
+	<SceneNode.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\bloomeffect.h
+	<PostEffect.h>
+	<ResourceIdentifiers.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<array>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\posteffect.h
+	<SFML/System/NonCopyable.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\player.h
+	<Command.h>
+	<KeyBinding.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<map>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\multiplayergamestate.h
+	<State.h>
+	<World.h>
+	<Player.h>
+	<GameServer.h>
+	<NetworkProtocol.h>
+	<SFML/System/Clock.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/Packet.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\gameserver.h
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<vector>
+	<memory>
+	<map>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\menustate.h
+	<State.h>
+	<Container.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\container.h
+	<Component.h>
+	<vector>
+	<memory>
+
+1474294754 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\component.h
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<memory>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\pausestate.h
+	<State.h>
+	<Container.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\settingsstate.h
+	<State.h>
+	<KeyBinding.h>
+	<Container.h>
+	<Button.h>
+	<Label.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<array>
+
+1473924788 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\button.h
+	<Component.h>
+	<ResourceIdentifiers.h>
+	<State.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<vector>
+	<string>
+	<memory>
+	<functional>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\label.h
+	<Component.h>
+	<ResourceIdentifiers.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1474049716 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\gameoverstate.h
+	<State.h>
+	<Container.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1473857388 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\bloomeffect.cpp
+	"BloomEffect.h"
+
+1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\button.cpp
+	<Button.h>
+	<Utility.h>
+	<SoundPlayer.h>
+	<ResourceHolder.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\command.cpp
+	<Command.h>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\commandqueue.cpp
+	<CommandQueue.h>
+	<SceneNode.h>
+
+1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\component.cpp
+	<Component.h>
+
+1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\container.cpp
+	"Container.h"
+	<Foreach.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\foreach.hpp
+
+1474457552 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\datatables.cpp
+	"DataTables.h"
+	<Aircraft.h>
+	<Projectile.h>
+	<Pickup.h>
+	<Particle.h>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\particle.h
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Color.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\emitternode.cpp
+	"EmitterNode.h"
+	<ParticleNode.h>
+	<CommandQueue.h>
+	<Command.h>
+
+1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\emitternode.h
+	<SceneNode.h>
+	<Particle.h>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\particlenode.h
+	<SceneNode.h>
+	<ResourceIdentifiers.h>
+	<Particle.h>
+	<SFML/Graphics/VertexArray.hpp>
+	<deque>
+
+1474554922 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\entity.cpp
+	<Entity.h>
+	<cassert>
+
+1474294476 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\gameoverstate.cpp
+	"GameOverState.h"
+	<Utility.h>
+	<Player.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1474357870 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\gameserver.cpp
+	"GameServer.h"
+	<NetworkProtocol.h>
+	<Foreach.hpp>
+	<Utility.h>
+	<Pickup.h>
+	<Aircraft.h>
+	<SFML/Network/Packet.hpp>
+
+1474357954 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\gamestate.cpp
+	"GameState.h"
+	<MusicPlayer.h>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\keybinding.cpp
+	"KeyBinding.h"
+	<Foreach.hpp>
+	<string>
+	<algorithm>
+
+1472902084 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\label.cpp
+	"Label.h"
+	<Utility.h>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\loadingstate.cpp
+	<LoadingState.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\loadingstate.h
+	<State.h>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/Text.hpp>
+	<ParallelTask.h>
+
+1474356376 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\paralleltask.h
+	<SFML/System/Thread.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/Clock.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\menustate.cpp
+	<MenuState.h>
+	<Button.h>
+	<Utility.h>
+	<MusicPlayer.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\multiplayergamestate.cpp
+	"MultiplayerGameState.h"
+	<MusicPlayer.h>
+	<Foreach.hpp>
+	<Utility.h>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<fstream>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\musicplayer.cpp
+	"MusicPlayer.h"
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\networknode.cpp
+	"NetworkNode.h"
+	<NetworkProtocol.h>
+
+1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\paralleltask.cpp
+	"ParallelTask.h"
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\particlenode.cpp
+	"ParticleNode.h"
+	<Foreach.hpp>
+	<DataTables.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<algorithm>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\pausestate.cpp
+	<PauseState.h>
+	<Button.h>
+	<Utility.h>
+	<MusicPlayer.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\pickup.cpp
+	"Pickup.h"
+	<DataTables.h>
+	<Category.h>
+	<CommandQueue.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\player.cpp
+	<Player.h>
+	<CommandQueue.h>
+	<Aircraft.h>
+	<Foreach.hpp>
+	<NetworkProtocol.h>
+	<SFML/Network/Packet.hpp>
+	<map>
+	<string>
+	<algorithm>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\posteffect.cpp
+	"PostEffect.h"
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+
+1474458228 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\projectile.cpp
+	"Projectile.h"
+	<EmitterNode.h>
+	<DataTables.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<cmath>
+	<cassert>
+
+1474553452 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\scenenode.cpp
+	<SceneNode.h>
+	<Command.h>
+	<Foreach.hpp>
+	<Utility.h>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<algorithm>
+	<cassert>
+	<cmath>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\settingsstate.cpp
+	<SettingsState.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\soundnode.cpp
+	"SoundNode.h"
+	<soundPlayer.h>
+
+1473929828 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\soundplayer.cpp
+	"SoundPlayer.h"
+	<SFML/Audio/Listener.hpp>
+	<cmath>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\spritenode.cpp
+	<SpriteNode.h>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\state.cpp
+	"State.h"
+	"StateStack.h"
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\statestack.cpp
+	"StateStack.h"
+	<Foreach.hpp>
+	<cassert>
+
+1473505546 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\textnode.cpp
+	"TextNode.h"
+	<Utility.h>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\titlestate.cpp
+	"TitleState.h"
+	<utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\utility.cpp
+	"Utility.h"
+	<Animation.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<random>
+	<cmath>
+	<ctime>
+	<cassert>
+
+1474554522 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\world.cpp
+	"World.h"
+	<Projectile.h>
+	<Pickup.h>
+	<Foreach.hpp>
+	<TextNode.h>
+	<ParticleNode.h>
+	<SoundNode.h>
+	<NetworkNode.h>
+	<Utility.h>
+	<SFML/Graphics/RenderTarget.hpp>
+	<algorithm>
+	<cmath>
+	<limits>
+
