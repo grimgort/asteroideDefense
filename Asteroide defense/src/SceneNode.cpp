@@ -10,11 +10,13 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <iostream>
 
 SceneNode::SceneNode(Category::Type category)
     : m_children() //constructeur sans enfant par défault
     , m_parent(nullptr) //constructeur sans parent par défault
     , m_nodeCategory(category)
+    , m_positionCollision(-9999)
 {
 }
 
@@ -167,24 +169,31 @@ void SceneNode::checkScenePosition(SceneNode& sceneGraph, const std::vector<sf::
     FOREACH(Ptr& child, sceneGraph.m_children)
     checkScenePosition(*child, virtualRectCollision);
 }
-
+//extern int toto(0);
 void SceneNode::checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision)
 {
-  int op = 0;
-  for (auto it = virtualRectCollision.cbegin(); it != virtualRectCollision.cend(); ++it)
-  {
-    op = op + 1;
-    if (node.getBoundingRect().intersects(*it))
+    unsigned int op(0);
+    if (node.getCategory() == Category::EnemyProjectile
+        || node.getCategory() == Category::PlayerAircraft
+        || node.getCategory() == Category::Pickup
+        || node.getCategory() == Category::AlliedProjectile
+        || node.getCategory() == Category::EnemyAircraft)
+    {
+        for (auto it = virtualRectCollision.cbegin(); it != virtualRectCollision.cend(); ++it)
         {
-            m_positionCollision = op;
-            break;
+            op += 1;
+            if (node.getBoundingRect().intersects(*it))
+            {
+                node.m_positionCollision = op;
+                break;
+            }
         }
-    else
-        m_positionCollision = -9999;
-  }
+    }
 
-    FOREACH(Ptr& child, node.m_children)
-    checkNodePosition(*child, virtualRectCollision);
+//  toto = toto +1 ;
+//  std::cout << "toto = " << toto << std::endl ;
+//    FOREACH(Ptr& child, node.m_children)
+//    checkNodePosition(*child, virtualRectCollision);
 }
 
 int SceneNode::getPositionCollision() const
@@ -202,17 +211,20 @@ void SceneNode::checkSceneCollision(SceneNode& sceneGraph, std::set<Pair>& colli
 
 void SceneNode::checkNodeCollision(SceneNode& node, std::set<Pair>& collisionPairs)
 {
-    if ((matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyAircraft))
-            || matchesCategories(*this, node, Category::PlayerAircraft, Category::Pickup)
-            || matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyProjectile)
-            || matchesCategories(*this, node, Category::EnemyAircraft, Category::AlliedProjectile)
-            || m_positionCollision == node.getPositionCollision()
-            & !(m_positionCollision = -9999))
+//    std:: cout << "m_positionCollision = " << m_positionCollision << std::endl;
+    if (m_positionCollision != -9999
+         && m_positionCollision == node.getPositionCollision() )
     {
-        if (this != &node && collision(*this, node) && !isDestroyed() && !node.isDestroyed())
-            collisionPairs.insert(std::minmax(this, &node));
+        if ((matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyAircraft))
+                || matchesCategories(*this, node, Category::PlayerAircraft, Category::Pickup)
+                || matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyProjectile)
+                || matchesCategories(*this, node, Category::EnemyAircraft, Category::AlliedProjectile)
+           )
+        {
+            if (this != &node && collision(*this, node) && !isDestroyed() && !node.isDestroyed())
+                collisionPairs.insert(std::minmax(this, &node));
+        }
     }
-
     FOREACH(Ptr& child, m_children)
     child->checkNodeCollision(node, collisionPairs);
 }

@@ -13,6 +13,7 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <iostream>
 
 
 World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sounds, bool networked)
@@ -53,8 +54,10 @@ void World::setWorldScrollCompensation(float compensation)
 /*
 Met a jour la position des noeud et trace les texture associé.
 */
+
 void World::update(sf::Time dt)
 {
+//    toto =0;
     //Déplace la vue en fonction de la vitesse de l'avion.
     //Si on atteint de bord de la map, la vue reste statique et donc seul l'avion bouge.
     FOREACH(Aircraft* a, m_playerAircrafts)
@@ -283,8 +286,8 @@ bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Categor
 
 void World::grilleDeCollision()
 {
-    sf::Int32 nbCutY = 1; //Nombre de découpe en Y du monde
-    sf::Int32 nbCutX = 1; //Nombre de découpe en X du monde
+    sf::Int32 nbCutY = 10; //Nombre de découpe en Y du monde
+    sf::Int32 nbCutX = 10; //Nombre de découpe en X du monde
     std::vector<float> leftRect; //conteneur des position gauche des rectangle découpé du world
     std::vector<float> topRect; //conteneur des position top des rectangle découpé du world
     float initialWidth = ceil(m_worldBounds.width / nbCutX); //Width des rectangles initial
@@ -308,6 +311,9 @@ void World::grilleDeCollision()
         for (int y = 0; y < nbCutY; y++)
         {
             sf::FloatRect rectTemp(leftRect[i], topRect[y], initialWidth, initialHeight);
+            //cout de debug. A réfléchir pour améliorer la gestion des erreurs.
+//            std::cout << " i = " << i << " leftRect[i] = " << leftRect[i] << " topRect[y] = " << topRect[y]
+//                      << " initialWidth = " << initialWidth << " initialHeight = " << initialHeight << std::endl ;
             m_grilleDeCollision.push_back(rectTemp);
         }
     }
@@ -317,8 +323,9 @@ void World::handleCollisions()
 {
     std::set<SceneNode::Pair> collisionPairs;
 
-//    m_sceneGraph.checkScenePosition(m_sceneGraph, rectCollision);
-//    m_sceneGraph.checkSceneCollision(m_sceneGraph, collisionPairs);
+
+    m_sceneGraph.checkScenePosition(m_sceneGraph, m_grilleDeCollision);
+    m_sceneGraph.checkSceneCollision(m_sceneGraph, collisionPairs);
 
     FOREACH(SceneNode::Pair pair, collisionPairs)
     {
@@ -446,15 +453,15 @@ void World::addEnemies()
         addEnemy(Aircraft::Avenger, i*70, 4000.f);
     }
 
-//    for (float i = -10.f; i < 10.f; i++)
-//    {
-//        addEnemy(Aircraft::Avenger, i*70, 2000.f);
-//    }
-//
-//    for (float i = -10.f; i < 10.f; i++)
-//    {
-//        addEnemy(Aircraft::Avenger, i*70, 3000.f);
-//    }
+    for (float i = -10.f; i < 10.f; i++)
+    {
+        addEnemy(Aircraft::Avenger, i*70, 2000.f);
+    }
+
+    for (float i = -10.f; i < 10.f; i++)
+    {
+        addEnemy(Aircraft::Avenger, i*70, 3000.f);
+    }
 
 
 //    addEnemy(Aircraft::Raptor,    0.f,  500.f);
