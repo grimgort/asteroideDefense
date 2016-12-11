@@ -9,8 +9,8 @@
 #include <PauseState.h>
 #include <SettingsState.h>
 #include <GameOverState.h>
-
-const sf::Time Application::timePerFrame = sf::seconds(1.f/60.f);
+#include <iostream>
+const sf::Time Application::timePerFrame = sf::seconds(1.f/90.f);
 
 /************************************************
 CONSTRUCTEUR/DESTRUCTEUR
@@ -29,7 +29,7 @@ Application::Application()
     , m_statisticsNumFrames(0)
 {
     m_window.setKeyRepeatEnabled(false);
-    m_window.setVerticalSyncEnabled(true);
+    m_window.setVerticalSyncEnabled(false); //limite le nombre de fps à l'affichage écran si vrai (60fps pour pc)
 
 // Chargement des textures de bases
     m_fonts.load(Fonts::Main, "media/Sansation.ttf");   //chargement de la fonte sous l'identifiant "Main"
@@ -70,7 +70,7 @@ void Application::run()
     {
         sf::Time dt = clock.restart();  //on remet à 0 le pas de temps
         timeSinceLastUpdate += dt;
-        //??
+
         while (timeSinceLastUpdate > timePerFrame )
         {
             timeSinceLastUpdate -= timePerFrame ;

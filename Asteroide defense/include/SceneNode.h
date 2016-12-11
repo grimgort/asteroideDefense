@@ -43,14 +43,14 @@ public:
     virtual unsigned int getCategory() const;
 
     void checkScenePosition(SceneNode& sceneGraph, const std::vector<sf::FloatRect>& virtualRectCollision);
-    void checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision);
+    virtual void checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision);
     void checkSceneCollision(SceneNode& sceneGraph, std::set<Pair>& collisionPairs);
     void checkNodeCollision(SceneNode& node, std::set<Pair>& collisionPairs);
     void removeWrecks();
     virtual sf::FloatRect getBoundingRect() const;
     virtual bool isMarkedForRemoval() const;
     virtual bool isDestroyed() const;
-    int getPositionCollision() const;
+    virtual int getPositionCollision() const;
 
 private:
     virtual void updateCurrent(sf::Time dt, CommandQueue& commands);
@@ -67,7 +67,9 @@ private:
     std::vector<Ptr> m_children; //tableau contenant les pointeurs des noeuds des enfants.
     SceneNode* m_parent; // récupére l'adresse du noeud du père.
     Category::Type m_nodeCategory;
-    int m_positionCollision;
+
+//protected:
+//    int m_positionCollision;
 };
 
 bool collision(const SceneNode& lhs, const SceneNode& rhs);

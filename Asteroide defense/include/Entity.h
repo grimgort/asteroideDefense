@@ -25,6 +25,8 @@ public:
     virtual void remove();
     virtual bool isDestroyed() const;
 
+    virtual void checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision); //Calcul la position dans la grille de collision
+    virtual int getPositionCollision() const ;
 
 protected:
     virtual void updateCurrent(sf::Time dt, CommandQueue& commands); //déplace le noeud de la vitesse donné.
@@ -32,7 +34,7 @@ protected:
 private:
     sf::Vector2f m_velocity; //vecteur de vitesse
     int m_hitPoints; //point de vie de l'entité
-    SceneNode* m_parentCollision;
+    int m_positionCollision; //donne le numéro de rectangle de la grille de collision
 };
 
 #endif // ENTITY_H

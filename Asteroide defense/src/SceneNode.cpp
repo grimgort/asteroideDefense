@@ -16,7 +16,7 @@ SceneNode::SceneNode(Category::Type category)
     : m_children() //constructeur sans enfant par défault
     , m_parent(nullptr) //constructeur sans parent par défault
     , m_nodeCategory(category)
-    , m_positionCollision(-9999)
+//    , m_positionCollision(-9999)
 {
 }
 
@@ -164,41 +164,49 @@ unsigned int SceneNode::getCategory() const
 
 void SceneNode::checkScenePosition(SceneNode& sceneGraph, const std::vector<sf::FloatRect>& virtualRectCollision)
 {
-    checkNodePosition(sceneGraph, virtualRectCollision);
+    sceneGraph.checkNodePosition(sceneGraph, virtualRectCollision);
+//    if (sceneGraph.getWorldPosition().y != 0.0)
+//    {
+//            std::cout << sceneGraph.getWorldPosition().x << std::endl;
+//
+//    }
 
     FOREACH(Ptr& child, sceneGraph.m_children)
     checkScenePosition(*child, virtualRectCollision);
 }
-//extern int toto(0);
+
 void SceneNode::checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision)
 {
-    unsigned int op(0);
-    if (node.getCategory() == Category::EnemyProjectile
-        || node.getCategory() == Category::PlayerAircraft
-        || node.getCategory() == Category::Pickup
-        || node.getCategory() == Category::AlliedProjectile
-        || node.getCategory() == Category::EnemyAircraft)
-    {
-        for (auto it = virtualRectCollision.cbegin(); it != virtualRectCollision.cend(); ++it)
-        {
-            op += 1;
-            if (node.getBoundingRect().intersects(*it))
-            {
-                node.m_positionCollision = op;
-                break;
-            }
-        }
-    }
-
-//  toto = toto +1 ;
-//  std::cout << "toto = " << toto << std::endl ;
-//    FOREACH(Ptr& child, node.m_children)
-//    checkNodePosition(*child, virtualRectCollision);
+//    unsigned int op(0);
+//    if (node.getCategory() == Category::EnemyProjectile
+//        || node.getCategory() == Category::PlayerAircraft
+//        || node.getCategory() == Category::Pickup
+//        || node.getCategory() == Category::AlliedProjectile
+//        || node.getCategory() == Category::EnemyAircraft)
+//    {
+//        for (auto it = virtualRectCollision.cbegin(); it != virtualRectCollision.cend(); ++it)
+//        {
+//            op += 1;
+////            if (node.getBoundingRect().intersects(*it))
+////            {
+////                node.m_positionCollision = op;
+////                break;
+////            }
+//            // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
+//            if (it->contains(node.getWorldPosition().x,node.getWorldPosition().y))
+//            {
+////                std::cout << "node.getWorldPosition().x = " << node.getWorldPosition().x << std::endl ;
+////                std::cout << "node.getWorldPosition().y = " << node.getWorldPosition().y << std::endl ;
+//                node.m_positionCollision = op;
+//                break;
+//            }
+//        }
+//    }
 }
 
 int SceneNode::getPositionCollision() const
 {
-    return m_positionCollision;
+    return -9999;
 }
 
 void SceneNode::checkSceneCollision(SceneNode& sceneGraph, std::set<Pair>& collisionPairs)
@@ -211,9 +219,10 @@ void SceneNode::checkSceneCollision(SceneNode& sceneGraph, std::set<Pair>& colli
 
 void SceneNode::checkNodeCollision(SceneNode& node, std::set<Pair>& collisionPairs)
 {
-//    std:: cout << "m_positionCollision = " << m_positionCollision << std::endl;
-    if (m_positionCollision != -9999
-         && m_positionCollision == node.getPositionCollision() )
+//    std::cout << "getPositionCollision = " << getPositionCollision() << std::endl;
+//        std::cout << "node.getPositionCollision = " << node.getPositionCollision() << std::endl;
+    if (getPositionCollision() != -9999
+         && getPositionCollision() == node.getPositionCollision() )
     {
         if ((matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyAircraft))
                 || matchesCategories(*this, node, Category::PlayerAircraft, Category::Pickup)

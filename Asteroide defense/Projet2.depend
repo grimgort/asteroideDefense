@@ -2680,7 +2680,7 @@
 	<SFML/Graphics/RenderStates.hpp>
 	<cmath>
 
-1474356378 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\main.cpp
+1481050555 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\main.cpp
 	<Application.h>
 	<stdexcept>
 	<iostream>
@@ -2750,7 +2750,7 @@
 	<SFML/Audio/Sound.hpp>
 	<list>
 
-1474698910 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\aircraft.cpp
+1480435857 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\aircraft.cpp
 	<Aircraft.h>
 	<DataTables.h>
 	<Utility.h>
@@ -2772,10 +2772,10 @@
 	<Animation.h>
 	<SFML/Graphics/Sprite.hpp>
 
-1474554432 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\entity.h
+1481456406 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\entity.h
 	<SceneNode.h>
 
-1474547684 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\scenenode.h
+1481465280 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\scenenode.h
 	<Category.h>
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/Time.hpp>
@@ -2855,7 +2855,7 @@
 	<SFML/Graphics/RenderTarget.hpp>
 	<SFML/Graphics/Texture.hpp>
 
-1474289934 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\application.cpp
+1481301334 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\application.cpp
 	<Application.h>
 	<Utility.h>
 	<State.h>
@@ -2867,6 +2867,7 @@
 	<PauseState.h>
 	<SettingsState.h>
 	<GameOverState.h>
+	<iostream>
 
 1474356378 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\titlestate.h
 	<State.h>
@@ -2880,7 +2881,7 @@
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Text.hpp>
 
-1474553660 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\world.h
+1481050044 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\world.h
 	<ResourceHolder.hpp>
 	<ResourceIdentifiers.h>
 	<SceneNode.h>
@@ -3060,7 +3061,7 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<deque>
 
-1474554922 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\entity.cpp
+1481462871 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\entity.cpp
 	<Entity.h>
 	<cassert>
 
@@ -3202,7 +3203,7 @@
 	<cmath>
 	<cassert>
 
-1474553452 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\scenenode.cpp
+1481463582 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\scenenode.cpp
 	<SceneNode.h>
 	<Command.h>
 	<Foreach.hpp>
@@ -3213,6 +3214,7 @@
 	<algorithm>
 	<cassert>
 	<cmath>
+	<iostream>
 
 1474356376 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\settingsstate.cpp
 	<SettingsState.h>
@@ -3263,7 +3265,7 @@
 	<ctime>
 	<cassert>
 
-1474554522 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\world.cpp
+1481463033 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\world.cpp
 	"World.h"
 	<Projectile.h>
 	<Pickup.h>
@@ -3277,4 +3279,5 @@
 	<algorithm>
 	<cmath>
 	<limits>
+	<iostream>
 

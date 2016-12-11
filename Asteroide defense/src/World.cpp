@@ -286,8 +286,8 @@ bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Categor
 
 void World::grilleDeCollision()
 {
-    sf::Int32 nbCutY = 10; //Nombre de découpe en Y du monde
-    sf::Int32 nbCutX = 10; //Nombre de découpe en X du monde
+    sf::Int32 nbCutY = 30; //Nombre de découpe en Y du monde
+    sf::Int32 nbCutX = 5; //Nombre de découpe en X du monde
     std::vector<float> leftRect; //conteneur des position gauche des rectangle découpé du world
     std::vector<float> topRect; //conteneur des position top des rectangle découpé du world
     float initialWidth = ceil(m_worldBounds.width / nbCutX); //Width des rectangles initial
@@ -457,7 +457,7 @@ void World::addEnemies()
     {
         addEnemy(Aircraft::Avenger, i*70, 2000.f);
     }
-
+//
     for (float i = -10.f; i < 10.f; i++)
     {
         addEnemy(Aircraft::Avenger, i*70, 3000.f);
@@ -468,7 +468,7 @@ void World::addEnemies()
 //    addEnemy(Aircraft::Raptor,    0.f, 1000.f);
 //    addEnemy(Aircraft::Raptor, +100.f, 1150.f);
 //    addEnemy(Aircraft::Raptor, -100.f, 1150.f);
-    addEnemy(Aircraft::Avenger,  70.f, 1500.f);
+//    addEnemy(Aircraft::Avenger,  70.f, 1500.f);
 //    addEnemy(Aircraft::Avenger, -70.f, 1500.f);
 //    addEnemy(Aircraft::Avenger, -70.f, 1710.f);
 //    addEnemy(Aircraft::Avenger,  70.f, 1700.f);
