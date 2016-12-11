@@ -83,18 +83,22 @@ void Entity::updateCurrent(sf::Time dt, CommandQueue&)
 }
 
 // Calcul le numéro de la grille de collision
-void Entity::checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision)
+void Entity::checkNodePosition(SceneNode& node,
+                               const std::vector<sf::FloatRect>& virtualRectCollision,
+                               std::multimap<int, SceneNode*>& collisionListeToTest)
 {
 /*
         Recalcule la position dans la grille de
         colllision si l'objet a bougé ou n'est pas
         initialisé
 */
+//    if (m_positionCollision == -9999)
+//    {
         if (m_positionCollision == -9999
-            || (m_velocity.x != 0.0 || m_velocity.y != 0.0))
+            || m_velocity.x != 0.0
+            || m_velocity.y != 0.0)
         {
-            unsigned int op(0);
-
+            int op(0);
 /*
             Vérifie si l'objet est dans la grille du
             dessous ou dessus.
@@ -113,12 +117,13 @@ void Entity::checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>
 //                std::cout << "node.getWorldPosition().x = " << node.getWorldPosition().x << std::endl ;
 //                std::cout << "node.getWorldPosition().y = " << node.getWorldPosition().y << std::endl ;
                     m_positionCollision = op;
+                    collisionListeToTest.insert(std::pair<int,SceneNode*>(op,this));
                     return;
                 }
             }
-/*
-            Sinon on regarde les autres cases
-*/
+            /*
+                        Sinon on regarde les autres cases
+            */
             op=0;
             for (auto it = virtualRectCollision.cbegin(); it != virtualRectCollision.cend(); ++it)
             {
@@ -127,12 +132,19 @@ void Entity::checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>
                 if (it->contains(getWorldPosition().x,getWorldPosition().y))
                 {
 //                std::cout << "node.getWorldPosition().x = " << node.getWorldPosition().x << std::endl ;
-//                std::cout << "node.getWorldPosition().y = " << node.getWorldPosition().y << std::endl ;
+                    //                std::cout << "node.getWorldPosition().y = " << node.getWorldPosition().y << std::endl ;
                     m_positionCollision = op;
+                    collisionListeToTest.insert(std::pair<int,SceneNode*>(op,this));
                     return;
                 }
             }
         }
+        else
+        {
+            collisionListeToTest.insert(std::pair<int,SceneNode*>(m_positionCollision,this));
+        }
+//    }
+
 
 
 }

@@ -322,14 +322,17 @@ void World::grilleDeCollision()
 void World::handleCollisions()
 {
     std::set<SceneNode::Pair> collisionPairs;
+    std::multimap<int, SceneNode*> collisionListeToTest;
 
 
-    m_sceneGraph.checkScenePosition(m_sceneGraph, m_grilleDeCollision);
-    m_sceneGraph.checkSceneCollision(m_sceneGraph, collisionPairs);
+    m_sceneGraph.checkScenePosition(m_sceneGraph, m_grilleDeCollision, collisionListeToTest);
+    m_sceneGraph.checkSceneCollision(collisionListeToTest, collisionPairs);
 
     FOREACH(SceneNode::Pair pair, collisionPairs)
     {
-        if (matchesCategories(pair, Category::PlayerAircraft, Category::EnemyAircraft))
+        if (matchesCategories(pair
+                              ,Category::PlayerAircraft
+                              ,Category::EnemyAircraft))
         {
             auto& player = static_cast<Aircraft&>(*pair.first);
             auto& enemy = static_cast<Aircraft&>(*pair.second);

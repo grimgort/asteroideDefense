@@ -162,9 +162,11 @@ unsigned int SceneNode::getCategory() const
     return m_nodeCategory;
 }
 
-void SceneNode::checkScenePosition(SceneNode& sceneGraph, const std::vector<sf::FloatRect>& virtualRectCollision)
+void SceneNode::checkScenePosition(SceneNode& sceneGraph,
+                                   const std::vector<sf::FloatRect>& virtualRectCollision,
+                                   std::multimap<int,SceneNode*>& collisionListeToTest)
 {
-    sceneGraph.checkNodePosition(sceneGraph, virtualRectCollision);
+    sceneGraph.checkNodePosition(sceneGraph, virtualRectCollision, collisionListeToTest);
 //    if (sceneGraph.getWorldPosition().y != 0.0)
 //    {
 //            std::cout << sceneGraph.getWorldPosition().x << std::endl;
@@ -172,10 +174,12 @@ void SceneNode::checkScenePosition(SceneNode& sceneGraph, const std::vector<sf::
 //    }
 
     FOREACH(Ptr& child, sceneGraph.m_children)
-    checkScenePosition(*child, virtualRectCollision);
+    checkScenePosition(*child, virtualRectCollision, collisionListeToTest);
 }
 
-void SceneNode::checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision)
+void SceneNode::checkNodePosition(SceneNode& node,
+                                  const std::vector<sf::FloatRect>& virtualRectCollision,
+                                  std::multimap<int, SceneNode*>& collisionListeToTest)
 {
 //    unsigned int op(0);
 //    if (node.getCategory() == Category::EnemyProjectile
@@ -209,33 +213,65 @@ int SceneNode::getPositionCollision() const
     return -9999;
 }
 
-void SceneNode::checkSceneCollision(SceneNode& sceneGraph, std::set<Pair>& collisionPairs)
+void SceneNode::checkSceneCollision(std::multimap<int, SceneNode*>& collisionListeToTest, std::set<Pair>& collisionPairs)
 {
-    checkNodeCollision(sceneGraph, collisionPairs);
+// Test sur le nombre de découpe de la grille de collision (nombre de op)
+    for (int i=1; i<=1000; ++i)
+    {
+        std::pair <std::multimap<int, SceneNode*>::iterator, std::multimap<int, SceneNode*>::iterator> ret;
+        ret = collisionListeToTest.equal_range(i);
+        for (std::multimap<int, SceneNode*>::iterator it=ret.first; it!=ret.second; ++it)
+        {
+            for (std::multimap<int, SceneNode*>::iterator it2=it; it2!=ret.second; ++it2)
+            {
+//                std::cout << "it  " << it->second << "  " <<  it->first << std::endl;
+//                std::cout << "it2  " << it2->second << "  " <<  it2->first << std::endl;
+                if ((matchesCategories(*it->second, *it2->second, Category::PlayerAircraft, Category::EnemyAircraft))
+                        || matchesCategories(*it->second, *it2->second, Category::PlayerAircraft, Category::Pickup)
+                        || matchesCategories(*it->second, *it2->second, Category::PlayerAircraft, Category::EnemyProjectile)
+                        || matchesCategories(*it->second, *it2->second, Category::EnemyAircraft, Category::AlliedProjectile)
+                   )
+                {
 
-    FOREACH(Ptr& child, sceneGraph.m_children)
-    checkSceneCollision(*child, collisionPairs);
+                    if (it->second != it2->second
+                            && collision(*it->second, *it2->second)
+                            && !it->second->isDestroyed()
+                            && !it2->second->isDestroyed())
+                    {
+                        std::cout << "it  " << it->second << "  " <<  it->first << std::endl;
+                        std::cout << "it2  " << it2->second << "  " <<  it2->first << std::endl;
+                        collisionPairs.insert(std::minmax(it->second, it2->second));
+                    }
+                }
+            }
+//      std::cout << ' ' << it->second;
+//    std::cout << '\n';
+        }
+//    checkNodeCollision(sceneGraph, collisionPairs);
+//
+//    FOREACH(Ptr& child, sceneGraph.m_children)
+//    checkSceneCollision(*child, collisionPairs);
+    }
 }
-
 void SceneNode::checkNodeCollision(SceneNode& node, std::set<Pair>& collisionPairs)
 {
 //    std::cout << "getPositionCollision = " << getPositionCollision() << std::endl;
 //        std::cout << "node.getPositionCollision = " << node.getPositionCollision() << std::endl;
-    if (getPositionCollision() != -9999
-         && getPositionCollision() == node.getPositionCollision() )
-    {
-        if ((matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyAircraft))
-                || matchesCategories(*this, node, Category::PlayerAircraft, Category::Pickup)
-                || matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyProjectile)
-                || matchesCategories(*this, node, Category::EnemyAircraft, Category::AlliedProjectile)
-           )
-        {
-            if (this != &node && collision(*this, node) && !isDestroyed() && !node.isDestroyed())
-                collisionPairs.insert(std::minmax(this, &node));
-        }
-    }
-    FOREACH(Ptr& child, m_children)
-    child->checkNodeCollision(node, collisionPairs);
+//    if (getPositionCollision() != -9999
+//            && getPositionCollision() == node.getPositionCollision() )
+//    {
+//        if ((matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyAircraft))
+//                || matchesCategories(*this, node, Category::PlayerAircraft, Category::Pickup)
+//                || matchesCategories(*this, node, Category::PlayerAircraft, Category::EnemyProjectile)
+//                || matchesCategories(*this, node, Category::EnemyAircraft, Category::AlliedProjectile)
+//           )
+//        {
+//            if (this != &node && collision(*this, node) && !isDestroyed() && !node.isDestroyed())
+//                collisionPairs.insert(std::minmax(this, &node));
+//        }
+//    }
+//    FOREACH(Ptr& child, m_children)
+//    child->checkNodeCollision(node, collisionPairs);
 }
 
 ///*

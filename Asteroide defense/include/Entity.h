@@ -2,7 +2,7 @@
 #define ENTITY_H
 
 #include <SceneNode.h>
-
+#include <map>
 /*
 Entity permet de définir la vitesse et l'accélération d'un noeud(texture/image) de "SceneNode".
 */
@@ -25,7 +25,9 @@ public:
     virtual void remove();
     virtual bool isDestroyed() const;
 
-    virtual void checkNodePosition(SceneNode& node, const std::vector<sf::FloatRect>& virtualRectCollision); //Calcul la position dans la grille de collision
+    virtual void checkNodePosition(SceneNode& node,
+                                   const std::vector<sf::FloatRect>& virtualRectCollision,
+                                   std::multimap<int, SceneNode*>& collisionListeToTest);
     virtual int getPositionCollision() const ;
 
 protected:
