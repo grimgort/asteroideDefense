@@ -35,6 +35,8 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts, SoundPlayer& sou
         m_networkedWorld(networked)
     , m_networkNode(nullptr)
     , m_finishSprite(nullptr)
+    , m_nbCutX(0)
+    , m_nbCutY(0)
 {
     m_sceneTexture.create(m_target.getSize().x, m_target.getSize().y);
 
@@ -286,29 +288,29 @@ bool matchesCategories(SceneNode::Pair& colliders, Category::Type type1, Categor
 
 void World::grilleDeCollision()
 {
-    sf::Int32 nbCutY = 30; //Nombre de découpe en Y du monde
-    sf::Int32 nbCutX = 5; //Nombre de découpe en X du monde
+    m_nbCutY = 30; //Nombre de découpe en Y du monde
+    m_nbCutX = 5; //Nombre de découpe en X du monde
     std::vector<float> leftRect; //conteneur des position gauche des rectangle découpé du world
     std::vector<float> topRect; //conteneur des position top des rectangle découpé du world
-    float initialWidth = ceil(m_worldBounds.width / nbCutX); //Width des rectangles initial
-    float initialHeight = ceil(m_worldBounds.height / nbCutY); //Height des rectangles initial
+    float initialWidth = ceil(m_worldBounds.width / m_nbCutX); //Width des rectangles initial
+    float initialHeight = ceil(m_worldBounds.height / m_nbCutY); //Height des rectangles initial
 
 
     leftRect.push_back(0.f);
-    for (int i = 0; i < nbCutX; i++)
+    for (int i = 0; i < m_nbCutX; i++)
     {
-        leftRect.push_back(ceil(leftRect[i] +  m_worldBounds.left +  m_worldBounds.width / nbCutX));
+        leftRect.push_back(ceil(leftRect[i] +  m_worldBounds.left +  m_worldBounds.width / m_nbCutX));
     }
 
     topRect.push_back(0.f);
-    for (int y = 0; y < nbCutY; y++)
+    for (int y = 0; y < m_nbCutY; y++)
     {
-        topRect.push_back(ceil(topRect[y] +  m_worldBounds.top + m_worldBounds.height / nbCutY));
+        topRect.push_back(ceil(topRect[y] +  m_worldBounds.top + m_worldBounds.height / m_nbCutY));
     }
 
-    for (int i = 0; i < nbCutX; i++)
+    for (int i = 0; i < m_nbCutX; i++)
     {
-        for (int y = 0; y < nbCutY; y++)
+        for (int y = 0; y < m_nbCutY; y++)
         {
             sf::FloatRect rectTemp(leftRect[i], topRect[y], initialWidth, initialHeight);
             //cout de debug. A réfléchir pour améliorer la gestion des erreurs.
@@ -325,8 +327,14 @@ void World::handleCollisions()
     std::multimap<int, SceneNode*> collisionListeToTest;
 
 
-    m_sceneGraph.checkScenePosition(m_sceneGraph, m_grilleDeCollision, collisionListeToTest);
-    m_sceneGraph.checkSceneCollision(collisionListeToTest, collisionPairs);
+    m_sceneGraph.checkScenePosition(m_sceneGraph
+                                    , m_grilleDeCollision
+                                    , collisionListeToTest
+                                    , m_nbCutX
+                                    , m_nbCutY);
+
+    m_sceneGraph.checkSceneCollision(collisionListeToTest
+                                     , collisionPairs);
 
     FOREACH(SceneNode::Pair pair, collisionPairs)
     {

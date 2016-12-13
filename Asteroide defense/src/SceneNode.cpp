@@ -162,11 +162,17 @@ unsigned int SceneNode::getCategory() const
     return m_nodeCategory;
 }
 
-void SceneNode::checkScenePosition(SceneNode& sceneGraph,
-                                   const std::vector<sf::FloatRect>& virtualRectCollision,
-                                   std::multimap<int,SceneNode*>& collisionListeToTest)
+void SceneNode::checkScenePosition(SceneNode& sceneGraph
+                                   ,const std::vector<sf::FloatRect>& virtualRectCollision
+                                   ,std::multimap<int,SceneNode*>& collisionListeToTest
+                                   ,sf::Int32 nbCutX
+                                   ,sf::Int32 nbCutY)
 {
-    sceneGraph.checkNodePosition(sceneGraph, virtualRectCollision, collisionListeToTest);
+    sceneGraph.checkNodePosition(sceneGraph
+                                 ,virtualRectCollision
+                                 ,collisionListeToTest
+                                 ,nbCutX
+                                 ,nbCutY);
 //    if (sceneGraph.getWorldPosition().y != 0.0)
 //    {
 //            std::cout << sceneGraph.getWorldPosition().x << std::endl;
@@ -174,12 +180,14 @@ void SceneNode::checkScenePosition(SceneNode& sceneGraph,
 //    }
 
     FOREACH(Ptr& child, sceneGraph.m_children)
-    checkScenePosition(*child, virtualRectCollision, collisionListeToTest);
+    checkScenePosition(*child, virtualRectCollision, collisionListeToTest, nbCutX, nbCutY);
 }
 
-void SceneNode::checkNodePosition(SceneNode& node,
-                                  const std::vector<sf::FloatRect>& virtualRectCollision,
-                                  std::multimap<int, SceneNode*>& collisionListeToTest)
+void SceneNode::checkNodePosition(SceneNode& node
+                                  ,const std::vector<sf::FloatRect>& virtualRectCollision
+                                  ,std::multimap<int, SceneNode*>& collisionListeToTest
+                                  ,sf::Int32 nbCutX
+                                  ,sf::Int32 nbCutY)
 {
 //    unsigned int op(0);
 //    if (node.getCategory() == Category::EnemyProjectile

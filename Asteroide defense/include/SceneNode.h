@@ -42,14 +42,21 @@ public:
     void onCommand(const Command& command, sf::Time dt);
     virtual unsigned int getCategory() const;
 
-    void checkScenePosition(SceneNode& sceneGraph,
-                             const std::vector<sf::FloatRect>& virtualRectCollision,
-                             std::multimap<int, SceneNode*>& collisionListeToTest);
-    virtual void checkNodePosition(SceneNode& node,
-                                   const std::vector<sf::FloatRect>& virtualRectCollision,
-                                   std::multimap<int, SceneNode*>& collisionListeToTest);
+    void checkScenePosition(SceneNode& sceneGraph
+                             ,const std::vector<sf::FloatRect>& virtualRectCollision
+                             ,std::multimap<int, SceneNode*>& collisionListeToTest
+                             ,sf::Int32 nbCutX
+                             ,sf::Int32 nbCutY);
+
+    virtual void checkNodePosition(SceneNode& node
+                                   ,const std::vector<sf::FloatRect>& virtualRectCollision
+                                   ,std::multimap<int, SceneNode*>& collisionListeToTest
+                                   ,sf::Int32 nbCutX
+                                   ,sf::Int32 nbCutY);
+
     void checkSceneCollision(std::multimap<int, SceneNode*>& collisionListeToTest
                              ,std::set<Pair>& collisionPairs);
+
     void checkNodeCollision(SceneNode& node, std::set<Pair>& collisionPairs);
     void removeWrecks();
     virtual sf::FloatRect getBoundingRect() const;

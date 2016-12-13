@@ -127,6 +127,9 @@ private:
     SpriteNode* m_finishSprite;
 
     std::vector<sf::FloatRect> m_grilleDeCollision;
+
+    sf::Int32 m_nbCutY;
+    sf::Int32 m_nbCutX;
 //public:
 //    std::map<sf::Int32, SceneNode> m_collisionToCheck;
 };

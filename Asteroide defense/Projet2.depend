@@ -2772,11 +2772,11 @@
 	<Animation.h>
 	<SFML/Graphics/Sprite.hpp>
 
-1481474457 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\entity.h
+1481651204 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\entity.h
 	<SceneNode.h>
 	<map>
 
-1481475272 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\scenenode.h
+1481567594 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\scenenode.h
 	<Category.h>
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/Time.hpp>
@@ -2882,7 +2882,7 @@
 	<SFML/Graphics/Sprite.hpp>
 	<SFML/Graphics/Text.hpp>
 
-1481050044 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\world.h
+1481567027 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\include\world.h
 	<ResourceHolder.hpp>
 	<ResourceIdentifiers.h>
 	<SceneNode.h>
@@ -3062,9 +3062,10 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<deque>
 
-1481478721 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\entity.cpp
+1481650986 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\entity.cpp
 	<Entity.h>
 	<cassert>
+	<iostream>
 
 1474294476 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\gameoverstate.cpp
 	"GameOverState.h"
@@ -3204,7 +3205,7 @@
 	<cmath>
 	<cassert>
 
-1481478937 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\scenenode.cpp
+1481567632 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\scenenode.cpp
 	<SceneNode.h>
 	<Command.h>
 	<Foreach.hpp>
@@ -3266,7 +3267,7 @@
 	<ctime>
 	<cassert>
 
-1481475272 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\world.cpp
+1481567186 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\eclipse_workspace\asteroide-defense\asteroide defense\src\world.cpp
 	"World.h"
 	<Projectile.h>
 	<Pickup.h>

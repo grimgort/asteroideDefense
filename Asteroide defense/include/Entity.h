@@ -27,7 +27,10 @@ public:
 
     virtual void checkNodePosition(SceneNode& node,
                                    const std::vector<sf::FloatRect>& virtualRectCollision,
-                                   std::multimap<int, SceneNode*>& collisionListeToTest);
+                                   std::multimap<int, SceneNode*>& collisionListeToTest
+                                   ,sf::Int32 nbCutX
+                                   ,sf::Int32 nbCutY);
+
     virtual int getPositionCollision() const ;
 
 protected:
