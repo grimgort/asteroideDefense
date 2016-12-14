@@ -1,0 +1,9 @@
+
+syntax: regexp
+^Asteroide defense/bin$
+syntax: regexp
+^Asteroide defense/doxygen$
+syntax: regexp
+^Asteroide defense/obj$
+syntax: regexp
+^Asteroide defense/cb\.bmp$

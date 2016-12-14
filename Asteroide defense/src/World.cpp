@@ -68,13 +68,13 @@ void World::update(sf::Time dt)
         sf::Vector2f velocity = a->getVelocity();
         sf::FloatRect position = a->getBoundingRect();
         //Déplacement en x
-        if (position.left + position.width + m_worldView.getSize().x / 2 >= m_worldBounds.width){}
-        else if (position.left - m_worldView.getSize().x / 2 - position.width / 2 <= 0.f){}
+        if (position.left + position.width + m_worldView.getSize().x / 2 >= m_worldBounds.width) {}
+        else if (position.left - m_worldView.getSize().x / 2 - position.width / 2 <= 0.f) {}
         else
             m_worldView.move(velocity.x * dt.asSeconds() * m_scrollSpeedCompensation, 0.f);
         //Déplacement en y
-        if (position.top - m_worldView.getSize().y / 2 <= m_worldBounds.top){}
-        else if (position.top + m_worldView.getSize().y / 2 + position.height >= m_worldBounds.height){}
+        if (position.top - m_worldView.getSize().y / 2 <= m_worldBounds.top) {}
+        else if (position.top + m_worldView.getSize().y / 2 + position.height >= m_worldBounds.height) {}
         else
             m_worldView.move(0.f, velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
     }
