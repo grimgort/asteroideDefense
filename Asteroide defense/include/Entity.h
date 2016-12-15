@@ -3,43 +3,166 @@
 
 #include <SceneNode.h>
 #include <map>
-/*
-Entity permet de d�finir la vitesse et l'acc�l�ration d'un noeud(texture/image) de "SceneNode".
-*/
+/////////////////////////////////////////////////
+/// \file Entity.h
+/// \brief Créer une entité
+/// \author Fred
+/// \version 0.0
+///
+/// Les entités hérite des sceneNode. Se sont des objets du jeux qui ont des PV/Collision/Vitesse
+/////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+/// \class Entity
+/// \brief Classe representant l'entité
+///
+///  La classe gère les entités
+/////////////////////////////////////////////////
 class Entity : public SceneNode
 {
 public:
-    explicit Entity(int hitpoints);
-
-    void setVelocity(sf::Vector2f velocity); //donne la vitesse avec un vecteur
-    void setVelocity(float vx, float vy); //donne la vitesse avec deux nombres
-    void accelerate(sf::Vector2f velocity); //donne l'acc�l�ration avec un vecteur
-    void accelerate(float vx, float vy); //donne l'acc�l�ration avec deux nombres
-    sf::Vector2f getVelocity() const; //r�cup�re la valeur de la vitesse
-
+    /////////////////////////////////////////////////
+    /// \brief Constructeur
+    ///
+    /// \param hitpoints : Nombre de point de vie de l'entité
+    /////////////////////////////////////////////////
+    explicit Entity (int hitpoints);
+    /////////////////////////////////////////////////
+    /// \brief Donne une vitesse à l'entité(vecteur)
+    ///
+    /// \param velocity : vecteur 2D définissant la vitesse
+    ///
+    /// Permet de donner une vitesse à une entité à partir d'un vecteur
+    /////////////////////////////////////////////////
+    void setVelocity (sf::Vector2f velocity);
+    /////////////////////////////////////////////////
+    /// \brief Donne une vitesse à l'entité(composante)
+    ///
+    /// \param vx : vitesse en x (horizontale)
+    /// \param vy : vitesse en y (vertical)
+    ///
+    /// Permet de donner une vitesse à une entité à partir des composante en x et y.
+    ///
+    /////////////////////////////////////////////////
+    void setVelocity (float vx
+                      , float vy);
+    /////////////////////////////////////////////////
+    /// \brief Donne une accélération à l'entité(vecteur)
+    ///
+    /// \param velocity : vecteur 2D définissant l'accélération.
+    ///
+    /// Permet de donner une accélération à une entité à partir d'un vecteur
+    /////////////////////////////////////////////////
+    void accelerate (sf::Vector2f velocity);
+    /////////////////////////////////////////////////
+    /// \brief Donne une accélération à l'entité(composante)
+    ///
+    /// \param velocity : vecteur 2D définissant l'accélération.
+    ///
+    /// Permet de donner une accélération à une entité à partir des composante en x et y.
+    /////////////////////////////////////////////////
+    void accelerate (float vx
+                     , float vy);
+    /////////////////////////////////////////////////
+    /// \brief Retourne la vitesse de l'entité
+    ///
+    /// \return le vecteur de la vitesse
+    ///
+    /////////////////////////////////////////////////
+    sf::Vector2f getVelocity() const;
+    /////////////////////////////////////////////////
+    /// \brief Retourne les points de vie de l'entité
+    ///
+    /// \return les points de vie
+    ///
+    /////////////////////////////////////////////////
     int getHitpoints() const;
-    void setHitpoints(int points);
-    void repair(int points);
-    void damage(int points);
+    /////////////////////////////////////////////////
+    /// \brief Définit les points de vie de l'entité
+    ///
+    /// \param points : point de vie
+    ///
+    /////////////////////////////////////////////////
+    void setHitpoints (int points);
+    /////////////////////////////////////////////////
+    /// \brief Répare l'entité
+    ///
+    /// \param points : point de vie
+    ///
+    /// Permet de réparer une entité en lui rajoutant "points" points de vie
+    /////////////////////////////////////////////////
+    void repair (int points);
+    /////////////////////////////////////////////////
+    /// \brief Endomage l'entité
+    ///
+    /// \param points : point de vie
+    ///
+    /// Permet d'infliger X point de degat à l'entité en enlevant "points" points de vie
+    /////////////////////////////////////////////////
+    void damage (int points);
+    /////////////////////////////////////////////////
+    /// \brief Détruit l'entité
+    ///
+    /// Met les points de vie de l'entité à 0.
+    /////////////////////////////////////////////////
     void destroy();
+    /////////////////////////////////////////////////
+    /// \brief Détruit l'entité
+    ///
+    /// Appel la fonction destroy qui met les point de vie de l'entité à 0.
+    /// C'est une fonction virtuelle contrairement à destroy!
+    /////////////////////////////////////////////////
     virtual void remove();
+    /////////////////////////////////////////////////
+    /// \brief Demande si l'entité est détruite
+    ///
+    /// \return True si les point de vie de l'entité sont inférieur ou égal à 0 sinon false
+    ///
+    /////////////////////////////////////////////////
     virtual bool isDestroyed() const;
-
-    virtual void checkNodePosition(SceneNode& node,
-                                   const std::vector<sf::FloatRect>& virtualRectCollision,
-                                   std::multimap<int, SceneNode*>& collisionListeToTest
-                                   ,sf::Int32 nbCutX
-                                   ,sf::Int32 nbCutY);
-
+    /////////////////////////////////////////////////
+    /// \brief Placement dans la grille de collision de l'entité
+    ///
+    /// \param node : noeud dun sceneNode
+    /// \param virtualRectCollision : tableau de la grille de collision
+    /// \param collisionListeToTest : multimap contenant l'ensemble des entités avec leur position
+    /// \param nbCutX : nombre de grille en X (horizontale)
+    /// \param nbCutY : nombre de grille en Y (verticale)
+    ///
+    /// Remplit le multimap "collisionListeToTest" afin de
+    /// tester les collisions entre les entités de la même case
+    ///
+    /////////////////////////////////////////////////
+    virtual void checkNodePosition (SceneNode& node
+                                    , const std::vector<sf::FloatRect>& virtualRectCollision
+                                    , std::multimap<int, SceneNode*>& collisionListeToTest
+                                    , sf::Int32 nbCutX
+                                    , sf::Int32 nbCutY);
+    /////////////////////////////////////////////////
+    /// \brief Retourne l'emplacement dans la grille de collision
+    ///
+    /// \return numéro de grille ou -9999 si ce n'est pas une entité
+    ///
+    /////////////////////////////////////////////////
     virtual int getPositionCollision() const ;
 
 protected:
-    virtual void updateCurrent(sf::Time dt, CommandQueue& commands); //d�place le noeud de la vitesse donn�.
+    /////////////////////////////////////////////////
+    /// \brief Met à jour la nouvelle position de l'entité
+    ///
+    /// \param dt : Pas de temps de la frame
+    /// \param commands : la queue des commandes
+    ///
+    /// Multiplie la vitesse par le pas de temps et déplace
+    /// l'entité du résultat de l'équation
+    /////////////////////////////////////////////////
+    virtual void updateCurrent (sf::Time dt
+                                , CommandQueue& commands);
 
 private:
-    sf::Vector2f m_velocity; //vecteur de vitesse
-    int m_hitPoints; //point de vie de l'entit�
-    int m_positionCollision; //donne le num�ro de rectangle de la grille de collision
+    sf::Vector2f m_velocity; ///<  Vecteur 2D de la vitesse de l'entité.
+    int m_hitPoints; ///< Point de vie de l'entité.
+    int m_positionCollision; ///< Numéro de rectangle de la grille de collision.
 };
 
 #endif // ENTITY_H

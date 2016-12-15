@@ -155,12 +155,12 @@
 			<envvars />
 			<debugger />
 			<DoxyBlocks>
-				<comment_style block="2" line="2" />
-				<doxyfile_project />
+				<comment_style block="5" line="2" />
+				<doxyfile_project output_language="French" />
 				<doxyfile_build />
 				<doxyfile_warnings />
 				<doxyfile_output />
-				<doxyfile_dot />
+				<doxyfile_dot class_diagrams="1" />
 				<general />
 			</DoxyBlocks>
 		</Extensions>
