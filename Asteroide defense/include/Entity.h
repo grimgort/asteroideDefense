@@ -133,9 +133,10 @@ public:
     /// tester les collisions entre les entités de la même case
     ///
     /////////////////////////////////////////////////
-    virtual void checkNodePosition (SceneNode& node
-                                    , const std::vector<sf::FloatRect>& virtualRectCollision
-                                    , std::multimap<int, SceneNode*>& collisionListeToTest
+    virtual void checkNodePosition (const std::vector<sf::FloatRect>
+                                    &virtualRectCollision
+                                    , std::multimap<int, SceneNode*>
+                                    &collisionListeToTest
                                     , sf::Int32 nbCutX
                                     , sf::Int32 nbCutY);
     /////////////////////////////////////////////////
@@ -157,10 +158,11 @@ protected:
     /// l'entité du résultat de l'équation
     /////////////////////////////////////////////////
     virtual void updateCurrent (sf::Time dt
-                                , CommandQueue& commands);
+                                , CommandQueue &commands);
 
 private:
-    sf::Vector2f m_velocity; ///<  Vecteur 2D de la vitesse de l'entité.
+    sf::Vector2f
+    m_velocity; ///<  Vecteur 2D de la vitesse de l'entité.
     int m_hitPoints; ///< Point de vie de l'entité.
     int m_positionCollision; ///< Numéro de rectangle de la grille de collision.
 };

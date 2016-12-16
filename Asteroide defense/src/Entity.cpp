@@ -4,9 +4,9 @@
 #include <iostream>
 
 Entity::Entity (int hitpoints)
-    : m_velocity(),
-      m_hitPoints (hitpoints),
-      m_positionCollision (-9999)
+    : m_velocity()
+    , m_hitPoints (hitpoints)
+    , m_positionCollision (-9999)
 {
 }
 
@@ -52,14 +52,12 @@ void Entity::setHitpoints (int points)
 void Entity::repair (int points)
 {
     assert (points > 0);
-
     m_hitPoints += points;
 }
 
 void Entity::damage (int points)
 {
     assert (points > 0);
-
     m_hitPoints -= points;
 }
 
@@ -81,13 +79,16 @@ bool Entity::isDestroyed() const
 void Entity::updateCurrent (sf::Time dt
                             , CommandQueue&)
 {
-    move (m_velocity * dt.asSeconds()); //move inherit of transformable class. is the shortcut for getPosition()+offset()
+    move (m_velocity *
+          dt.asSeconds()); //move inherit of transformable class. is the shortcut for getPosition()+offset()
 }
 
 // Calcul le numéro de la grille de collision
-void Entity::checkNodePosition (SceneNode& node
-                                , const std::vector<sf::FloatRect>& virtualRectCollision
-                                , std::multimap<int, SceneNode*>& collisionListeToTest
+void Entity::checkNodePosition (const
+                                std::vector<sf::FloatRect>
+                                &virtualRectCollision
+                                , std::multimap<int, SceneNode*>
+                                &collisionListeToTest
                                 , sf::Int32 nbCutX
                                 , sf::Int32 nbCutY)
 {
@@ -118,7 +119,6 @@ void Entity::checkNodePosition (SceneNode& node
     }
     else
     {
-
         /*
         Vérifie si l'objet est dans la grille du
         dessous ou dessus.
@@ -127,7 +127,6 @@ void Entity::checkNodePosition (SceneNode& node
         nécessite de conaitre le nombre de
         case en X et Y.
         */
-
         for (int i = m_positionCollision - 1
                      ; i <= m_positionCollision + 1 ; ++i)
         {
@@ -136,7 +135,8 @@ void Entity::checkNodePosition (SceneNode& node
                         this->getBoundingRect()))
             {
                 m_positionCollision = i;
-                collisionListeToTest.insert (std::pair<int, SceneNode*> (i, this));
+                collisionListeToTest.insert (
+                    std::pair<int, SceneNode*> (i, this));
             }
         }
 
@@ -178,10 +178,6 @@ void Entity::checkNodePosition (SceneNode& node
 //
 ////        collisionListeToTest.insert(std::pair<int,SceneNode*>(m_positionCollision,this));
 //    }
-
-
-
-
 }
 
 int Entity::getPositionCollision() const
