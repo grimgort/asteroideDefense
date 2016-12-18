@@ -17,13 +17,13 @@ SceneNode::SceneNode (Category::Type category)
     , m_parent (
           nullptr) //constructeur sans parent par défault
     , m_nodeCategory (category)
-//    , m_positionCollision(-9999)
+      //    , m_positionCollision(-9999)
 {
 }
 
 /*
-attachChild : Permet de définir les noeuds enfants et parents
-Ptr child = pointeur d'un sceneNode
+    attachChild : Permet de définir les noeuds enfants et parents
+    Ptr child = pointeur d'un sceneNode
 */
 void SceneNode::attachChild (Ptr child)
 {
@@ -33,18 +33,21 @@ void SceneNode::attachChild (Ptr child)
                               child)); //déplace le pointeur du noeud enfant dans le tableau m_children de ce noeud.
 }
 /*
-detacheChild : Permet de détacher un noeud enfant du noeud parent appelant cette fonction
+    detacheChild : Permet de détacher un noeud enfant du noeud parent appelant cette fonction
 */
 SceneNode::Ptr SceneNode::detacheChild (
     const SceneNode& node)
 {
     /*
-    find_if : cherche dans le tableau m_children, [&] signifient que l'on récupére la référence des variables
-                ,(Ptr& p) définit la variable p comme la référence d'un Ptr(pointeur); cette variable est l'itérateur de la recherche
-                ,{ return p.get() == &node; } renvoie vrai(booléen) si le p obtenue correspond à la référence du pointeur node
+        find_if : cherche dans le tableau m_children
+        , [&] signifient que l'on récupére la référence des variables
+        ,(Ptr& p) définit la variable p comme la référence d'un
+        Ptr(pointeur); cette variable est l'itérateur de la recherche
+        ,{ return p.get() == &node; } renvoie vrai(booléen)
+        si le p obtenue correspond à la référence du pointeur node
     */
     auto found = std::find_if (m_children.begin(),
-                               m_children.end(), [&] (Ptr &p)
+                               m_children.end(), [&] (Ptr & p)
     {
         return p.get() == &node;
     });
@@ -60,8 +63,8 @@ SceneNode::Ptr SceneNode::detacheChild (
 }
 
 /*
-Utilise les fonctions updateCurrent du parent et des noeud enfant.
-Cette fonction est surchargé dans la class fille Entity.
+    Utilise les fonctions updateCurrent du parent et des noeud enfant.
+    Cette fonction est surchargé dans la class fille Entity.
 */
 void SceneNode::update (sf::Time dt,
                         CommandQueue& commands)
@@ -83,57 +86,61 @@ void SceneNode::updateChildren (sf::Time dt,
 }
 
 /*
-permet de tracer le noeud et les noeuds enfants sur la fenêtre(target)
+    permet de tracer le noeud et les noeuds enfants sur la fenêtre(target)
 */
-void SceneNode::draw (sf::RenderTarget& target,
-                      sf::RenderStates states) const
+void SceneNode::draw (sf::RenderTarget& target
+                      , sf::RenderStates states) const
 {
-    states.transform *=
-        getTransform(); //permet d'ajouter les transformation du noeud parent au transformation du noeud enfant via la surcharge de l'opérateur *=
-    drawCurrent (target,
-                 states); //trace ce noeud(neoud parent)
-    drawChildren (target,
-                  states); // trace les noeud enfants.
+    /*
+        permet d'ajouter les transformation du noeud parent au
+        transformation du noeud enfant via la surcharge de l'opérateur *=
+    */
+    states.transform *= getTransform();
+    /* trace ce noeud(neoud parent) */
+    drawCurrent (target, states);
+    /* trace les noeud enfants. */
+    drawChildren (target, states);
 }
 
 /*
-la méthode drawCurrent est surchargé sur l'ensemble des classe fille.
-Par exemple, pour les Aircrafts, la texture est tracé dans cette classe qui hérite de SceneNode.
-C'est donc pour cela que drawCurrent est vide ici.
+    la méthode drawCurrent est surchargé sur l'ensemble des classe fille.
+    Par exemple, pour les Aircrafts, la texture est tracé dans cette
+    classe qui hérite de SceneNode.
+    C'est donc pour cela que drawCurrent est vide ici.
 */
-void SceneNode::drawCurrent (sf::RenderTarget&,
-                             sf::RenderStates) const
+void SceneNode::drawCurrent (sf::RenderTarget&
+                             , sf::RenderStates) const
 {
 }
 
 /*
-trace les neoud enfant avec les transformation/déplacement du neoeud parent
+    trace les neoud enfant avec les transformation/déplacement du neoeud parent
 */
-void SceneNode::drawChildren (sf::RenderTarget&
-                              target, sf::RenderStates states) const
+void SceneNode::drawChildren (sf::RenderTarget &target
+                              , sf::RenderStates states) const
 {
     // itére sur les pointeur des noeud enfant et utilise la fonction draw de ces noeud
     FOREACH (const Ptr & child, m_children)
     child->draw (target, states);
 }
 
-void SceneNode::drawBoundingRect (
-    sf::RenderTarget& target, sf::RenderStates) const
+void SceneNode::drawBoundingRect (sf::RenderTarget &target
+                                  , sf::RenderStates) const
 {
     sf::FloatRect rect = getBoundingRect();
     sf::RectangleShape shape;
-    shape.setPosition (sf::Vector2f (rect.left,
-                                     rect.top));
-    shape.setSize (sf::Vector2f (rect.width,
-                                 rect.height));
+
+    shape.setPosition (sf::Vector2f (rect.left, rect.top));
+    shape.setSize (sf::Vector2f (rect.width, rect.height));
     shape.setFillColor (sf::Color::Transparent);
     shape.setOutlineColor (sf::Color::Green);
     shape.setOutlineThickness (1.f);
+
     target.draw (shape);
 }
 
 /*
-Renvoit le vecteur indiquant la position absolut de l'objet.
+    Renvoit le vecteur indiquant la position absolut de l'objet.
 */
 sf::Vector2f SceneNode::getWorldPosition() const
 {
@@ -141,8 +148,8 @@ sf::Vector2f SceneNode::getWorldPosition() const
 }
 
 /*
-Permet d'avoir la position absolu des noeud fille (par rapport à la fenêtre).
-Pour cela, on ajoute les attribut de transform des noeud filles aux noeud parent.
+    Permet d'avoir la position absolu des noeud fille (par rapport à la fenêtre).
+    Pour cela, on ajoute les attribut de transform des noeud filles aux noeud parent.
 */
 sf::Transform SceneNode::getWorldTransform() const
 {
@@ -160,7 +167,7 @@ sf::Transform SceneNode::getWorldTransform() const
 
 
 /*
-Vérifie que la commande envoyé doit être appliqué au présent noeud(bonne catégorie) et applique l'action si c'est le cas.
+    Vérifie que la commande envoyé doit être appliqué au présent noeud(bonne catégorie) et applique l'action si c'est le cas.
 */
 void SceneNode::onCommand (const Command& command,
                            sf::Time dt)
@@ -170,14 +177,14 @@ void SceneNode::onCommand (const Command& command,
     { command.action (*this, dt); } //applique la commande
 
     //Applique onCommend sur tous les noeuds enfant.
-    FOREACH (Ptr &child, m_children)
+    FOREACH (Ptr & child, m_children)
     child->onCommand (command, dt);
 }
 
 /*
-Renvoit à la catégorie du noeud.
-Par défault, si aucune classe fille ne surcharge cette fonction, le noeud renvoit a la catégore scéne qui correspond
-à l'entier 0.
+    Renvoit à la catégorie du noeud.
+    Par défault, si aucune classe fille ne surcharge cette fonction, le noeud renvoit a la catégore scéne qui correspond
+    à l'entier 0.
 */
 unsigned int SceneNode::getCategory() const
 {
@@ -192,11 +199,11 @@ void SceneNode::checkNodePosition (
     , sf::Int32 nbCutX
     , sf::Int32 nbCutY)
 {
-    FOREACH (Ptr &child, m_children)
+    FOREACH (Ptr & child, m_children)
     child->checkNodePosition (virtualRectCollision
-                        , collisionListeToTest
-                        , nbCutX
-                        , nbCutY);
+                              , collisionListeToTest
+                              , nbCutX
+                              , nbCutY);
 }
 
 int SceneNode::getPositionCollision() const
@@ -206,11 +213,13 @@ int SceneNode::getPositionCollision() const
 
 void SceneNode::checkSceneCollision (
     std::multimap<int, SceneNode*>&
-    collisionListeToTest,
-    std::set<Pair>& collisionPairs)
+    collisionListeToTest
+    , std::set<Pair>& collisionPairs
+    , sf::Int32 nbCutX
+    , sf::Int32 nbCutY)
 {
-// Test sur le nombre de découpe de la grille de collision (nombre de op)
-    for (int i = 1; i <= 1000; ++i)
+    // Test sur le nombre de découpe de la grille de collision (nombre de op)
+    for (int i = 1; i <= nbCutX * nbCutY; ++i)
     {
         std::pair <std::multimap<int, SceneNode*>::iterator
         , std::multimap<int, SceneNode*>::iterator> ret;
@@ -222,8 +231,8 @@ void SceneNode::checkSceneCollision (
             for (std::multimap<int, SceneNode*>::iterator it2
                     = it; it2 != ret.second; ++it2)
             {
-//                std::cout << "it  " << it->second << "  " <<  it->first << std::endl;
-//                std::cout << "it2  " << it2->second << "  " <<  it2->first << std::endl;
+                //                std::cout << "it  " << it->second << "  " <<  it->first << std::endl;
+                //                std::cout << "it2  " << it2->second << "  " <<  it2->first << std::endl;
                 if ( (matchesCategories (*it->second,
                                          *it2->second, Category::PlayerAircraft,
                                          Category::EnemyAircraft))
@@ -242,10 +251,10 @@ void SceneNode::checkSceneCollision (
                             && !it->second->isDestroyed()
                             && !it2->second->isDestroyed())
                     {
-                        std::cout << "it  " << it->second << "  " <<
-                                  it->first << std::endl;
-                        std::cout << "it2  " << it2->second << "  " <<
-                                  it2->first << std::endl;
+                        //                        std::cout << "it  " << it->second << "  " <<
+                        //                                  it->first << std::endl;
+                        //                        std::cout << "it2  " << it2->second << "  " <<
+                        //                                  it2->first << std::endl;
                         collisionPairs.insert (std::minmax (it->second,
                                                             it2->second));
                     }

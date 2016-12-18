@@ -57,21 +57,21 @@ void World::setWorldScrollCompensation (
 }
 
 /*
-Met a jour la position des noeud et trace les texture associé.
+Met a jour la position des noeud et trace les texture associÃ©.
 */
 
 void World::update (sf::Time dt)
 {
 //    toto =0;
-    //Déplace la vue en fonction de la vitesse de l'avion.
+    //DÃ©place la vue en fonction de la vitesse de l'avion.
     //Si on atteint de bord de la map, la vue reste statique et donc seul l'avion bouge.
     FOREACH (Aircraft * a, m_playerAircrafts)
     {
-        //on récupére la vitesse et la position global de l'avion.
+        //on rÃ©cupÃ©re la vitesse et la position global de l'avion.
         sf::Vector2f velocity = a->getVelocity();
         sf::FloatRect position = a->getBoundingRect();
 
-        //Déplacement en x
+        //DÃ©placement en x
         if (position.left + position.width +
                 m_worldView.getSize().x / 2 >=
                 m_worldBounds.width) {}
@@ -81,7 +81,7 @@ void World::update (sf::Time dt)
             else
             { m_worldView.move (velocity.x * dt.asSeconds() * m_scrollSpeedCompensation, 0.f); }
 
-        //Déplacement en y
+        //DÃ©placement en y
         if (position.top - m_worldView.getSize().y / 2 <=
                 m_worldBounds.top) {}
         else
@@ -90,7 +90,7 @@ void World::update (sf::Time dt)
             else
             { m_worldView.move (0.f, velocity.y * dt.asSeconds() * m_scrollSpeedCompensation); }
     }
-    //initialise la vitesse de l'avion du joueur à 0.
+    //initialise la vitesse de l'avion du joueur Ã  0.
     //RQ:: sa vitesse est relative au monde(noeud enfant du noeud monde)
     FOREACH (Aircraft * a, m_playerAircrafts)
     a->setVelocity (0.f, 0.f);
@@ -103,7 +103,7 @@ void World::update (sf::Time dt)
     { m_sceneGraph.onCommand (m_commandQueue.pop(), dt); }
 
     //Permet d'adapter le mouvement en fonction des commandes.
-    //En particulier en cas de mouvement diagonal où l'on fiat la racide de 2
+    //En particulier en cas de mouvement diagonal oÃ¹ l'on fiat la racide de 2
     adaptPlayerVelocity();
     handleCollisions();
     auto firstToRemove = std::remove_if (
@@ -115,7 +115,7 @@ void World::update (sf::Time dt)
     m_sceneGraph.removeWrecks();
     spawnEnemies();
     m_sceneGraph.update (dt,
-                         m_commandQueue); //on trace les sprite associé aux noeuds
+                         m_commandQueue); //on trace les sprite associÃ© aux noeuds
     adaptPlayerPosition();
     updateSounds();
 }
@@ -138,7 +138,7 @@ void World::draw()
 }
 
 /*
-Récupére la liste des commandes en cours
+RÃ©cupÃ©re la liste des commandes en cours
 */
 CommandQueue& World::getCommandQueue()
 {
@@ -225,8 +225,8 @@ bool World::hasPlayerReachedEnd() const
 }
 
 /*
-Charge les textures et les associe à leur enum de texture à l'initialisation du niveau pour délimiter le temps
-se chargement au début du jeux
+Charge les textures et les associe Ã  leur enum de texture Ã  l'initialisation du niveau pour dÃ©limiter le temps
+se chargement au dÃ©but du jeux
 */
 void World::loadTextures()
 {
@@ -243,19 +243,19 @@ void World::loadTextures()
 }
 
 /*
-Permet d'adapter la position du joueur en fonction des bord du niveau (peut pas sortir de l'écran)
+Permet d'adapter la position du joueur en fonction des bord du niveau (peut pas sortir de l'Ã©cran)
 */
 void World::adaptPlayerPosition()
 {
-    //récupére les dimension de la fenêtre principal
+    //rÃ©cupÃ©re les dimension de la fenÃªtre principal
     sf::FloatRect viewBounds = getViewBounds();
     //distance minimum entre les bord et le joueur
     const float borderDistance = 40.f;
     FOREACH (Aircraft * aircraft, m_playerAircrafts)
     {
-        //récupére la position de l'avion
+        //rÃ©cupÃ©re la position de l'avion
         sf::Vector2f position = aircraft->getPosition();
-        //on limite la position de l'avion aux bord de l'écran
+        //on limite la position de l'avion aux bord de l'Ã©cran
         position.x = std::max (position.x,
                                viewBounds.left + borderDistance);
         position.x = std::min (position.x,
@@ -278,14 +278,14 @@ void World::adaptPlayerVelocity()
 {
     FOREACH (Aircraft * aircraft, m_playerAircrafts)
     {
-        //on récupére la vitesse de l'avion
+        //on rÃ©cupÃ©re la vitesse de l'avion
         sf::Vector2f velocity = aircraft->getVelocity();
 
         //si la vitesse on a un mouvement diagonal on ajuste la distance.
         if (velocity.x != 0.f && velocity.y != 0.f)
         { aircraft->setVelocity (velocity / std::sqrt (2.f)); }
 
-        //on ajoute la vitesse de défilement du monde à la vitesse des commande clavier
+        //on ajoute la vitesse de dÃ©filement du monde Ã  la vitesse des commande clavier
         aircraft->accelerate (0.f, m_scrollSpeed);
     }
 }
@@ -322,12 +322,12 @@ bool matchesCategories (SceneNode::Pair&
 
 void World::grilleDeCollision()
 {
-    m_nbCutY = 30; //Nombre de découpe en Y du monde
-    m_nbCutX = 5; //Nombre de découpe en X du monde
+    m_nbCutY = 30; //Nombre de dÃ©coupe en Y du monde
+    m_nbCutX = 5; //Nombre de dÃ©coupe en X du monde
     std::vector<float>
-    leftRect; //conteneur des position gauche des rectangle découpé du world
+    leftRect; //conteneur des position gauche des rectangle dÃ©coupÃ© du world
     std::vector<float>
-    topRect; //conteneur des position top des rectangle découpé du world
+    topRect; //conteneur des position top des rectangle dÃ©coupÃ© du world
     float initialWidth = ceil (m_worldBounds.width /
                                m_nbCutX); //Width des rectangles initial
     float initialHeight = ceil (m_worldBounds.height /
@@ -356,7 +356,7 @@ void World::grilleDeCollision()
         {
             sf::FloatRect rectTemp (leftRect[i], topRect[y],
                                     initialWidth, initialHeight);
-            //cout de debug. A réfléchir pour améliorer la gestion des erreurs.
+            //cout de debug. A rÃ©flÃ©chir pour amÃ©liorer la gestion des erreurs.
 //            std::cout << " i = " << i << " leftRect[i] = " << leftRect[i] << " topRect[y] = " << topRect[y]
 //                      << " initialWidth = " << initialWidth << " initialHeight = " << initialHeight << std::endl ;
             m_grilleDeCollision.push_back (rectTemp);
@@ -378,7 +378,9 @@ void World::handleCollisions()
 
     m_sceneGraph.checkSceneCollision (
         collisionListeToTest
-        , collisionPairs);
+        , collisionPairs
+        , m_nbCutX
+        , m_nbCutY);
 
     FOREACH (SceneNode::Pair pair, collisionPairs)
     {
@@ -446,8 +448,8 @@ void World::updateSounds()
 
 void World::buildScene()
 {
-    // On créer un sceneNode par Layer que l'on stocke dans m_sceneLayers ; que l'on acroche à m_sceneGraph.
-    // Si on met a jour m_sceneGraph, l'ensemble du jeux serat mis à jour.
+    // On crÃ©er un sceneNode par Layer que l'on stocke dans m_sceneLayers ; que l'on acroche Ã  m_sceneGraph.
+    // Si on met a jour m_sceneGraph, l'ensemble du jeux serat mis Ã  jour.
     for (std::size_t i = 0; i < LayerCount; i++)
     {
         Category::Type category = (i == LowerAir) ?
@@ -457,24 +459,24 @@ void World::buildScene()
         m_sceneGraph.attachChild (std::move (layer));
     }
 
-    //Récupére la texture desert
+    //RÃ©cupÃ©re la texture desert
     sf::Texture& jungleTexture = m_textures.get (
                                      Textures::Jungle);
     jungleTexture.setRepeated (true);
     float viewHeight = m_worldView.getSize().y;
-    //Définit un rectangle avec les dimension correspondant au monde ou niveau
+    //DÃ©finit un rectangle avec les dimension correspondant au monde ou niveau
     sf::IntRect textureRect (m_worldBounds);
     textureRect.height += static_cast<int>
                           (viewHeight);
-    //RQ:La classe SpriteNode va tracer la texture dans le rectangle lui étant associé.
-    //Par conséquent, la texture desert va être répéter à l'intérieur du rectangle textureRect et non en dehors.
-    //Définit le noeud correspondant au terrain
+    //RQ:La classe SpriteNode va tracer la texture dans le rectangle lui Ã©tant associÃ©.
+    //Par consÃ©quent, la texture desert va Ãªtre rÃ©pÃ©ter Ã  l'intÃ©rieur du rectangle textureRect et non en dehors.
+    //DÃ©finit le noeud correspondant au terrain
     std::unique_ptr<SpriteNode> jungleSprite (
         new SpriteNode (jungleTexture, textureRect));
-    //place ce noeud en haut à gauche du monde ou niveau
+    //place ce noeud en haut Ã  gauche du monde ou niveau
     jungleSprite->setPosition (m_worldBounds.left,
                                m_worldBounds.top);
-    //Attache ce noeud à la scéne dans la partie bakground.
+    //Attache ce noeud Ã  la scÃ©ne dans la partie bakground.
     m_sceneLayers[background]->attachChild (
         std::move (jungleSprite));
     sf::Texture& finishTexture = m_textures.get (

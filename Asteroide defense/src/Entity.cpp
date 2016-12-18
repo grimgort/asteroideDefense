@@ -130,13 +130,18 @@ void Entity::checkNodePosition (const
         for (int i = m_positionCollision - 1
                      ; i <= m_positionCollision + 1 ; ++i)
         {
-            // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
-            if (virtualRectCollision[i].intersects (
-                        this->getBoundingRect()))
+            /*Supprime les i négatif pour éviter
+            d'avoir vector[-x](négatif) */
+            if (i > 0)
             {
-                m_positionCollision = i;
-                collisionListeToTest.insert (
-                    std::pair<int, SceneNode*> (i, this));
+                // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
+                if (virtualRectCollision[i].intersects (
+                            this->getBoundingRect()))
+                {
+                    m_positionCollision = i;
+                    collisionListeToTest.insert (
+                        std::pair<int, SceneNode*> (i, this));
+                }
             }
         }
 
@@ -144,13 +149,16 @@ void Entity::checkNodePosition (const
                      ; i <= m_positionCollision - nbCutY + 1
                 ; ++i)
         {
-            // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
-            if (virtualRectCollision[i].intersects (
-                        this->getBoundingRect()))
+            if (i > 0)
             {
-                collisionListeToTest.insert (
-                    std::pair<int, SceneNode*> (i, this));
-                m_positionCollision = i;
+                // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
+                if (virtualRectCollision[i].intersects (
+                            this->getBoundingRect()))
+                {
+                    collisionListeToTest.insert (
+                        std::pair<int, SceneNode*> (i, this));
+                    m_positionCollision = i;
+                }
             }
         }
 
@@ -159,12 +167,15 @@ void Entity::checkNodePosition (const
                      ; i <= m_positionCollision + nbCutY + 1
                 ; ++i)
         {
-            if (virtualRectCollision[i].intersects (
-                        this->getBoundingRect()))
+            if (i > 0)
             {
-                collisionListeToTest.insert (
-                    std::pair<int, SceneNode*> (i, this));
-                m_positionCollision = i;
+                if (virtualRectCollision[i].intersects (
+                            this->getBoundingRect()))
+                {
+                    collisionListeToTest.insert (
+                        std::pair<int, SceneNode*> (i, this));
+                    m_positionCollision = i;
+                }
             }
         }
     }

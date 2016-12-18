@@ -123,14 +123,17 @@ public:
     /////////////////////////////////////////////////
     /// \brief Placement dans la grille de collision de l'entité
     ///
-    /// \param node : noeud dun sceneNode
     /// \param virtualRectCollision : tableau de la grille de collision
     /// \param collisionListeToTest : multimap contenant l'ensemble des entités avec leur position
     /// \param nbCutX : nombre de grille en X (horizontale)
     /// \param nbCutY : nombre de grille en Y (verticale)
     ///
     /// Remplit le multimap "collisionListeToTest" afin de
-    /// tester les collisions entre les entités de la même case
+    /// tester les collisions entre les entités de la même case.
+    ///
+    /// Attention : il est possible que l'on test des
+    /// virtualRectCollision[i<0]. Le résultat retourné est
+    /// définit comme incertain. A éventuellement corriger
     ///
     /////////////////////////////////////////////////
     virtual void checkNodePosition (const std::vector<sf::FloatRect>
@@ -161,10 +164,12 @@ protected:
                                 , CommandQueue &commands);
 
 private:
-    sf::Vector2f
-    m_velocity; ///<  Vecteur 2D de la vitesse de l'entité.
-    int m_hitPoints; ///< Point de vie de l'entité.
-    int m_positionCollision; ///< Numéro de rectangle de la grille de collision.
+    ///<  Vecteur 2D de la vitesse de l'entité.
+    sf::Vector2f m_velocity;
+    ///< Point de vie de l'entité.
+    int m_hitPoints;
+    ///< Numéro de rectangle de la grille de collision.
+    int m_positionCollision;
 };
 
 #endif // ENTITY_H
