@@ -7,6 +7,7 @@
 #include <SoundNode.h>
 #include <NetworkNode.h>
 #include <Utility.h>
+#include <Base.h>
 
 #include <SFML/Graphics/RenderTarget.hpp>
 
@@ -240,6 +241,8 @@ void World::loadTextures()
                      "media/Textures/Particle.png");
     m_textures.load (Textures::FinishLine,
                      "media/Textures/FinishLine.png");
+    m_textures.load (Textures::Base,
+                     "media/Textures/base.png");
 }
 
 /*
@@ -459,7 +462,7 @@ void World::buildScene()
         m_sceneGraph.attachChild (std::move (layer));
     }
 
-    //Récupére la texture desert
+    //Récupére la texture jungle
     sf::Texture& jungleTexture = m_textures.get (
                                      Textures::Jungle);
     jungleTexture.setRepeated (true);
@@ -479,25 +482,44 @@ void World::buildScene()
     //Attache ce noeud à la scéne dans la partie bakground.
     m_sceneLayers[background]->attachChild (
         std::move (jungleSprite));
-    sf::Texture& finishTexture = m_textures.get (
-                                     Textures::FinishLine);
-    std::unique_ptr<SpriteNode> finishSprite (
-        new SpriteNode (finishTexture));
-    finishSprite->setPosition (0.f, -76.f);
-    m_finishSprite = finishSprite.get();
-    m_sceneLayers[background]->attachChild (
-        std::move (finishSprite));
+
+
+
+    /* Rajoute les bases */
+//    sf::Texture& baseTexture = m_textures.get (
+//                                   Textures::Base);
+    std::unique_ptr<Base> baseUn (
+        new Base (Base::BaseTypeUn, m_textures, m_fonts));
+    baseUn->setPosition(0.f, 4650.f);
+    m_sceneLayers[UpperAir]->attachChild (std::move (baseUn));
+
+
+
+
+    /* Rajoute la texture de la ligne d'arrivée*/
+    //    sf::Texture& finishTexture = m_textures.get (
+    //                                     Textures::FinishLine);
+    //    std::unique_ptr<SpriteNode> finishSprite (
+    //        new SpriteNode (finishTexture));
+    //    finishSprite->setPosition (0.f, -76.f);
+    //    m_finishSprite = finishSprite.get();
+    //    m_sceneLayers[background]->attachChild (
+    //        std::move (finishSprite));
+
     std::unique_ptr<ParticleNode> smokeNode (
         new ParticleNode (Particle::Smoke, m_textures));
     m_sceneLayers[LowerAir]->attachChild (std::move (
             smokeNode));
+
     std::unique_ptr<ParticleNode> propellantNode (
         new ParticleNode (Particle::Propellant,
                           m_textures));
     m_sceneLayers[LowerAir]->attachChild (std::move (
             propellantNode));
+
     std::unique_ptr<SoundNode> soundNode (
         new SoundNode (m_sounds));
+
     m_sceneGraph.attachChild (std::move (soundNode));
 
     if (m_networkedWorld)
@@ -510,6 +532,9 @@ void World::buildScene()
     }
 
     addEnemies();
+
+
+
 }
 
 void World::addEnemies()
@@ -538,41 +563,6 @@ void World::addEnemies()
         addEnemy (Aircraft::Avenger, i * 70, 3000.f);
     }
 
-    //    addEnemy(Aircraft::Raptor,    0.f,  500.f);
-    //    addEnemy(Aircraft::Raptor,    0.f, 1000.f);
-    //    addEnemy(Aircraft::Raptor, +100.f, 1150.f);
-    //    addEnemy(Aircraft::Raptor, -100.f, 1150.f);
-    //    addEnemy(Aircraft::Avenger,  70.f, 1500.f);
-    //    addEnemy(Aircraft::Avenger, -70.f, 1500.f);
-    //    addEnemy(Aircraft::Avenger, -70.f, 1710.f);
-    //    addEnemy(Aircraft::Avenger,  70.f, 1700.f);
-    //    addEnemy(Aircraft::Avenger,  30.f, 1850.f);
-    //    addEnemy(Aircraft::Raptor,  300.f, 2200.f);
-    //    addEnemy(Aircraft::Raptor, -300.f, 2200.f);
-    //    addEnemy(Aircraft::Raptor,    0.f, 2200.f);
-    //    addEnemy(Aircraft::Raptor,    0.f, 2500.f);
-    //    addEnemy(Aircraft::Avenger,-300.f, 2700.f);
-    //    addEnemy(Aircraft::Avenger,-300.f, 2700.f);
-    //    addEnemy(Aircraft::Raptor,    0.f, 3000.f);
-    //    addEnemy(Aircraft::Raptor,  250.f, 3250.f);
-    //    addEnemy(Aircraft::Raptor, -250.f, 3250.f);
-    //    addEnemy(Aircraft::Avenger,   0.f, 3500.f);
-    //    addEnemy(Aircraft::Avenger,   0.f, 3700.f);
-    //    addEnemy(Aircraft::Raptor,    0.f, 3800.f);
-    //    addEnemy(Aircraft::Avenger,   0.f, 4000.f);
-    //    addEnemy(Aircraft::Avenger,-200.f, 4200.f);
-    //    addEnemy(Aircraft::Raptor,  200.f, 4200.f);
-    //    addEnemy(Aircraft::Raptor,    0.f, 4400.f);
-    //        addEnemy(Aircraft::Avenger,  0.f, 1500.f);
-    //    addEnemy(Aircraft::Avenger, 1.f, 1500.f);
-    //    addEnemy(Aircraft::Avenger, 2.f, 1710.f);
-    //    addEnemy(Aircraft::Avenger,  3.f, 1700.f);
-    //    addEnemy(Aircraft::Avenger,  4.f, 1850.f);
-    //        addEnemy(Aircraft::Avenger,  70.f, 1500.f);
-    //    addEnemy(Aircraft::Avenger, 5.f, 1500.f);
-    //    addEnemy(Aircraft::Avenger, 6.f, 1710.f);
-    //    addEnemy(Aircraft::Avenger,  7.f, 1700.f);
-    //    addEnemy(Aircraft::Avenger,  8.f, 1850.f);
     sortEnemies();
 }
 

@@ -22,6 +22,7 @@ enum ID
     Explosion,
     Particle,
     FinishLine,
+    Base
 };
 }
 

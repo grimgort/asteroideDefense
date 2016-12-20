@@ -61,6 +61,7 @@
 		<Unit filename="include/Aircraft.h" />
 		<Unit filename="include/Animation.h" />
 		<Unit filename="include/Application.h" />
+		<Unit filename="include/Base.h" />
 		<Unit filename="include/BloomEffect.h" />
 		<Unit filename="include/Button.h" />
 		<Unit filename="include/Category.h" />
@@ -113,6 +114,7 @@
 		<Unit filename="src/Aircraft.cpp" />
 		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/Base.cpp" />
 		<Unit filename="src/BloomEffect.cpp" />
 		<Unit filename="src/Button.cpp" />
 		<Unit filename="src/Command.cpp" />

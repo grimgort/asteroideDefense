@@ -30,7 +30,9 @@ m_sprite = récupére le sprite de la texture du TextureHolder définit par "type"(
             "textures.get(toTextureID(type))" récupére le pointeur de la class texture associé à l'ID "type".
             La déclaration "sf::Sprite" de m_sprite associe m_sprite à la sous-classe de Texture nommé Sprite.
 */
-Aircraft::Aircraft(Type type, const TextureHolder& textures, const FontHolder& fonts)
+Aircraft::Aircraft(Type type
+                   , const TextureHolder& textures
+                   , const FontHolder& fonts)
     : Entity(Table[type].hitpoints)
     , m_type(type)
     , m_sprite(textures.get(Table[type].texture), Table[type].textureRect)
@@ -109,7 +111,8 @@ Permet de dessiner les textures d'aircraft sur l'écran.
 "RenderTarget" est une class de SFML qui permet de donner la fenêtre où doit être dessiner la figure.
 "RenderStates" est une class de SFML qui permet de donner les transformations du sprite (rotaton; shader, etc...)
 */
-void Aircraft::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
+void Aircraft::drawCurrent(sf::RenderTarget& target
+                           , sf::RenderStates states) const
 {
     if(isDestroyed() && m_showExplosion)
         target.draw(m_explosion, states);

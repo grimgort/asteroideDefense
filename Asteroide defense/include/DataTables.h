@@ -11,12 +11,28 @@
 #include <functional>
 
 class Aircraft;
+class Base ;
+
+/////////////////////////////////////////////////
+/// \file DataTables.h
+/// \brief Contient les données des Entitées
+/// \author Fred
+/// \version 0.0
+///
+/// Les tables permettent de crer des objet eyant les même caractéristique
+/// grâce à un identifiant. Ainsi, il est facile de construire un objet
+/// et de modifier ses données de départ.
+/////////////////////////////////////////////////
+
+
+
+
 
 struct Direction
 {
-    Direction(float angle,float distance) :
-        angle(angle),
-        distance(distance)
+    Direction (float angle, float distance) :
+        angle (angle),
+        distance (distance)
     {
     }
 
@@ -46,7 +62,7 @@ struct ProjectileData
 
 struct PickupData
 {
-    std::function<void(Aircraft&)> action;
+    std::function<void (Aircraft&) > action;
     Textures::ID texture;
     sf::IntRect textureRect;
 };
@@ -57,10 +73,22 @@ struct ParticleData
     sf::Time lifetime;
 };
 
+/////////////////////////////////////////////////
+/// \struct Données des bases
+///
+/// Contient l'ensemble des données nécéssaire à la construction
+/// d'une base : hitpoints(point de vie)
+/////////////////////////////////////////////////
+struct BaseData
+{
+    int hitpoints;
+    Textures::ID texture;
+};
+
 std::vector<AircraftData> initializeAircraftData();
 std::vector<ProjectileData> initializeProjectileData();
 std::vector<PickupData> initializePickupData();
 std::vector<ParticleData> initializeParticleData();
-
+std::vector<BaseData> initializeBaseData();
 
 #endif // DATATABLES_H

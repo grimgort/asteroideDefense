@@ -90,6 +90,14 @@ private:
     void handleCollisions();
     void updateSounds();
 
+    /////////////////////////////////////////////////
+    /// \brief Construit les objet de la scene à l'état initial
+    ///
+    /// Permet de construire l'ensemble des objet de la scene à l'état
+    /// initial. C'est donc ici qu'il faut rajouter les objets qui doivent
+    /// être construit au début de la scene. Elle est donc invoquer
+    /// dans le constructeur de la classe World.
+    /////////////////////////////////////////////////
     void buildScene();
     void addEnemies();
     void spawnEnemies();
