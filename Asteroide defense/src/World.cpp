@@ -19,24 +19,24 @@
 World::World (sf::RenderTarget& outputTarget,
               FontHolder& fonts, SoundPlayer& sounds,
               bool networked)
-    :   m_target (outputTarget),
-        m_sceneTexture(),
-        m_worldView (outputTarget.getDefaultView()),
-        m_textures(),
-        m_fonts (fonts),
-        m_sounds (sounds),
-        m_sceneGraph(),
-        m_sceneLayers(),
-        m_worldBounds (0.f, 0.f, 2000.f, 5000.f),
-        m_spawnPosition (m_worldView.getSize().x / 2.f,
-                         m_worldBounds.height - m_worldView.getSize().y /
-                         2.f),
-        m_scrollSpeed (0.f),
-        m_scrollSpeedCompensation (1.f),
-        m_playerAircrafts(),
-        m_enemySpawnPoints(),
-        m_activeEnemies(),
-        m_networkedWorld (networked)
+    : m_target (outputTarget)
+    , m_sceneTexture()
+    , m_worldView (outputTarget.getDefaultView())
+    , m_textures()
+    , m_fonts (fonts)
+    , m_sounds (sounds)
+    , m_sceneGraph()
+    , m_sceneLayers()
+    , m_worldBounds (0.f, 0.f, 2000.f, 5000.f)
+    , m_spawnPosition (m_worldView.getSize().x / 2.f
+                       ,   m_worldBounds.height - m_worldView.getSize().y /
+                       2.f)
+    , m_scrollSpeed (0.f)
+    , m_scrollSpeedCompensation (1.f)
+    , m_playerAircrafts()
+    , m_enemySpawnPoints()
+    , m_activeEnemies()
+    , m_networkedWorld (networked)
     , m_networkNode (nullptr)
     , m_finishSprite (nullptr)
     , m_nbCutX (0)
@@ -57,12 +57,12 @@ void World::setWorldScrollCompensation (
 }
 
 /*
-Met a jour la position des noeud et trace les texture associé.
+    Met a jour la position des noeud et trace les texture associé.
 */
 
 void World::update (sf::Time dt)
 {
-//    toto =0;
+    //    toto =0;
     //Déplace la vue en fonction de la vitesse de l'avion.
     //Si on atteint de bord de la map, la vue reste statique et donc seul l'avion bouge.
     FOREACH (Aircraft * a, m_playerAircrafts)
@@ -138,7 +138,7 @@ void World::draw()
 }
 
 /*
-Récupére la liste des commandes en cours
+    Récupére la liste des commandes en cours
 */
 CommandQueue& World::getCommandQueue()
 {
@@ -225,8 +225,8 @@ bool World::hasPlayerReachedEnd() const
 }
 
 /*
-Charge les textures et les associe à leur enum de texture à l'initialisation du niveau pour délimiter le temps
-se chargement au début du jeux
+    Charge les textures et les associe à leur enum de texture à l'initialisation du niveau pour délimiter le temps
+    se chargement au début du jeux
 */
 void World::loadTextures()
 {
@@ -243,7 +243,7 @@ void World::loadTextures()
 }
 
 /*
-Permet d'adapter la position du joueur en fonction des bord du niveau (peut pas sortir de l'écran)
+    Permet d'adapter la position du joueur en fonction des bord du niveau (peut pas sortir de l'écran)
 */
 void World::adaptPlayerPosition()
 {
@@ -272,7 +272,7 @@ void World::adaptPlayerPosition()
 }
 
 /*
-On adapte la vitesse du joueur en fonction de la vitesse de l'avion
+    On adapte la vitesse du joueur en fonction de la vitesse de l'avion
 */
 void World::adaptPlayerVelocity()
 {
@@ -357,8 +357,8 @@ void World::grilleDeCollision()
             sf::FloatRect rectTemp (leftRect[i], topRect[y],
                                     initialWidth, initialHeight);
             //cout de debug. A réfléchir pour améliorer la gestion des erreurs.
-//            std::cout << " i = " << i << " leftRect[i] = " << leftRect[i] << " topRect[y] = " << topRect[y]
-//                      << " initialWidth = " << initialWidth << " initialHeight = " << initialHeight << std::endl ;
+            //            std::cout << " i = " << i << " leftRect[i] = " << leftRect[i] << " topRect[y] = " << topRect[y]
+            //                      << " initialWidth = " << initialWidth << " initialHeight = " << initialHeight << std::endl ;
             m_grilleDeCollision.push_back (rectTemp);
         }
     }
@@ -532,47 +532,47 @@ void World::addEnemies()
         addEnemy (Aircraft::Avenger, i * 70, 2000.f);
     }
 
-//
+    //
     for (float i = -10.f; i < 10.f; i++)
     {
         addEnemy (Aircraft::Avenger, i * 70, 3000.f);
     }
 
-//    addEnemy(Aircraft::Raptor,    0.f,  500.f);
-//    addEnemy(Aircraft::Raptor,    0.f, 1000.f);
-//    addEnemy(Aircraft::Raptor, +100.f, 1150.f);
-//    addEnemy(Aircraft::Raptor, -100.f, 1150.f);
-//    addEnemy(Aircraft::Avenger,  70.f, 1500.f);
-//    addEnemy(Aircraft::Avenger, -70.f, 1500.f);
-//    addEnemy(Aircraft::Avenger, -70.f, 1710.f);
-//    addEnemy(Aircraft::Avenger,  70.f, 1700.f);
-//    addEnemy(Aircraft::Avenger,  30.f, 1850.f);
-//    addEnemy(Aircraft::Raptor,  300.f, 2200.f);
-//    addEnemy(Aircraft::Raptor, -300.f, 2200.f);
-//    addEnemy(Aircraft::Raptor,    0.f, 2200.f);
-//    addEnemy(Aircraft::Raptor,    0.f, 2500.f);
-//    addEnemy(Aircraft::Avenger,-300.f, 2700.f);
-//    addEnemy(Aircraft::Avenger,-300.f, 2700.f);
-//    addEnemy(Aircraft::Raptor,    0.f, 3000.f);
-//    addEnemy(Aircraft::Raptor,  250.f, 3250.f);
-//    addEnemy(Aircraft::Raptor, -250.f, 3250.f);
-//    addEnemy(Aircraft::Avenger,   0.f, 3500.f);
-//    addEnemy(Aircraft::Avenger,   0.f, 3700.f);
-//    addEnemy(Aircraft::Raptor,    0.f, 3800.f);
-//    addEnemy(Aircraft::Avenger,   0.f, 4000.f);
-//    addEnemy(Aircraft::Avenger,-200.f, 4200.f);
-//    addEnemy(Aircraft::Raptor,  200.f, 4200.f);
-//    addEnemy(Aircraft::Raptor,    0.f, 4400.f);
-//        addEnemy(Aircraft::Avenger,  0.f, 1500.f);
-//    addEnemy(Aircraft::Avenger, 1.f, 1500.f);
-//    addEnemy(Aircraft::Avenger, 2.f, 1710.f);
-//    addEnemy(Aircraft::Avenger,  3.f, 1700.f);
-//    addEnemy(Aircraft::Avenger,  4.f, 1850.f);
-//        addEnemy(Aircraft::Avenger,  70.f, 1500.f);
-//    addEnemy(Aircraft::Avenger, 5.f, 1500.f);
-//    addEnemy(Aircraft::Avenger, 6.f, 1710.f);
-//    addEnemy(Aircraft::Avenger,  7.f, 1700.f);
-//    addEnemy(Aircraft::Avenger,  8.f, 1850.f);
+    //    addEnemy(Aircraft::Raptor,    0.f,  500.f);
+    //    addEnemy(Aircraft::Raptor,    0.f, 1000.f);
+    //    addEnemy(Aircraft::Raptor, +100.f, 1150.f);
+    //    addEnemy(Aircraft::Raptor, -100.f, 1150.f);
+    //    addEnemy(Aircraft::Avenger,  70.f, 1500.f);
+    //    addEnemy(Aircraft::Avenger, -70.f, 1500.f);
+    //    addEnemy(Aircraft::Avenger, -70.f, 1710.f);
+    //    addEnemy(Aircraft::Avenger,  70.f, 1700.f);
+    //    addEnemy(Aircraft::Avenger,  30.f, 1850.f);
+    //    addEnemy(Aircraft::Raptor,  300.f, 2200.f);
+    //    addEnemy(Aircraft::Raptor, -300.f, 2200.f);
+    //    addEnemy(Aircraft::Raptor,    0.f, 2200.f);
+    //    addEnemy(Aircraft::Raptor,    0.f, 2500.f);
+    //    addEnemy(Aircraft::Avenger,-300.f, 2700.f);
+    //    addEnemy(Aircraft::Avenger,-300.f, 2700.f);
+    //    addEnemy(Aircraft::Raptor,    0.f, 3000.f);
+    //    addEnemy(Aircraft::Raptor,  250.f, 3250.f);
+    //    addEnemy(Aircraft::Raptor, -250.f, 3250.f);
+    //    addEnemy(Aircraft::Avenger,   0.f, 3500.f);
+    //    addEnemy(Aircraft::Avenger,   0.f, 3700.f);
+    //    addEnemy(Aircraft::Raptor,    0.f, 3800.f);
+    //    addEnemy(Aircraft::Avenger,   0.f, 4000.f);
+    //    addEnemy(Aircraft::Avenger,-200.f, 4200.f);
+    //    addEnemy(Aircraft::Raptor,  200.f, 4200.f);
+    //    addEnemy(Aircraft::Raptor,    0.f, 4400.f);
+    //        addEnemy(Aircraft::Avenger,  0.f, 1500.f);
+    //    addEnemy(Aircraft::Avenger, 1.f, 1500.f);
+    //    addEnemy(Aircraft::Avenger, 2.f, 1710.f);
+    //    addEnemy(Aircraft::Avenger,  3.f, 1700.f);
+    //    addEnemy(Aircraft::Avenger,  4.f, 1850.f);
+    //        addEnemy(Aircraft::Avenger,  70.f, 1500.f);
+    //    addEnemy(Aircraft::Avenger, 5.f, 1500.f);
+    //    addEnemy(Aircraft::Avenger, 6.f, 1710.f);
+    //    addEnemy(Aircraft::Avenger,  7.f, 1700.f);
+    //    addEnemy(Aircraft::Avenger,  8.f, 1850.f);
     sortEnemies();
 }
 
