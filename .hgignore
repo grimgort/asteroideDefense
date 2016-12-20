@@ -7,3 +7,6 @@ syntax: regexp
 ^Asteroide defense/obj$
 syntax: regexp
 ^Asteroide defense/cb\.bmp$
+syntax: glob
+Asteroide defense/Projet2.depend.orig
+Asteroide defense/Projet2.layout.orig
