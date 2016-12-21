@@ -33,6 +33,12 @@
 class Base : public Entity
 {
 public:
+        /////////////////////////////////////////////////
+    /// \enum Définit le type de base
+    ///
+    /// Permet de définit les caractéristique de la base en fonction du type
+    /// en allant récupérer les donnée dans la DataTables.
+    /////////////////////////////////////////////////
     enum Type
     {
         BaseTypeUn,
@@ -84,6 +90,14 @@ public:
     /////////////////////////////////////////////////
     virtual bool isMarkedForRemoval() const;
 
+    /////////////////////////////////////////////////
+    /// \brief Joue un son avec l'ID effect
+    ///
+    /// Insére un son dans la pile de commande.
+    /// Utilisé pour l'explosion de la base
+    /////////////////////////////////////////////////
+    void playLocalSound (CommandQueue& commands, SoundEffect::ID effect);
+
 private:
     /////////////////////////////////////////////////
     /// \brief Trace la texture de la base
@@ -93,8 +107,16 @@ private:
     /////////////////////////////////////////////////
     virtual void drawCurrent (sf::RenderTarget & target
                               , sf::RenderStates states) const;
+
+    /////////////////////////////////////////////////
+    /// \brief Met a jour la base pour la frame
+    ///
+    /// Si la base est détruite, le son de l'explosion est joué.
+    /// On utilise aussi la fonction updateCurrent de l'entité.
+    /////////////////////////////////////////////////
     virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
     //    void updateTexts();
+
 
 private:
     ///> Contient le type de la base (Base)
