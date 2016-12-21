@@ -98,6 +98,30 @@ public:
     /////////////////////////////////////////////////
     void playLocalSound (CommandQueue& commands, SoundEffect::ID effect);
 
+    /////////////////////////////////////////////////
+    /// \brief Placement dans la grille de collision de la base
+    ///
+    /// \param virtualRectCollision : tableau de la grille de collision
+    /// \param collisionListeToTest : multimap contenant l'ensemble des entités avec leur position
+    /// \param nbCutX : nombre de grille en X (horizontale)
+    /// \param nbCutY : nombre de grille en Y (verticale)
+    ///
+    /// Remplit le multimap "collisionListeToTest" afin de
+    /// tester les collisions entre les entités de la même case.
+    ///
+    /// \bug il a était nécéssaire de rajouter une fonction de collision
+    /// pour la base car il est situé sur l'ensemble des case virtuel de
+    /// collision horizontale. Ainsi, regarder sa grille de collsion autour
+    /// de la case enregistré dans m_positionCollision est insuffisant.
+    /// Ha voir si l'on garde comme ca mais à optimiser dans tous les cas.
+    /////////////////////////////////////////////////
+    virtual void checkNodePosition (const std::vector<sf::FloatRect>
+                                    &virtualRectCollision
+                                    , std::multimap<int, SceneNode*>
+                                    &collisionListeToTest
+                                    , sf::Int32 nbCutX
+                                    , sf::Int32 nbCutY);
+
 private:
     /////////////////////////////////////////////////
     /// \brief Trace la texture de la base
@@ -115,7 +139,11 @@ private:
     /// On utilise aussi la fonction updateCurrent de l'entité.
     /////////////////////////////////////////////////
     virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
-    //    void updateTexts();
+        /////////////////////////////////////////////////
+    /// \brief Met a jour le texte (point de vie de la base)
+    ///
+    /////////////////////////////////////////////////
+        void updateTexts();
 
 
 private:
@@ -133,6 +161,9 @@ private:
 
     ///> Animation de l'explosion des bases
     Animation m_explosion;
+
+    ///> Point de vie de la base
+    TextNode* m_healthDisplay;
 
 };
 

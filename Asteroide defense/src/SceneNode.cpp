@@ -244,6 +244,12 @@ void SceneNode::checkSceneCollision (
                         || matchesCategories (*it->second, *it2->second,
                                               Category::EnemyAircraft,
                                               Category::AlliedProjectile)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::Base,
+                          Category::EnemyProjectile)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::EnemyAircraft,
+                          Category::Base)
                    )
                 {
                     if (it->second != it2->second
@@ -251,10 +257,10 @@ void SceneNode::checkSceneCollision (
                             && !it->second->isDestroyed()
                             && !it2->second->isDestroyed())
                     {
-                        //                        std::cout << "it  " << it->second << "  " <<
-                        //                                  it->first << std::endl;
-                        //                        std::cout << "it2  " << it2->second << "  " <<
-                        //                                  it2->first << std::endl;
+                                                std::cout << "it  " << it->second << "  " <<
+                                                          it->first << std::endl;
+                                                std::cout << "it2  " << it2->second << "  " <<
+                                                          it2->first << std::endl;
                         collisionPairs.insert (std::minmax (it->second,
                                                             it2->second));
                     }

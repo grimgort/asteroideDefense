@@ -159,7 +159,7 @@
 			<DoxyBlocks>
 				<comment_style block="5" line="2" />
 				<doxyfile_project output_language="French" />
-				<doxyfile_build />
+				<doxyfile_build extract_private="1" extract_static="1" />
 				<doxyfile_warnings />
 				<doxyfile_output />
 				<doxyfile_dot class_diagrams="1" />

@@ -28,6 +28,19 @@ Base::Base (Type type
     , m_explosionBegan (false)
     , m_explosion (textures.get (Textures::Explosion))
 {
+        m_explosion.setFrameSize(sf::Vector2i(256, 256));
+    m_explosion.setNumFrames(16);
+    m_explosion.setDuration(sf::seconds(1));
+
+ //   centerOrigin(m_sprite);
+    centerOrigin(m_explosion);
+
+    //initialisation du text
+    std::unique_ptr<TextNode> healthDisplay(new TextNode(fonts, ""));
+    m_healthDisplay = healthDisplay.get();
+    attachChild(std::move(healthDisplay));
+
+    updateTexts();
 }
 
 
@@ -69,7 +82,7 @@ void Base::drawCurrent (sf::RenderTarget& target
 
 void Base::updateCurrent (sf::Time dt, CommandQueue& commands)
 {
-    //    updateTexts();
+        updateTexts();
 
     if (isDestroyed())
     {
@@ -120,3 +133,49 @@ void Base::playLocalSound (CommandQueue& commands,
     commands.push (command);
 }
 
+void Base::updateTexts()
+{
+    if(isDestroyed())
+        m_healthDisplay->setString("");
+    else
+        m_healthDisplay->setString(toString(getHitpoints()) + "HP");
+
+    m_healthDisplay->setPosition(1000.f, 50.f);
+
+}
+
+
+void Base::checkNodePosition (const
+                                std::vector<sf::FloatRect>
+                                &virtualRectCollision
+                                , std::multimap<int, SceneNode*>
+                                &collisionListeToTest
+                                , sf::Int32 nbCutX
+                                , sf::Int32 nbCutY)
+{
+    /*
+    Recalcule la position dans la grille de
+    colllision si l'objet a bougé ou n'est pas
+    initialisé
+    */
+//    if (m_positionCollision == -9999)
+//    {
+        int op (0);
+
+        for (auto it = virtualRectCollision.cbegin()
+                       ; it != virtualRectCollision.cend()
+                ; ++it)
+        {
+            op += 1;
+
+            // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
+            if (this->getBoundingRect().intersects (*it))
+            {
+ //               m_positionCollision = op;
+                collisionListeToTest.insert (
+                    std::pair<int, SceneNode*> (op, this));
+
+            }
+        }
+//    }
+}

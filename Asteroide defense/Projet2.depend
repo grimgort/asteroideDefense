@@ -40,37 +40,37 @@
 
 1473928812 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\gamedev\chap9\code\include\category.h
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\time.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\export.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\export.hpp
 	<SFML/Config.hpp>
 
-1441976890 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\config.hpp
+1441976892 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\config.hpp
 	"TargetConditionals.h"
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\event.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\event.hpp
 	<SFML/Config.hpp>
 	<SFML/Window/Joystick.hpp>
 	<SFML/Window/Keyboard.hpp>
 	<SFML/Window/Mouse.hpp>
 	<SFML/Window/Sensor.hpp>
 
-1436034025 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\joystick.hpp
+1436034026 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\joystick.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/String.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\export.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\export.hpp
 	<SFML/Config.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\string.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\string.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Utf.hpp>
 	<locale>
 	<string>
 	<SFML/System/String.inl>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\utf.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\utf.hpp
 	<SFML/Config.hpp>
 	<algorithm>
 	<locale>
@@ -78,31 +78,31 @@
 	<cstdlib>
 	<SFML/System/Utf.inl>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\utf.inl
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\utf.inl
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\string.inl
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\string.inl
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\keyboard.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\keyboard.hpp
 	<SFML/Window/Export.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\mouse.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\mouse.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector2.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector2.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector2.hpp
 	<SFML/System/Vector2.inl>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector2.inl
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector2.inl
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\sensor.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\sensor.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector3.hpp>
 	<SFML/System/Time.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector3.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector3.hpp
 	<SFML/System/Vector3.inl>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector3.inl
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\vector3.inl
 
 1472294138 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\gamedev\chap9\code\include\statestack.h
 	<State.h>
@@ -124,7 +124,7 @@
 
 1473586516 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\gamedev\chap9\code\include\stateidentifiers.h
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\noncopyable.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\noncopyable.hpp
 	<SFML/System/Export.hpp>
 
 1473947425 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\gamedev\chap9\code\include\musicplayer.h
@@ -135,7 +135,7 @@
 	<map>
 	<string>
 
-1436034025 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\music.hpp
+1436034026 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\music.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundStream.hpp>
 	<SFML/Audio/InputSoundFile.hpp>
@@ -144,10 +144,10 @@
 	<string>
 	<vector>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\export.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\export.hpp
 	<SFML/Config.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\soundstream.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\soundstream.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundSource.hpp>
 	<SFML/System/Thread.hpp>
@@ -155,27 +155,27 @@
 	<SFML/System/Mutex.hpp>
 	<cstdlib>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\soundsource.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\soundsource.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/AlResource.hpp>
 	<SFML/System/Vector3.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\alresource.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\alresource.hpp
 	<SFML/Audio/Export.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\thread.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\thread.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<cstdlib>
 	<SFML/System/Thread.inl>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\thread.inl
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\thread.inl
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\mutex.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\mutex.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\inputsoundfile.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\inputsoundfile.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/Time.hpp>
@@ -190,7 +190,7 @@
 	<SFML/Audio/Sound.hpp>
 	<list>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\soundbuffer.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\soundbuffer.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/AlResource.hpp>
 	<SFML/System/Time.hpp>
@@ -198,23 +198,23 @@
 	<vector>
 	<set>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\sound.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\sound.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/Audio/SoundSource.hpp>
 	<SFML/System/Time.hpp>
 	<cstdlib>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\renderwindow.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\renderwindow.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/Window.hpp>
 	<string>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\export.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\export.hpp
 	<SFML/Config.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rendertarget.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rendertarget.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
@@ -226,50 +226,50 @@
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/System/NonCopyable.hpp>
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\color.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\color.hpp
 	<SFML/Graphics/Export.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rect.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rect.hpp
 	<SFML/System/Vector2.hpp>
 	<algorithm>
 	<SFML/Graphics/Rect.inl>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rect.inl
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rect.inl
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\view.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\view.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/System/Vector2.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\transform.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\transform.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<SFML/System/Vector2.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\blendmode.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\blendmode.hpp
 	<SFML/Graphics/Export.hpp>
 
-1436034025 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\renderstates.hpp
+1436034026 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\renderstates.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Transform.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\primitivetype.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\primitivetype.hpp
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\vertex.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\vertex.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/System/Vector2.hpp>
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\image.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\image.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Color.hpp>
 	<SFML/Graphics/Rect.hpp>
 	<string>
 	<vector>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\window.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\window.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/Window/ContextSettings.hpp>
 	<SFML/Window/VideoMode.hpp>
@@ -281,25 +281,25 @@
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/String.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\contextsettings.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\contextsettings.hpp
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\videomode.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\videomode.hpp
 	<SFML/Window/Export.hpp>
 	<vector>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\windowhandle.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\windowhandle.hpp
 	<SFML/Config.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\windowstyle.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\windowstyle.hpp
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\glresource.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\window\glresource.hpp
 	<SFML/Window/Export.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\clock.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\clock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\text.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\text.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
@@ -310,15 +310,15 @@
 	<string>
 	<vector>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\drawable.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\drawable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderStates.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\transformable.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\transformable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
 
-1441976890 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\font.hpp
+1441976892 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\font.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Glyph.hpp>
 	<SFML/Graphics/Texture.hpp>
@@ -329,16 +329,16 @@
 	<string>
 	<vector>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\glyph.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\glyph.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 
-1441976890 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\texture.hpp
+1441976892 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\texture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/GlResource.hpp>
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\vertexarray.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\vertexarray.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Vertex.hpp>
 	<SFML/Graphics/PrimitiveType.hpp>
@@ -386,7 +386,7 @@
 	<ResourceIdentifiers.h>
 	<SFML/Graphics/Sprite.hpp>
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\sprite.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\sprite.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
@@ -494,12 +494,12 @@
 1473776302 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\gamedev\chap9\code\include\posteffect.h
 	<SFML/System/NonCopyable.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rendertexture.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rendertexture.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
 
-1436034025 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\shader.hpp
+1436034026 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\shader.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
 	<SFML/Graphics/Color.hpp>
@@ -639,11 +639,11 @@
 	<SFML/Graphics/RenderWindow.hpp>
 	<SFML/Graphics/View.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rectangleshape.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\rectangleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
 
-1430987944 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\shape.hpp
+1430987946 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\graphics\shape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Drawable.hpp>
 	<SFML/Graphics/Transformable.hpp>
@@ -680,7 +680,7 @@
 	<SFML/System/Lock.hpp>
 	<SFML/System/Clock.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\lock.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\lock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
 
@@ -779,7 +779,7 @@
 	<SFML/Audio/Listener.hpp>
 	<cmath>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\listener.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\audio\listener.hpp
 	<SFML/Audio/Export.hpp>
 	<SFML/System/Vector3.hpp>
 
@@ -1115,21 +1115,21 @@
 	<SFML/Network/TcpSocket.hpp>
 	<map>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\tcpsocket.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\tcpsocket.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 	<SFML/System/Time.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\export.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\export.hpp
 	<SFML/Config.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\socket.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\socket.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/SocketHandle.hpp>
 	<SFML/System/NonCopyable.hpp>
 	<vector>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\sockethandle.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\sockethandle.hpp
 	<SFML/Config.hpp>
 	<basetsd.h>
 
@@ -1354,15 +1354,15 @@
 	<memory>
 	<map>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\sleep.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\system\sleep.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\tcplistener.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\tcplistener.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/Network/Socket.hpp>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\packet.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\packet.hpp
 	<SFML/Network/Export.hpp>
 	<string>
 	<vector>
@@ -1446,7 +1446,7 @@
 	<SFML/Network/IpAddress.hpp>
 	<fstream>
 
-1429780453 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\ipaddress.hpp
+1429780454 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\sfml-2.3.2\include\sfml\network\ipaddress.hpp
 	<SFML/Network/Export.hpp>
 	<SFML/System/Time.hpp>
 	<istream>
@@ -3885,4 +3885,628 @@
 	<Entity.h>
 	<cassert>
 	<iostream>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\main.cpp
+	<Application.h>
+	<stdexcept>
+	<iostream>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\application.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<KeyBinding.h>
+	<StateStack.h>
+	<MusicPlayer.h>
+	<SoundPlayer.h>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\resourceholder.hpp
+	<map>
+	<string>
+	<memory>
+	<stdexcept>
+	<cassert>
+	<ResourceHolder.inl>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\resourceholder.inl
+
+1482342168 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\resourceidentifiers.h
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\keybinding.h
+	<SFML/Window/Keyboard.hpp>
+	<map>
+	<vector>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\statestack.h
+	<State.h>
+	<StateIdentifiers.h>
+	<ResourceIdentifiers.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<vector>
+	<utility>
+	<functional>
+	<map>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\state.h
+	<StateIdentifiers.h>
+	<ResourceIdentifiers.h>
+	<SFML/System/Time.hpp>
+	<SFML/Window/Event.hpp>
+	<memory>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\stateidentifiers.h
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\musicplayer.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Audio/Music.hpp>
+	<map>
+	<string>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\soundplayer.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/Sound.hpp>
+	<list>
+
+1482342168 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\aircraft.cpp
+	<Aircraft.h>
+	<DataTables.h>
+	<Utility.h>
+	<Pickup.h>
+	<CommandQueue.h>
+	<SoundNode.h>
+	<NetworkNode.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<cmath>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\aircraft.h
+	<Entity.h>
+	<Command.h>
+	<ResourceIdentifiers.h>
+	<Projectile.h>
+	<TextNode.h>
+	<Animation.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\entity.h
+	<SceneNode.h>
+	<map>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\scenenode.h
+	<Category.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<vector>
+	<set>
+	<memory>
+	<utility>
+	<map>
+
+1482342168 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\category.h
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\command.h
+	<Category.h>
+	<SFML/System/Time.hpp>
+	<functional>
+	<cassert>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\projectile.h
+	<Entity.h>
+	<ResourceIdentifiers.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\textnode.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SceneNode.h>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Font.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\animation.h
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/System/Time.hpp>
+
+1482342168 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\datatables.h
+	<ResourceIdentifiers.h>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<vector>
+	<functional>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\utility.h
+	<SFML/Window/Keyboard.hpp>
+	<SFML/System/Vector2.hpp>
+	<sstream>
+	<Utility.inl>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\utility.inl
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\pickup.h
+	<Entity.h>
+	<Command.h>
+	<ResourceIdentifiers.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\commandqueue.h
+	<Command.h>
+	<queue>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\soundnode.h
+	<SceneNode.h>
+	<ResourceIdentifiers.h>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\networknode.h
+	<SceneNode.h>
+	<NetworkProtocol.h>
+	<queue>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\networkprotocol.h
+	<SFML/Config.hpp>
+	<SFML/System/Vector2.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\animation.cpp
+	"Animation.h"
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Texture.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\application.cpp
+	<Application.h>
+	<Utility.h>
+	<State.h>
+	<StateIdentifiers.h>
+	<TitleState.h>
+	<GameState.h>
+	<MultiplayerGameState.h>
+	<MenuState.h>
+	<PauseState.h>
+	<SettingsState.h>
+	<GameOverState.h>
+	<iostream>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\titlestate.h
+	<State.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\gamestate.h
+	<State.h>
+	<World.h>
+	<Player.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482342168 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\world.h
+	<ResourceHolder.hpp>
+	<ResourceIdentifiers.h>
+	<SceneNode.h>
+	<SpriteNode.h>
+	<Aircraft.h>
+	<CommandQueue.h>
+	<Command.h>
+	<Pickup.h>
+	<BloomEffect.h>
+	<SoundPlayer.h>
+	<NetworkProtocol.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/View.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<array>
+	<queue>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\spritenode.h
+	<SceneNode.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\bloomeffect.h
+	<PostEffect.h>
+	<ResourceIdentifiers.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<array>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\posteffect.h
+	<SFML/System/NonCopyable.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\player.h
+	<Command.h>
+	<KeyBinding.h>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<map>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\multiplayergamestate.h
+	<State.h>
+	<World.h>
+	<Player.h>
+	<GameServer.h>
+	<NetworkProtocol.h>
+	<SFML/System/Clock.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<SFML/Network/Packet.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\gameserver.h
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Network/TcpListener.hpp>
+	<SFML/Network/TcpSocket.hpp>
+	<vector>
+	<memory>
+	<map>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\menustate.h
+	<State.h>
+	<Container.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\container.h
+	<Component.h>
+	<vector>
+	<memory>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\component.h
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Transformable.hpp>
+	<memory>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\pausestate.h
+	<State.h>
+	<Container.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\settingsstate.h
+	<State.h>
+	<KeyBinding.h>
+	<Container.h>
+	<Button.h>
+	<Label.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<array>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\button.h
+	<Component.h>
+	<ResourceIdentifiers.h>
+	<State.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<vector>
+	<string>
+	<memory>
+	<functional>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\label.h
+	<Component.h>
+	<ResourceIdentifiers.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\gameoverstate.h
+	<State.h>
+	<Container.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\bloomeffect.cpp
+	"BloomEffect.h"
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\button.cpp
+	<Button.h>
+	<Utility.h>
+	<SoundPlayer.h>
+	<ResourceHolder.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\command.cpp
+	<Command.h>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\commandqueue.cpp
+	<CommandQueue.h>
+	<SceneNode.h>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\component.cpp
+	<Component.h>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\container.cpp
+	"Container.h"
+	<Foreach.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\foreach.hpp
+
+1482342168 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\datatables.cpp
+	"DataTables.h"
+	<Aircraft.h>
+	<Projectile.h>
+	<Pickup.h>
+	<Particle.h>
+	<Base.h>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\particle.h
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Time.hpp>
+	<SFML/Graphics/Color.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\emitternode.cpp
+	"EmitterNode.h"
+	<ParticleNode.h>
+	<CommandQueue.h>
+	<Command.h>
+
+1482239518 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\emitternode.h
+	<SceneNode.h>
+	<Particle.h>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\particlenode.h
+	<SceneNode.h>
+	<ResourceIdentifiers.h>
+	<Particle.h>
+	<SFML/Graphics/VertexArray.hpp>
+	<deque>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\entity.cpp
+	<Entity.h>
+	<cassert>
+	<iostream>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\gameoverstate.cpp
+	"GameOverState.h"
+	<Utility.h>
+	<Player.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\gameserver.cpp
+	"GameServer.h"
+	<NetworkProtocol.h>
+	<Foreach.hpp>
+	<Utility.h>
+	<Pickup.h>
+	<Aircraft.h>
+	<SFML/Network/Packet.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\gamestate.cpp
+	"GameState.h"
+	<MusicPlayer.h>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\keybinding.cpp
+	"KeyBinding.h"
+	<Foreach.hpp>
+	<string>
+	<algorithm>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\label.cpp
+	"Label.h"
+	<Utility.h>
+	<SFML/Graphics/RenderStates.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\loadingstate.cpp
+	<LoadingState.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\loadingstate.h
+	<State.h>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/Text.hpp>
+	<ParallelTask.h>
+
+1482239519 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\paralleltask.h
+	<SFML/System/Thread.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/Clock.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\menustate.cpp
+	<MenuState.h>
+	<Button.h>
+	<Utility.h>
+	<MusicPlayer.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\multiplayergamestate.cpp
+	"MultiplayerGameState.h"
+	<MusicPlayer.h>
+	<Foreach.hpp>
+	<Utility.h>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Network/IpAddress.hpp>
+	<fstream>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\musicplayer.cpp
+	"MusicPlayer.h"
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\networknode.cpp
+	"NetworkNode.h"
+	<NetworkProtocol.h>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\paralleltask.cpp
+	"ParallelTask.h"
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\particlenode.cpp
+	"ParticleNode.h"
+	<Foreach.hpp>
+	<DataTables.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<algorithm>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\pausestate.cpp
+	<PauseState.h>
+	<Button.h>
+	<Utility.h>
+	<MusicPlayer.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/View.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\pickup.cpp
+	"Pickup.h"
+	<DataTables.h>
+	<Category.h>
+	<CommandQueue.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\player.cpp
+	<Player.h>
+	<CommandQueue.h>
+	<Aircraft.h>
+	<Foreach.hpp>
+	<NetworkProtocol.h>
+	<SFML/Network/Packet.hpp>
+	<map>
+	<string>
+	<algorithm>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\posteffect.cpp
+	"PostEffect.h"
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/VertexArray.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\projectile.cpp
+	"Projectile.h"
+	<EmitterNode.h>
+	<DataTables.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderStates.hpp>
+	<cmath>
+	<cassert>
+
+1482362586 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\scenenode.cpp
+	<SceneNode.h>
+	<Command.h>
+	<Foreach.hpp>
+	<Utility.h>
+	<SFML/Graphics/RectangleShape.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<algorithm>
+	<cassert>
+	<cmath>
+	<iostream>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\settingsstate.cpp
+	<SettingsState.h>
+	<Utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\soundnode.cpp
+	"SoundNode.h"
+	<soundPlayer.h>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\soundplayer.cpp
+	"SoundPlayer.h"
+	<SFML/Audio/Listener.hpp>
+	<cmath>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\spritenode.cpp
+	<SpriteNode.h>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\state.cpp
+	"State.h"
+	"StateStack.h"
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\statestack.cpp
+	"StateStack.h"
+	<Foreach.hpp>
+	<cassert>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\textnode.cpp
+	"TextNode.h"
+	<Utility.h>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\titlestate.cpp
+	"TitleState.h"
+	<utility.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+
+1482239519 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\utility.cpp
+	"Utility.h"
+	<Animation.h>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<random>
+	<cmath>
+	<ctime>
+	<cassert>
+
+1482362860 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\world.cpp
+	"World.h"
+	<Projectile.h>
+	<Pickup.h>
+	<Foreach.hpp>
+	<TextNode.h>
+	<ParticleNode.h>
+	<SoundNode.h>
+	<NetworkNode.h>
+	<Utility.h>
+	<Base.h>
+	<SFML/Graphics/RenderTarget.hpp>
+	<algorithm>
+	<cmath>
+	<limits>
+	<iostream>
+
+1482361555 c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\include\base.h
+	<Entity.h>
+	<Command.h>
+	<ResourceIdentifiers.h>
+	<Animation.h>
+	<TextNode.h>
+	<SFML/Graphics/Sprite.hpp>
+
+1482361063 source:c:\users\fred\documents\fred\programmation_jeux\projet_sfml\tortoisehg_workspace\asteroide defense\src\base.cpp
+	"Base.h"
+	<DataTables.h>
+	<Utility.h>
+	<CommandQueue.h>
+	<SoundNode.h>
+	<NetworkNode.h>
+	<ResourceHolder.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/RenderStates.hpp>
 
