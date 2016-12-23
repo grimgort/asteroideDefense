@@ -4,6 +4,7 @@
 #include <Pickup.h>
 #include <Particle.h>
 #include <Base.h>
+#include <Asteroide.h>
 
 // For std::bind() placeholders _1, _2, ...
 using namespace std::placeholders;
@@ -137,5 +138,15 @@ std::vector<BaseData> initializeBaseData()
     return data;
 }
 
+std::vector<AsteroideData> initializeAsteroideData()
+{
+    std::vector<AsteroideData> data (Asteroide::TypeCount);
+    //Premier type de base
+    data[Asteroide::AsteroideUn].hitpoints = 20;
+    data[Asteroide::AsteroideUn].texture = Textures::AsteroideUn;
+ //   data[Base::BaseTypeUn].textureRect = sf::IntRect (228, 0, 60, 59);
+
+    return data;
+}
 
 

@@ -12,6 +12,7 @@
 
 class Aircraft;
 class Base ;
+class Asteroide ;
 
 /////////////////////////////////////////////////
 /// \file DataTables.h
@@ -85,10 +86,17 @@ struct BaseData
     Textures::ID texture;
 };
 
+struct AsteroideData
+{
+    int hitpoints;
+    Textures::ID texture;
+};
+
 std::vector<AircraftData> initializeAircraftData();
 std::vector<ProjectileData> initializeProjectileData();
 std::vector<PickupData> initializePickupData();
 std::vector<ParticleData> initializeParticleData();
 std::vector<BaseData> initializeBaseData();
+std::vector<AsteroideData> initializeAsteroideData();
 
 #endif // DATATABLES_H

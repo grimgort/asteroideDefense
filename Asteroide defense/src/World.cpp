@@ -253,6 +253,8 @@ void World::loadTextures()
                      "media/Textures/FinishLine.png");
     m_textures.load (Textures::Base,
                      "media/Textures/base.png");
+    m_textures.load (Textures::AsteroideUn,
+                     "media/Textures/asteroide1.png");
 }
 
 /*
@@ -439,8 +441,8 @@ void World::handleCollisions()
                                     Category::Base,
                                     Category::EnemyProjectile)
                  || matchesCategories (pair,
-                                    Category::Base,
-                                    Category::AlliedProjectile))
+                                       Category::Base,
+                                       Category::AlliedProjectile))
         {
             auto& base = static_cast<Base&> (*pair.first);
             auto& projectile = static_cast<Projectile&> (*pair.second);
@@ -448,8 +450,8 @@ void World::handleCollisions()
             projectile.destroy();
         }
         else if (matchesCategories (pair,
-                            Category::Base,
-                            Category::EnemyAircraft))
+                                    Category::Base,
+                                    Category::EnemyAircraft))
         {
             auto& base = static_cast<Base&> (*pair.first);
             auto& enemy = static_cast<Aircraft&> (*pair.second);
@@ -521,7 +523,7 @@ void World::buildScene()
     baseUn->setPosition(0.f, 4650.f);
     m_sceneLayers[UpperAir]->attachChild (std::move (baseUn));
 
-        /* Rajoute la base 2 */
+    /* Rajoute la base 2 */
     std::unique_ptr<Base> baseDeux (
         new Base (Base::BaseTypeUn, m_textures, m_fonts));
     baseDeux->setPosition(0.f, 0.f);
