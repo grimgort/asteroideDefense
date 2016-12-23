@@ -250,6 +250,9 @@ void SceneNode::checkSceneCollision (
                         || matchesCategories (*it->second, *it2->second,
                           Category::EnemyAircraft,
                           Category::Base)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::AlliedProjectile,
+                          Category::Base)
                    )
                 {
                     if (it->second != it2->second

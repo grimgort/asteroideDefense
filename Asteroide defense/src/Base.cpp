@@ -140,7 +140,7 @@ void Base::updateTexts()
     else
         m_healthDisplay->setString(toString(getHitpoints()) + "HP");
 
-    m_healthDisplay->setPosition(1000.f, 50.f);
+    m_healthDisplay->setPosition(1000.f, 100.f);
 
 }
 

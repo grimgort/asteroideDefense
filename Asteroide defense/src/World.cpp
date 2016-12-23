@@ -437,7 +437,10 @@ void World::handleCollisions()
         }
         else if (matchesCategories (pair,
                                     Category::Base,
-                                    Category::EnemyProjectile))
+                                    Category::EnemyProjectile)
+                 || matchesCategories (pair,
+                                    Category::Base,
+                                    Category::AlliedProjectile))
         {
             auto& base = static_cast<Base&> (*pair.first);
             auto& projectile = static_cast<Projectile&> (*pair.second);
@@ -512,14 +515,17 @@ void World::buildScene()
 
 
 
-    /* Rajoute les bases */
-//    sf::Texture& baseTexture = m_textures.get (
-//                                   Textures::Base);
+    /* Rajoute la base 1  */
     std::unique_ptr<Base> baseUn (
         new Base (Base::BaseTypeUn, m_textures, m_fonts));
     baseUn->setPosition(0.f, 4650.f);
     m_sceneLayers[UpperAir]->attachChild (std::move (baseUn));
 
+        /* Rajoute la base 2 */
+    std::unique_ptr<Base> baseDeux (
+        new Base (Base::BaseTypeUn, m_textures, m_fonts));
+    baseDeux->setPosition(0.f, 0.f);
+    m_sceneLayers[UpperAir]->attachChild (std::move (baseDeux));
 
 
 
