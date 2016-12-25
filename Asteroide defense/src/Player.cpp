@@ -66,6 +66,22 @@ struct AircraftMissileTrigger
     int aircraftID;
 };
 
+struct AircraftAsteroideUnTrigger
+{
+    AircraftAsteroideUnTrigger(int identifier)
+        : aircraftID(identifier)
+    {
+    }
+
+    void operator() (Aircraft& aircraft, sf::Time) const
+    {
+        if (aircraft.getIdentifier() == aircraftID)
+            aircraft.launchAsteroideUn();
+    }
+
+    int aircraftID;
+};
+
 Player::Player(sf::TcpSocket* socket, sf::Int32 identifier, const KeyBinding* binding)
     : m_keyBinding(binding)
     , m_currentMissionStatus(MissionRunning)
@@ -197,4 +213,5 @@ void Player::initializeActions()
     m_actionBinding[PlayerAction::MoveDown].action = derivedAction<Aircraft>(AircraftMover(0, +1, m_identifier));
     m_actionBinding[PlayerAction::Fire].action = derivedAction<Aircraft>(AircraftFireTrigger(m_identifier));
     m_actionBinding[PlayerAction::LaunchMissile].action = derivedAction<Aircraft>(AircraftMissileTrigger(m_identifier));
+    m_actionBinding[PlayerAction::LaunchAsteroideUn].action = derivedAction<Aircraft>(AircraftAsteroideUnTrigger(m_identifier));
 }

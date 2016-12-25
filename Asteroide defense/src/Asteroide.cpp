@@ -12,7 +12,13 @@
 
 using namespace std::placeholders;
 
-namespace
-{
-const std::vector<AsteroideData> Table = initializeAsteroideData();
-}
+//namespace
+//{
+//const std::vector<AsteroideData> Table = initializeAsteroideData();
+//}
+
+Asteroide::Asteroide(Type type, const TextureHolder& textures)
+        : Projectile(type, textures)
+        {
+
+        }

@@ -24,7 +24,7 @@ enum Type
     Asteroide = 1 << 11,
 
     Aircraft = PlayerAircraft | AlliedAircraft | EnemyAircraft,
-    Projectile = AlliedProjectile | EnemyProjectile,
+    Projectile = AlliedProjectile | EnemyProjectile | Asteroide,
 };
 }
 

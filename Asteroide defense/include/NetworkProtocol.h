@@ -50,6 +50,7 @@ enum Action
     MoveDown,
     Fire,
     LaunchMissile,
+    LaunchAsteroideUn,
     ActionCount
 };
 }

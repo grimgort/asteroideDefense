@@ -16,6 +16,7 @@ enum Type
     MoveDown,
     Fire,
     LaunchMissile,
+    LaunchAsteroideUn,
     Count
 };
 }

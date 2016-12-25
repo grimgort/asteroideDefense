@@ -59,6 +59,8 @@ struct ProjectileData
     Textures::ID texture;
     sf::IntRect textureRect;
     float distanceMax;
+
+    int hitpoints;
 };
 
 struct PickupData

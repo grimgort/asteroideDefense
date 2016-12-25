@@ -23,6 +23,7 @@ SoundPlayer::SoundPlayer()
     m_soundBuffers.load(SoundEffect::LaunchMissile,	"media/Sound/LaunchMissile.wav");
     m_soundBuffers.load(SoundEffect::CollectPickup,	"media/Sound/CollectPickup.wav");
     m_soundBuffers.load(SoundEffect::Button,			"media/Sound/Button.wav");
+    m_soundBuffers.load(SoundEffect::LaunchAsteroideUn,			"media/Sound/LaunchMissile.wav");
 
     sf::Listener::setDirection(0.f, 0.f, -1.f);
 }

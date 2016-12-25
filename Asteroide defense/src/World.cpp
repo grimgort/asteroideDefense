@@ -442,7 +442,10 @@ void World::handleCollisions()
                                     Category::EnemyProjectile)
                  || matchesCategories (pair,
                                        Category::Base,
-                                       Category::AlliedProjectile))
+                                       Category::AlliedProjectile)
+                 || matchesCategories (pair,
+                                       Category::Base,
+                                       Category::Asteroide))
         {
             auto& base = static_cast<Base&> (*pair.first);
             auto& projectile = static_cast<Projectile&> (*pair.second);
@@ -457,6 +460,37 @@ void World::handleCollisions()
             auto& enemy = static_cast<Aircraft&> (*pair.second);
             base.damage (enemy.getHitpoints());
             enemy.destroy();
+        }
+        else if (matchesCategories (pair,
+                            Category::Asteroide,
+                            Category::EnemyAircraft)
+         || matchesCategories (pair,
+                               Category::Asteroide,
+                               Category::PlayerAircraft))
+        {
+            auto& aircraft = static_cast<Aircraft&>
+                             (*pair.second);
+            auto& asteroide = static_cast<Asteroide&>
+                               (*pair.first);
+
+            asteroide.damage (aircraft.getHitpoints());
+            aircraft.damage (asteroide.getDamage());
+
+        }
+        else if (matchesCategories (pair,
+                            Category::Asteroide,
+                            Category::AlliedProjectile)
+         || matchesCategories (pair,
+                               Category::Asteroide,
+                               Category::EnemyProjectile))
+        {
+            auto& asteroide = static_cast<Asteroide&>
+                               (*pair.first);
+            auto& projectile = static_cast<Projectile&>
+                             (*pair.second);
+
+            asteroide.damage (projectile.getDamage());
+            projectile.destroy();
         }
     }
 }

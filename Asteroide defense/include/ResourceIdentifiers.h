@@ -58,6 +58,7 @@ enum ID
     LaunchMissile,
     CollectPickup,
     Button,
+    LaunchAsteroideUn,
 };
 }
 

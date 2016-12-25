@@ -60,13 +60,15 @@ std::vector<ProjectileData> initializeProjectileData()
 {
     std::vector<ProjectileData> data (Projectile::TypeCount);
 
+    data[Projectile::AlliedBullet].hitpoints = 1;
     data[Projectile::AlliedBullet].damage = 10;
-    data[Projectile::AlliedBullet].speed = 300.f;
+    data[Projectile::AlliedBullet].speed = 500.f;
     data[Projectile::AlliedBullet].texture = Textures::Entities;
     data[Projectile::AlliedBullet].textureRect = sf::IntRect (175, 64, 3,
             14);
     data[Projectile::AlliedBullet].distanceMax = 800.f;
 
+    data[Projectile::EnemyBullet].hitpoints = 1;
     data[Projectile::EnemyBullet].damage = 10;
     data[Projectile::EnemyBullet].speed = 300.f;
     data[Projectile::EnemyBullet].texture = Textures::Entities;
@@ -74,12 +76,19 @@ std::vector<ProjectileData> initializeProjectileData()
             14);
     data[Projectile::EnemyBullet].distanceMax = 800.f;
 
-
+    data[Projectile::Missile].hitpoints = 1;
     data[Projectile::Missile].damage = 200;
     data[Projectile::Missile].speed = 150.f;
     data[Projectile::Missile].texture = Textures::Entities;
     data[Projectile::Missile].textureRect = sf::IntRect (160, 64, 15, 32);
     data[Projectile::Missile].distanceMax = -9999.f;
+
+    data[Projectile::AsteroideUn].hitpoints = 20;
+    data[Projectile::AsteroideUn].damage = 20;
+    data[Projectile::AsteroideUn].speed = 150.f;
+    data[Projectile::AsteroideUn].texture = Textures::AsteroideUn;
+    data[Projectile::AsteroideUn].textureRect = sf::IntRect (0, 0, 500, 500);
+    data[Projectile::AsteroideUn].distanceMax = -9999.f;
 
     return data;
 }
@@ -138,15 +147,16 @@ std::vector<BaseData> initializeBaseData()
     return data;
 }
 
-std::vector<AsteroideData> initializeAsteroideData()
-{
-    std::vector<AsteroideData> data (Asteroide::TypeCount);
-    //Premier type de base
-    data[Asteroide::AsteroideUn].hitpoints = 20;
-    data[Asteroide::AsteroideUn].texture = Textures::AsteroideUn;
- //   data[Base::BaseTypeUn].textureRect = sf::IntRect (228, 0, 60, 59);
-
-    return data;
-}
+//std::vector<AsteroideData> initializeAsteroideData()
+//{
+//    std::vector<AsteroideData> data (Asteroide::TypeCount);
+//    //Premier type de base
+//    data[Asteroide::AsteroideUn].hitpoints = 20;
+//    data[Asteroide::AsteroideUn].texture = Textures::AsteroideUn;
+// //   data[Base::BaseTypeUn].textureRect = sf::IntRect (228, 0, 60, 59);
+//
+//
+//    return data;
+//}
 
 

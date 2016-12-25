@@ -16,7 +16,7 @@ const std::vector<ProjectileData> Table = initializeProjectileData();
 }
 
 Projectile::Projectile(Type type, const TextureHolder& textures)
-    : Entity(1)
+    : Entity(Table[type].hitpoints)
     , m_type(type)
     , m_sprite(textures.get(Table[type].texture), Table[type].textureRect)
     , m_targetDirection()
@@ -85,6 +85,8 @@ unsigned int Projectile::getCategory() const
 {
     if (m_type == EnemyBullet)
         return Category::EnemyProjectile;
+    else if (m_type == AsteroideUn)
+        return Category::Asteroide ;
     else
         return Category::AlliedProjectile;
 }
@@ -104,3 +106,7 @@ int Projectile::getDamage() const
     return Table[m_type].damage;
 }
 
+void Projectile::changeScale(float x, float y)
+{
+    m_sprite.scale(sf::Vector2f(x, y));
+}

@@ -11,11 +11,7 @@
 class Asteroide : public Projectile
 {
 public:
-    enum Type
-    {
-        AsteroideUn,
-        TypeCount
-    };
+Asteroide (Type type, const TextureHolder& textures);
 
 
     protected:

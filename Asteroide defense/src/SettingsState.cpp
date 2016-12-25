@@ -19,6 +19,7 @@ SettingsState::SettingsState(StateStack& stack,Context context):
         addButtonLabel(PlayerAction::MoveDown, x, 3, "Move Down", context);
         addButtonLabel(PlayerAction::Fire, x, 4, "Fire", context);
         addButtonLabel(PlayerAction::LaunchMissile, x, 5, "Missile", context);
+        addButtonLabel(PlayerAction::LaunchAsteroideUn, x, 6, "AsteroideUn", context);
     }
 
     updateLabels();
@@ -93,12 +94,12 @@ void SettingsState::addButtonLabel(std::size_t index, std::size_t x, std::size_t
     index += PlayerAction::Count * x;
 
     m_bindingButtons[index] = std::make_shared<GUI::Button>(context);
-    m_bindingButtons[index]->setPosition(400.f*x + 80.f, 50.f*y + 300.f);
+    m_bindingButtons[index]->setPosition(400.f*x + 80.f, 50.f*y + 150.f);
     m_bindingButtons[index]->setText(text);
     m_bindingButtons[index]->setToggle(true);
 
     m_bindingLabels[index] = std::make_shared<GUI::Label>("", *context.fonts);
-    m_bindingLabels[index]->setPosition(400.f*x + 300.f, 50.f*y + 315.f);
+    m_bindingLabels[index]->setPosition(400.f*x + 300.f, 50.f*y + 150.f);
 
     m_GUIContainer.pack(m_bindingButtons[index]);
     m_GUIContainer.pack(m_bindingLabels[index]);
