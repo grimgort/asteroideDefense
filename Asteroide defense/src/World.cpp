@@ -74,29 +74,39 @@ void World::update (sf::Time dt)
 
         //Déplacement en x
         if (position.left + position.width +
-                m_worldView.getSize().x / 2 >=
+                m_worldView.getSize().x / 2.f >=
                 m_worldBounds.width) {}
-        else if (position.left - m_worldView.getSize().x / 2 -
-                 position.width / 2 <= 0.f) {}
         else
         {
-            m_worldView.move (velocity.x * dt.asSeconds() * m_scrollSpeedCompensation, 0.f);
+            if (position.left - m_worldView.getSize().x / 2.f -
+                    position.width / 2.f <= 0.f) {}
+            else
+            {
+                m_worldView.move (velocity.x * dt.asSeconds() *
+                                  m_scrollSpeedCompensation, 0.f);
+            }
+
         }
 
         //Déplacement en y
-        if (position.top - m_worldView.getSize().y / 2 <=
+        if (position.top - m_worldView.getSize().y / 2.f <=
                 m_worldBounds.top) {}
-        else if (position.top + m_worldView.getSize().y / 2 +
-                 position.height >= m_worldBounds.height) {}
         else
         {
-            m_worldView.move (0.f, velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+            if (position.top + m_worldView.getSize().y / 2.f +
+                    position.height >= m_worldBounds.height) {}
+            else
+            {
+                m_worldView.move (0.f,
+                                  velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+            }
         }
     }
     //initialise la vitesse de l'avion du joueur à 0.
     //RQ:: sa vitesse est relative au monde(noeud enfant du noeud monde)
     FOREACH (Aircraft * a, m_playerAircrafts)
     a->setVelocity (0.f, 0.f);
+
     destroyEntitiesOutsideWorld();
     guideMissiles();
 
@@ -320,19 +330,21 @@ bool matchesCategories (SceneNode::Pair&
     {
         return true;
     }
-    else if (type1 & category2 && type2 & category2)
-    {
-        return true;
-    }
-    else if (type1 & category2 && type2 & category1)
-    {
-        std::swap (colliders.first, colliders.second);
-        return true;
-    }
     else
-    {
-        return false;
-    }
+        if (type1 & category2 && type2 & category2)
+        {
+            return true;
+        }
+        else
+            if (type1 & category2 && type2 & category1)
+            {
+                std::swap (colliders.first, colliders.second);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 }
 
 void World::grilleDeCollision()
@@ -410,88 +422,94 @@ void World::handleCollisions()
             player.damage (enemy.getHitpoints());
             enemy.destroy();
         }
-        else if (matchesCategories (pair,
-                                    Category::PlayerAircraft, Category::Pickup))
-        {
-            auto& player = static_cast<Aircraft&>
-                           (*pair.first);
-            auto& pickup = static_cast<Pickup&>
-                           (*pair.second);
-            pickup.apply (player);
-            pickup.destroy();
-            player.playLocalSound (m_commandQueue,
-                                   SoundEffect::CollectPickup);
-        }
-        else if (matchesCategories (pair,
-                                    Category::EnemyAircraft,
-                                    Category::AlliedProjectile)
-                 || matchesCategories (pair,
-                                       Category::PlayerAircraft,
-                                       Category::EnemyProjectile))
-
-        {
-            auto& aircraft = static_cast<Aircraft&>
-                             (*pair.first);
-            auto& projectile = static_cast<Projectile&>
+        else
+            if (matchesCategories (pair,
+                                   Category::PlayerAircraft, Category::Pickup))
+            {
+                auto& player = static_cast<Aircraft&>
+                               (*pair.first);
+                auto& pickup = static_cast<Pickup&>
                                (*pair.second);
-            aircraft.damage (projectile.getDamage());
-            projectile.destroy();
-        }
-        else if (matchesCategories (pair,
-                                    Category::Base,
-                                    Category::EnemyProjectile)
-                 || matchesCategories (pair,
-                                       Category::Base,
+                pickup.apply (player);
+                pickup.destroy();
+                player.playLocalSound (m_commandQueue,
+                                       SoundEffect::CollectPickup);
+            }
+            else
+                if (matchesCategories (pair,
+                                       Category::EnemyAircraft,
                                        Category::AlliedProjectile)
-                 || matchesCategories (pair,
-                                       Category::Base,
-                                       Category::Asteroide))
-        {
-            auto& base = static_cast<Base&> (*pair.first);
-            auto& projectile = static_cast<Projectile&> (*pair.second);
-            base.damage (projectile.getDamage());
-            projectile.destroy();
-        }
-        else if (matchesCategories (pair,
-                                    Category::Base,
-                                    Category::EnemyAircraft))
-        {
-            auto& base = static_cast<Base&> (*pair.first);
-            auto& enemy = static_cast<Aircraft&> (*pair.second);
-            base.damage (enemy.getHitpoints());
-            enemy.destroy();
-        }
-        else if (matchesCategories (pair,
-                            Category::Asteroide,
-                            Category::EnemyAircraft)
-         || matchesCategories (pair,
-                               Category::Asteroide,
-                               Category::PlayerAircraft))
-        {
-            auto& aircraft = static_cast<Aircraft&>
-                             (*pair.second);
-            auto& asteroide = static_cast<Asteroide&>
-                               (*pair.first);
+                        || matchesCategories (pair,
+                                              Category::PlayerAircraft,
+                                              Category::EnemyProjectile))
 
-            asteroide.damage (aircraft.getHitpoints());
-            aircraft.damage (asteroide.getDamage());
+                {
+                    auto& aircraft = static_cast<Aircraft&>
+                                     (*pair.first);
+                    auto& projectile = static_cast<Projectile&>
+                                       (*pair.second);
+                    aircraft.damage (projectile.getDamage());
+                    projectile.destroy();
+                }
+                else
+                    if (matchesCategories (pair,
+                                           Category::Base,
+                                           Category::EnemyProjectile)
+                            || matchesCategories (pair,
+                                                  Category::Base,
+                                                  Category::AlliedProjectile)
+                            || matchesCategories (pair,
+                                                  Category::Base,
+                                                  Category::Asteroide))
+                    {
+                        auto& base = static_cast<Base&> (*pair.first);
+                        auto& projectile = static_cast<Projectile&> (*pair.second);
+                        base.damage (projectile.getDamage());
+                        projectile.destroy();
+                    }
+                    else
+                        if (matchesCategories (pair,
+                                               Category::Base,
+                                               Category::EnemyAircraft))
+                        {
+                            auto& base = static_cast<Base&> (*pair.first);
+                            auto& enemy = static_cast<Aircraft&> (*pair.second);
+                            base.damage (enemy.getHitpoints());
+                            enemy.destroy();
+                        }
+                        else
+                            if (matchesCategories (pair,
+                                                   Category::Asteroide,
+                                                   Category::EnemyAircraft)
+                                    || matchesCategories (pair,
+                                                          Category::Asteroide,
+                                                          Category::PlayerAircraft))
+                            {
+                                auto& aircraft = static_cast<Aircraft&>
+                                                 (*pair.second);
+                                auto& asteroide = static_cast<Asteroide&>
+                                                  (*pair.first);
 
-        }
-        else if (matchesCategories (pair,
-                            Category::Asteroide,
-                            Category::AlliedProjectile)
-         || matchesCategories (pair,
-                               Category::Asteroide,
-                               Category::EnemyProjectile))
-        {
-            auto& asteroide = static_cast<Asteroide&>
-                               (*pair.first);
-            auto& projectile = static_cast<Projectile&>
-                             (*pair.second);
+                                asteroide.damage (aircraft.getHitpoints());
+                                aircraft.damage (asteroide.getDamage());
 
-            asteroide.damage (projectile.getDamage());
-            projectile.destroy();
-        }
+                            }
+                            else
+                                if (matchesCategories (pair,
+                                                       Category::Asteroide,
+                                                       Category::AlliedProjectile)
+                                        || matchesCategories (pair,
+                                                              Category::Asteroide,
+                                                              Category::EnemyProjectile))
+                                {
+                                    auto& asteroide = static_cast<Asteroide&>
+                                                      (*pair.first);
+                                    auto& projectile = static_cast<Projectile&>
+                                                       (*pair.second);
+
+                                    asteroide.damage (projectile.getDamage());
+                                    projectile.destroy();
+                                }
     }
 }
 
@@ -554,13 +572,13 @@ void World::buildScene()
     /* Rajoute la base 1  */
     std::unique_ptr<Base> baseUn (
         new Base (Base::BaseTypeUn, m_textures, m_fonts));
-    baseUn->setPosition(0.f, 4650.f);
+    baseUn->setPosition (0.f, 4650.f);
     m_sceneLayers[UpperAir]->attachChild (std::move (baseUn));
 
     /* Rajoute la base 2 */
     std::unique_ptr<Base> baseDeux (
         new Base (Base::BaseTypeUn, m_textures, m_fonts));
-    baseDeux->setPosition(0.f, 0.f);
+    baseDeux->setPosition (0.f, 0.f);
     m_sceneLayers[UpperAir]->attachChild (std::move (baseDeux));
 
 

@@ -95,7 +95,6 @@ private:
     TextNode* m_healthDisplay;
     TextNode* m_missileDisplay;
 
-
     int m_identifier;
 };
 

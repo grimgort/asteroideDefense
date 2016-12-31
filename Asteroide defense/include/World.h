@@ -40,7 +40,15 @@ public:
 
     sf::FloatRect getViewBounds() const;
     CommandQueue& getCommandQueue();
+
+    /////////////////////////////////////////////////
+    /// \brief Ajoute un avion de type joueur
+    ///
+    /// Crer un pointeur unique d'un avion joueur et défini sa position,
+    /// son identifiant et son noeud pére.
+    /////////////////////////////////////////////////
     Aircraft* addAircraft (int identifier);
+
     void removeAircraft (int identifier);
     void setCurrentBattleFieldPosition (float lineY);
     void setWorldHeight (float height);
@@ -132,6 +140,7 @@ private:
     sf::RenderTarget& m_target;
     sf::RenderTexture m_sceneTexture;
     sf::View m_worldView;
+
     TextureHolder m_textures;
     FontHolder& m_fonts;
     SoundPlayer& m_sounds;
