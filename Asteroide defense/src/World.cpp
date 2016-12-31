@@ -76,20 +76,22 @@ void World::update (sf::Time dt)
         if (position.left + position.width +
                 m_worldView.getSize().x / 2 >=
                 m_worldBounds.width) {}
+        else if (position.left - m_worldView.getSize().x / 2 -
+                 position.width / 2 <= 0.f) {}
         else
-            if (position.left - m_worldView.getSize().x / 2 -
-                    position.width / 2 <= 0.f) {}
-            else
-            { m_worldView.move (velocity.x * dt.asSeconds() * m_scrollSpeedCompensation, 0.f); }
+        {
+            m_worldView.move (velocity.x * dt.asSeconds() * m_scrollSpeedCompensation, 0.f);
+        }
 
         //Déplacement en y
         if (position.top - m_worldView.getSize().y / 2 <=
                 m_worldBounds.top) {}
+        else if (position.top + m_worldView.getSize().y / 2 +
+                 position.height >= m_worldBounds.height) {}
         else
-            if (position.top + m_worldView.getSize().y / 2 +
-                    position.height >= m_worldBounds.height) {}
-            else
-            { m_worldView.move (0.f, velocity.y * dt.asSeconds() * m_scrollSpeedCompensation); }
+        {
+            m_worldView.move (0.f, velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+        }
     }
     //initialise la vitesse de l'avion du joueur à 0.
     //RQ:: sa vitesse est relative au monde(noeud enfant du noeud monde)
@@ -101,7 +103,9 @@ void World::update (sf::Time dt)
     //Tant que la liste des commande n'est pas vide(m_commandQueu pas vide)
     //on applique la fonction onCommand aux noeud.
     while (!m_commandQueue.isEmpty())
-    { m_sceneGraph.onCommand (m_commandQueue.pop(), dt); }
+    {
+        m_sceneGraph.onCommand (m_commandQueue.pop(), dt);
+    }
 
     //Permet d'adapter le mouvement en fonction des commandes.
     //En particulier en cas de mouvement diagonal où l'on fiat la racide de 2
@@ -152,7 +156,9 @@ const
     FOREACH (Aircraft * a, m_playerAircrafts)
     {
         if (a->getIdentifier() == identifier)
-        { return a; }
+        {
+            return a;
+        }
     }
     return nullptr;
 }
@@ -220,9 +226,13 @@ bool World::hasAlivePlayer() const
 bool World::hasPlayerReachedEnd() const
 {
     if (Aircraft* aircraft = getAircraft (1))
-    { return !m_worldBounds.contains (aircraft->getPosition()); }
+    {
+        return !m_worldBounds.contains (aircraft->getPosition());
+    }
     else
-    { return false; }
+    {
+        return false;
+    }
 }
 
 /*
@@ -243,6 +253,8 @@ void World::loadTextures()
                      "media/Textures/FinishLine.png");
     m_textures.load (Textures::Base,
                      "media/Textures/base.png");
+    m_textures.load (Textures::AsteroideUn,
+                     "media/Textures/asteroide1.png");
 }
 
 /*
@@ -286,7 +298,9 @@ void World::adaptPlayerVelocity()
 
         //si la vitesse on a un mouvement diagonal on ajuste la distance.
         if (velocity.x != 0.f && velocity.y != 0.f)
-        { aircraft->setVelocity (velocity / std::sqrt (2.f)); }
+        {
+            aircraft->setVelocity (velocity / std::sqrt (2.f));
+        }
 
         //on ajoute la vitesse de défilement du monde à la vitesse des commande clavier
         aircraft->accelerate (0.f, m_scrollSpeed);
@@ -306,21 +320,19 @@ bool matchesCategories (SceneNode::Pair&
     {
         return true;
     }
+    else if (type1 & category2 && type2 & category2)
+    {
+        return true;
+    }
+    else if (type1 & category2 && type2 & category1)
+    {
+        std::swap (colliders.first, colliders.second);
+        return true;
+    }
     else
-        if (type1 & category2 && type2 & category2)
-        {
-            return true;
-        }
-        else
-            if (type1 & category2 && type2 & category1)
-            {
-                std::swap (colliders.first, colliders.second);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+    {
+        return false;
+    }
 }
 
 void World::grilleDeCollision()
@@ -398,34 +410,88 @@ void World::handleCollisions()
             player.damage (enemy.getHitpoints());
             enemy.destroy();
         }
-        else
-            if (matchesCategories (pair,
-                                   Category::PlayerAircraft, Category::Pickup))
-            {
-                auto& player = static_cast<Aircraft&>
-                               (*pair.first);
-                auto& pickup = static_cast<Pickup&>
+        else if (matchesCategories (pair,
+                                    Category::PlayerAircraft, Category::Pickup))
+        {
+            auto& player = static_cast<Aircraft&>
+                           (*pair.first);
+            auto& pickup = static_cast<Pickup&>
+                           (*pair.second);
+            pickup.apply (player);
+            pickup.destroy();
+            player.playLocalSound (m_commandQueue,
+                                   SoundEffect::CollectPickup);
+        }
+        else if (matchesCategories (pair,
+                                    Category::EnemyAircraft,
+                                    Category::AlliedProjectile)
+                 || matchesCategories (pair,
+                                       Category::PlayerAircraft,
+                                       Category::EnemyProjectile))
+
+        {
+            auto& aircraft = static_cast<Aircraft&>
+                             (*pair.first);
+            auto& projectile = static_cast<Projectile&>
                                (*pair.second);
-                pickup.apply (player);
-                pickup.destroy();
-                player.playLocalSound (m_commandQueue,
-                                       SoundEffect::CollectPickup);
-            }
-            else
-                if (matchesCategories (pair,
-                                       Category::EnemyAircraft,
+            aircraft.damage (projectile.getDamage());
+            projectile.destroy();
+        }
+        else if (matchesCategories (pair,
+                                    Category::Base,
+                                    Category::EnemyProjectile)
+                 || matchesCategories (pair,
+                                       Category::Base,
                                        Category::AlliedProjectile)
-                        || matchesCategories (pair,
-                                              Category::PlayerAircraft,
-                                              Category::EnemyProjectile))
-                {
-                    auto& aircraft = static_cast<Aircraft&>
-                                     (*pair.first);
-                    auto& projectile = static_cast<Projectile&>
-                                       (*pair.second);
-                    aircraft.damage (projectile.getDamage());
-                    projectile.destroy();
-                }
+                 || matchesCategories (pair,
+                                       Category::Base,
+                                       Category::Asteroide))
+        {
+            auto& base = static_cast<Base&> (*pair.first);
+            auto& projectile = static_cast<Projectile&> (*pair.second);
+            base.damage (projectile.getDamage());
+            projectile.destroy();
+        }
+        else if (matchesCategories (pair,
+                                    Category::Base,
+                                    Category::EnemyAircraft))
+        {
+            auto& base = static_cast<Base&> (*pair.first);
+            auto& enemy = static_cast<Aircraft&> (*pair.second);
+            base.damage (enemy.getHitpoints());
+            enemy.destroy();
+        }
+        else if (matchesCategories (pair,
+                            Category::Asteroide,
+                            Category::EnemyAircraft)
+         || matchesCategories (pair,
+                               Category::Asteroide,
+                               Category::PlayerAircraft))
+        {
+            auto& aircraft = static_cast<Aircraft&>
+                             (*pair.second);
+            auto& asteroide = static_cast<Asteroide&>
+                               (*pair.first);
+
+            asteroide.damage (aircraft.getHitpoints());
+            aircraft.damage (asteroide.getDamage());
+
+        }
+        else if (matchesCategories (pair,
+                            Category::Asteroide,
+                            Category::AlliedProjectile)
+         || matchesCategories (pair,
+                               Category::Asteroide,
+                               Category::EnemyProjectile))
+        {
+            auto& asteroide = static_cast<Asteroide&>
+                               (*pair.first);
+            auto& projectile = static_cast<Projectile&>
+                             (*pair.second);
+
+            asteroide.damage (projectile.getDamage());
+            projectile.destroy();
+        }
     }
 }
 
@@ -485,14 +551,17 @@ void World::buildScene()
 
 
 
-    /* Rajoute les bases */
-//    sf::Texture& baseTexture = m_textures.get (
-//                                   Textures::Base);
+    /* Rajoute la base 1  */
     std::unique_ptr<Base> baseUn (
         new Base (Base::BaseTypeUn, m_textures, m_fonts));
     baseUn->setPosition(0.f, 4650.f);
     m_sceneLayers[UpperAir]->attachChild (std::move (baseUn));
 
+    /* Rajoute la base 2 */
+    std::unique_ptr<Base> baseDeux (
+        new Base (Base::BaseTypeUn, m_textures, m_fonts));
+    baseDeux->setPosition(0.f, 0.f);
+    m_sceneLayers[UpperAir]->attachChild (std::move (baseDeux));
 
 
 
@@ -540,7 +609,9 @@ void World::buildScene()
 void World::addEnemies()
 {
     if (m_networkedWorld)
-    { return; }
+    {
+        return;
+    }
 
     for (float i = -10.f; i < 10.f; i++)
     {
@@ -561,6 +632,11 @@ void World::addEnemies()
     for (float i = -10.f; i < 10.f; i++)
     {
         addEnemy (Aircraft::Avenger, i * 70, 3000.f);
+    }
+
+    for (float i = -10.f; i < 10.f; i++)
+    {
+        addEnemy (Aircraft::Raptor, i * 70, 800.f);
     }
 
     sortEnemies();
@@ -597,7 +673,9 @@ void World::spawnEnemies()
         enemy->setRotation (180.f);
 
         if (m_networkedWorld)
-        { enemy->disablePickups(); }
+        {
+            enemy->disablePickups();
+        }
 
         m_sceneLayers[UpperAir]->attachChild (std::move (
                 enemy));
@@ -615,7 +693,9 @@ void World::destroyEntitiesOutsideWorld()
     {
         if (!getBattlefieldBounds().intersects (
                     e.getBoundingRect()))
-        { e.remove(); }
+        {
+            e.remove();
+        }
     });
     m_commandQueue.push (command);
 }
@@ -629,7 +709,9 @@ void World::guideMissiles()
                                          sf::Time)
     {
         if (!enemy.isDestroyed())
-        { m_activeEnemies.push_back (&enemy); }
+        {
+            m_activeEnemies.push_back (&enemy);
+        }
     });
     Command missileGuider;
     missileGuider.category =
@@ -639,7 +721,9 @@ void World::guideMissiles()
                                        Projectile & missile, sf::Time)
     {
         if (!missile.isGuided())
-        { return; }
+        {
+            return;
+        }
 
         float minDistance =
             std::numeric_limits<float>::max();
@@ -656,7 +740,9 @@ void World::guideMissiles()
         }
 
         if (closestEnemy)
-        { missile.guideTowards (closestEnemy->getWorldPosition()); }
+        {
+            missile.guideTowards (closestEnemy->getWorldPosition());
+        }
     });
     m_commandQueue.push (enemyCollector);
     m_commandQueue.push (missileGuider);

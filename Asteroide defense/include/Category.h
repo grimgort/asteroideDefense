@@ -21,9 +21,10 @@ enum Type
     SoundEffect = 1 << 8,
     Network = 1 << 9,
     Base = 1 << 10,
+    Asteroide = 1 << 11,
 
     Aircraft = PlayerAircraft | AlliedAircraft | EnemyAircraft,
-    Projectile = AlliedProjectile | EnemyProjectile,
+    Projectile = AlliedProjectile | EnemyProjectile | Asteroide,
 };
 }
 

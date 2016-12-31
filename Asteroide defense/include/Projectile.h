@@ -14,6 +14,7 @@ public:
         AlliedBullet,
         EnemyBullet,
         Missile,
+        AsteroideUn,
         TypeCount
     };
 
@@ -27,6 +28,8 @@ public:
     virtual sf::FloatRect getBoundingRect() const;
     float getMaxSpeed() const;
     int getDamage() const;
+
+    void changeScale(float x, float y);
 
 private:
     virtual void updateCurrent(sf::Time dt, CommandQueue& commands);

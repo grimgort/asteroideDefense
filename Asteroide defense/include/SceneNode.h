@@ -191,6 +191,7 @@ public:
     /////////////////////////////////////////////////
     virtual sf::FloatRect getBoundingRect() const;
 
+//    sf::Vector2f getWorldBounding() const;
     /////////////////////////////////////////////////
     /// \brief Demande si le noeud doit être supprimé
     ///

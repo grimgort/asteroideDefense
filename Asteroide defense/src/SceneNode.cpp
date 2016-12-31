@@ -164,7 +164,22 @@ sf::Transform SceneNode::getWorldTransform() const
     return transform;
 }
 
-
+//sf::Vector2f SceneNode::getWorldBounding() const
+//{
+//    sf::Vector2f worldBounding;
+//
+//    for (const SceneNode* node = this;
+//            node != nullptr;
+//            node = node->m_parent) //itére sur l'ensemble des noeud parent jusqu'à ce que m_parent renvoit un pointeur null(donc pas de parent)
+//    {
+//        if(node->getCategory()==Category::Base)
+//        {
+//            worldBounding = node->getWorldPosition() ;
+//        }
+//    }
+//
+//    return worldBounding;
+//}
 
 /*
     Vérifie que la commande envoyé doit être appliqué au présent noeud(bonne catégorie) et applique l'action si c'est le cas.
@@ -244,6 +259,30 @@ void SceneNode::checkSceneCollision (
                         || matchesCategories (*it->second, *it2->second,
                                               Category::EnemyAircraft,
                                               Category::AlliedProjectile)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::Base,
+                          Category::EnemyProjectile)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::EnemyAircraft,
+                          Category::Base)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::AlliedProjectile,
+                          Category::Base)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::Asteroide,
+                          Category::Base)
+                        || matchesCategories (*it->second, *it2->second,
+                          Category::Asteroide,
+                          Category::EnemyAircraft)
+                        || matchesCategories (*it->second, *it2->second,
+                              Category::Asteroide,
+                              Category::PlayerAircraft)
+                        || matchesCategories (*it->second, *it2->second,
+                              Category::Asteroide,
+                              Category::AlliedProjectile)
+                         || matchesCategories (*it->second, *it2->second,
+                              Category::Asteroide,
+                              Category::EnemyProjectile)
                    )
                 {
                     if (it->second != it2->second
@@ -251,10 +290,10 @@ void SceneNode::checkSceneCollision (
                             && !it->second->isDestroyed()
                             && !it2->second->isDestroyed())
                     {
-                        //                        std::cout << "it  " << it->second << "  " <<
-                        //                                  it->first << std::endl;
-                        //                        std::cout << "it2  " << it2->second << "  " <<
-                        //                                  it2->first << std::endl;
+//                                                std::cout << "it  " << it->second << "  " <<
+//                                                          it->first << std::endl;
+//                                                std::cout << "it2  " << it2->second << "  " <<
+//                                                          it2->first << std::endl;
                         collisionPairs.insert (std::minmax (it->second,
                                                             it2->second));
                     }

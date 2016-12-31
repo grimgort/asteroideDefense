@@ -61,6 +61,7 @@
 		<Unit filename="include/Aircraft.h" />
 		<Unit filename="include/Animation.h" />
 		<Unit filename="include/Application.h" />
+		<Unit filename="include/Asteroide.h" />
 		<Unit filename="include/Base.h" />
 		<Unit filename="include/BloomEffect.h" />
 		<Unit filename="include/Button.h" />
@@ -114,6 +115,7 @@
 		<Unit filename="src/Aircraft.cpp" />
 		<Unit filename="src/Animation.cpp" />
 		<Unit filename="src/Application.cpp" />
+		<Unit filename="src/Asteroide.cpp" />
 		<Unit filename="src/Base.cpp" />
 		<Unit filename="src/BloomEffect.cpp" />
 		<Unit filename="src/Button.cpp" />
@@ -159,7 +161,7 @@
 			<DoxyBlocks>
 				<comment_style block="5" line="2" />
 				<doxyfile_project output_language="French" />
-				<doxyfile_build />
+				<doxyfile_build extract_private="1" extract_static="1" />
 				<doxyfile_warnings />
 				<doxyfile_output />
 				<doxyfile_dot class_diagrams="1" />

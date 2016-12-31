@@ -5,6 +5,7 @@
 #include <Command.h>
 #include <ResourceIdentifiers.h>
 #include <Projectile.h>
+#include <Asteroide.h>
 #include <TextNode.h>
 #include <Animation.h>
 
@@ -27,7 +28,7 @@ public:
     };
 
 public:
-    Aircraft(Type type,const TextureHolder& textures, const FontHolder& fonts);
+    Aircraft(Type type, const TextureHolder& textures, const FontHolder& fonts);
 
     virtual unsigned int getCategory() const;
     virtual sf::FloatRect getBoundingRect() const;
@@ -43,6 +44,7 @@ public:
 
     void fire();
     void launchMissile();
+    void launchAsteroideUn();
     void playLocalSound(CommandQueue& commands, SoundEffect::ID effect);
     int getIdentifier();
     void setIdentifier(int identifier);
@@ -62,6 +64,7 @@ private:
     void createBullets(SceneNode& node, const TextureHolder& textures) const;
     void createProjectile(SceneNode& node, Projectile::Type type, float XOffset, float yOffset, const TextureHolder& textures) const;
     void createPickup(SceneNode& node, const TextureHolder& textures) const;
+    void createAsteroideUn(SceneNode& node, Projectile::Type type, float XOffset, float yOffset, const TextureHolder& textures) const;
 
     void updateTexts();
     void updateRollAnimation();
@@ -72,9 +75,11 @@ private:
     Animation m_explosion;
     Command m_fireCommand;
     Command m_missileCommand;
+    Command m_asteroideUnCommand;
     sf::Time m_fireCountDown;
     bool m_isFiring;
     bool m_isLaunchingMissile;
+    bool m_isLaunchingAsteroideUn;
     bool m_showExplosion;
     bool m_explosionBegan;
     bool m_spawnedPickup;
@@ -89,6 +94,7 @@ private:
     std::size_t m_directionIndex;
     TextNode* m_healthDisplay;
     TextNode* m_missileDisplay;
+
 
     int m_identifier;
 };

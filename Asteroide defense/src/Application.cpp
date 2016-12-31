@@ -16,7 +16,7 @@ const sf::Time Application::timePerFrame = sf::seconds(1.f/90.f);
 CONSTRUCTEUR/DESTRUCTEUR
 ************************************************/
 Application::Application()
-    : m_window(sf::VideoMode(1024, 768), "Network", sf::Style::Close)
+    : m_window(sf::VideoMode(1024, 768), "Network", sf::Style::Close|sf::Style::Resize)
     , m_textures()  //Conteneur de texture(textureHolder)
     , m_fonts() //Conteneur de font (fontHolder)
     , m_music()

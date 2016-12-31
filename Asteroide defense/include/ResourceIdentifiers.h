@@ -22,7 +22,8 @@ enum ID
     Explosion,
     Particle,
     FinishLine,
-    Base
+    Base,
+    AsteroideUn,
 };
 }
 
@@ -57,6 +58,7 @@ enum ID
     LaunchMissile,
     CollectPickup,
     Button,
+    LaunchAsteroideUn,
 };
 }
 

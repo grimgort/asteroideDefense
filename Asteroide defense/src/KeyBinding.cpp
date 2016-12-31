@@ -16,15 +16,18 @@ KeyBinding::KeyBinding(int controlPreconfiguration)
         m_keyMap[sf::Keyboard::Down] = PlayerAction::MoveDown;
         m_keyMap[sf::Keyboard::Space] = PlayerAction::Fire;
         m_keyMap[sf::Keyboard::M] = PlayerAction::LaunchMissile;
+        m_keyMap[sf::Keyboard::W] = PlayerAction::LaunchAsteroideUn;
+
     }
     else if (controlPreconfiguration == 2)
     {
-        m_keyMap[sf::Keyboard::A] = PlayerAction::MoveLeft;
+        m_keyMap[sf::Keyboard::Q] = PlayerAction::MoveLeft;
         m_keyMap[sf::Keyboard::D] = PlayerAction::MoveRight;
-        m_keyMap[sf::Keyboard::W] = PlayerAction::MoveUp;
+        m_keyMap[sf::Keyboard::Z] = PlayerAction::MoveUp;
         m_keyMap[sf::Keyboard::S] = PlayerAction::MoveDown;
         m_keyMap[sf::Keyboard::F] = PlayerAction::Fire;
         m_keyMap[sf::Keyboard::R] = PlayerAction::LaunchMissile;
+        m_keyMap[sf::Keyboard::W] = PlayerAction::LaunchAsteroideUn;
     }
 }
 

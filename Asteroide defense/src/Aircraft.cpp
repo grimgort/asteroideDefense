@@ -11,6 +11,8 @@
 #include <SFML/Graphics/RenderStates.hpp>
 
 #include <cmath>
+#include <iostream>
+#include <time.h>
 
 using namespace std::placeholders;
 
@@ -39,9 +41,11 @@ Aircraft::Aircraft(Type type
     , m_explosion(textures.get(Textures::Explosion))
     , m_fireCommand()
     , m_missileCommand()
+    , m_asteroideUnCommand()
     , m_fireCountDown(sf::Time::Zero)
     , m_isFiring(false)
     , m_isLaunchingMissile(false)
+    , m_isLaunchingAsteroideUn(false)
     , m_showExplosion(true)
     , m_explosionBegan(false)
     , m_spawnedPickup(false)
@@ -72,6 +76,12 @@ Aircraft::Aircraft(Type type
     m_missileCommand.action = [this, &textures] (SceneNode& node, sf::Time)
     {
         createProjectile(node, Projectile::Missile, 0.f, 0.5f, textures);
+    };
+
+    m_asteroideUnCommand.category = Category::SceneAirLayer;
+    m_asteroideUnCommand.action = [this, &textures] (SceneNode& node, sf::Time)
+    {
+        createAsteroideUn(node, Asteroide::AsteroideUn, 0.f, 0.5f, textures);
     };
 
     m_dropPickupCommand.category = Category::SceneAirLayer;
@@ -235,6 +245,12 @@ void Aircraft::launchMissile()
     }
 }
 
+void Aircraft::launchAsteroideUn()
+{
+        m_isLaunchingAsteroideUn = true;
+         /* Rajouter l'argent à enlever  */
+}
+
 void Aircraft::playLocalSound(CommandQueue& commands, SoundEffect::ID effect)
 {
     sf::Vector2f worldPosition =  getWorldPosition();
@@ -313,6 +329,13 @@ void Aircraft::checkProjectileLaunch(sf::Time dt, CommandQueue& commands)
         playLocalSound(commands, SoundEffect::LaunchMissile);
         m_isLaunchingMissile = false;
     }
+
+    if (m_isLaunchingAsteroideUn)
+    {
+        commands.push(m_asteroideUnCommand);
+        playLocalSound(commands, SoundEffect::LaunchAsteroideUn);
+        m_isLaunchingAsteroideUn = false;
+    }
 }
 
 void Aircraft::createBullets(SceneNode& node, const TextureHolder& textures) const
@@ -347,6 +370,25 @@ void Aircraft::createProjectile(SceneNode& node, Projectile::Type type, float xO
     projectile->setPosition(getWorldPosition() + offset * sign);
     projectile->setVelocity(velocity * sign);
     node.attachChild(std::move(projectile));
+}
+
+
+void Aircraft::createAsteroideUn(SceneNode& node, Projectile::Type type, float xOffset, float yOffset, const TextureHolder& textures) const
+{
+    std::unique_ptr<Asteroide> asteroide(new Asteroide(type, textures));
+
+
+//    srand(time(NULL));
+    float nombre_aleatoire = rand()%(2000-0) +0;
+
+
+    sf::Vector2f offset(xOffset * m_sprite.getGlobalBounds().width, yOffset * m_sprite.getGlobalBounds().height);
+    sf::Vector2f velocity(0, asteroide->getMaxSpeed());
+    float sign = isAllied() ? -1.f : +1.f;
+    asteroide->setPosition(nombre_aleatoire, 4500.f);
+    asteroide->setVelocity(velocity * sign);
+    asteroide->changeScale(0.1f, 0.1f);
+    node.attachChild(std::move(asteroide));
 }
 
 void Aircraft::createPickup(SceneNode& node, const TextureHolder& textures) const
