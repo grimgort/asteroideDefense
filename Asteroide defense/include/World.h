@@ -39,6 +39,8 @@ public:
     void draw();
 
     sf::FloatRect getViewBounds() const;
+    sf::FloatRect getViewBoundsTeam2() const;
+
     CommandQueue& getCommandQueue();
 
     /////////////////////////////////////////////////

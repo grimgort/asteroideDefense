@@ -78,71 +78,87 @@ void World::update (sf::Time dt)
         if (identifier == 1)
         {
             //Déplacement en x
-            if (position.left + position.width +
-                    m_worldView.getSize().x / 2.f >=
-                    m_worldBounds.width) {}
-            else
-            {
-                if (position.left - m_worldView.getSize().x / 2.f -
-                        position.width / 2.f <= 0.f) {}
-                else
-                {
-                    m_worldView.move (velocity.x * dt.asSeconds() *
-                                      m_scrollSpeedCompensation, 0.f);
-                }
+            m_worldView.move (velocity.x * dt.asSeconds() *
+                              m_scrollSpeedCompensation, 0.f);
 
+            if (m_worldView.getCenter().x - m_worldView.getSize().x / 2.f <
+                    m_worldBounds.left)
+            {
+
+                m_worldView.setCenter (m_worldBounds.left + m_worldView.getSize().x /
+                                       2.f, m_worldView.getCenter().y);
+            }
+            else if (m_worldView.getCenter().x + m_worldView.getSize().x / 2.f >
+                     m_worldBounds.left + m_worldBounds.width)
+            {
+
+                m_worldView.setCenter (m_worldBounds.left + m_worldBounds.width -
+                                       m_worldView.getSize().x / 2.f, m_worldView.getCenter().y);
             }
 
             //Déplacement en y
-            if (position.top - m_worldView.getSize().y / 2.f <=
-                    m_worldBounds.top) {}
-            else
+            m_worldView.move (0.f,
+                              velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+
+            if (m_worldView.getCenter().y - m_worldView.getSize().y / 2.f <
+                    m_worldBounds.top)
             {
-                if (position.top + m_worldView.getSize().y / 2.f +
-                        position.height >= m_worldBounds.height) {}
-                else
-                {
-                    m_worldView.move (0.f,
-                                      velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
-                }
+
+                m_worldView.setCenter (m_worldView.getCenter().x,
+                                       m_worldBounds.top + m_worldView.getSize().y / 2.f);
+            }
+            else if (m_worldView.getCenter().y + m_worldView.getSize().y / 2.f >
+                     m_worldBounds.top + m_worldBounds.height)
+            {
+
+                m_worldView.setCenter (m_worldView.getCenter().x,
+                                       m_worldBounds.top + m_worldBounds.height - m_worldView.getSize().y /
+                                       2.f);
             }
         }
-        else
-            if (identifier == 2)
+        else if (identifier == 2)
+        {
+            m_worldView.setViewport (sf::FloatRect (0, 0, 0.5f, 1));
+            m_viewTeam2.setViewport (sf::FloatRect (0.5f, 0, 0.5f, 1));
+            //Déplacement en x
+            m_viewTeam2.move (velocity.x * dt.asSeconds() *
+                              m_scrollSpeedCompensation, 0.f);
+
+            if (m_viewTeam2.getCenter().x - m_viewTeam2.getSize().x / 2.f <
+                    m_worldBounds.left)
             {
-                m_worldView.setViewport (sf::FloatRect (0, 0, 0.5f, 1));
-                m_viewTeam2.setViewport (sf::FloatRect (0.5f, 0, 0.5f, 1));
 
-                //Déplacement en x
-                if (position.left + position.width +
-                        m_viewTeam2.getSize().x / 2.f >=
-                        m_worldBounds.width) {}
-                else
-                {
-                    if (position.left - m_viewTeam2.getSize().x / 2.f -
-                            position.width / 2.f <= 0.f) {}
-                    else
-                    {
-                        m_viewTeam2.move (velocity.x * dt.asSeconds() *
-                                          m_scrollSpeedCompensation, 0.f);
-                    }
-
-                }
-
-                //Déplacement en y
-                if (position.top - m_viewTeam2.getSize().y / 2.f <=
-                        m_worldBounds.top) {}
-                else
-                {
-                    if (position.top + m_viewTeam2.getSize().y / 2.f +
-                            position.height >= m_worldBounds.height) {}
-                    else
-                    {
-                        m_viewTeam2.move (0.f,
-                                          velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
-                    }
-                }
+                m_viewTeam2.setCenter (m_worldBounds.left + m_viewTeam2.getSize().x /
+                                       2.f, m_viewTeam2.getCenter().y);
             }
+            else if (m_viewTeam2.getCenter().x + m_viewTeam2.getSize().x / 2.f >
+                     m_worldBounds.left + m_worldBounds.width)
+            {
+
+                m_viewTeam2.setCenter (m_worldBounds.left + m_worldBounds.width -
+                                       m_viewTeam2.getSize().x / 2.f, m_viewTeam2.getCenter().y);
+            }
+
+            //Déplacement en y
+            m_viewTeam2.move (0.f,
+                              velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+
+            if (m_viewTeam2.getCenter().y - m_viewTeam2.getSize().y / 2.f <
+                    m_worldBounds.top)
+            {
+
+                m_viewTeam2.setCenter (m_viewTeam2.getCenter().x,
+                                       m_worldBounds.top + m_viewTeam2.getSize().y / 2.f);
+            }
+            else if (m_viewTeam2.getCenter().y + m_viewTeam2.getSize().y / 2.f >
+                     m_worldBounds.top + m_worldBounds.height)
+            {
+
+                m_viewTeam2.setCenter (m_viewTeam2.getCenter().x,
+                                       m_worldBounds.top + m_worldBounds.height - m_viewTeam2.getSize().y /
+                                       2.f);
+            }
+        }
 
 
     }
@@ -184,15 +200,21 @@ void World::draw()
     if (PostEffect::isSupported())
     {
         m_sceneTexture.clear();
+        /*Applique la scéne à la deuxième vue pour le split screen*/
+        m_sceneTexture.setView (m_viewTeam2);
+        m_sceneTexture.draw (m_sceneGraph);
+        /*Applique la scéne à la vue de base*/
         m_sceneTexture.setView (m_worldView);
         m_sceneTexture.draw (m_sceneGraph);
+
+
         m_sceneTexture.display();
         m_bloomEffect.apply (m_sceneTexture, m_target);
 
-                m_sceneTexture.clear();
-        m_sceneTexture.setView (m_viewTeam2);
-        m_sceneTexture.draw (m_sceneGraph);
-        m_sceneTexture.display();
+        //                m_sceneTexture.clear();
+        //        m_sceneTexture.setView (m_viewTeam2);
+        //        m_sceneTexture.draw (m_sceneGraph);
+        //        m_sceneTexture.display();
     }
     else
     {
@@ -323,25 +345,48 @@ void World::adaptPlayerPosition()
 {
     //récupére les dimension de la fenêtre principal
     sf::FloatRect viewBounds = getViewBounds();
+    sf::FloatRect viewBounds2 = getViewBoundsTeam2();
     //distance minimum entre les bord et le joueur
     const float borderDistance = 40.f;
     FOREACH (Aircraft * aircraft, m_playerAircrafts)
     {
-        //récupére la position de l'avion
-        sf::Vector2f position = aircraft->getPosition();
-        //on limite la position de l'avion aux bord de l'écran
-        position.x = std::max (position.x,
-                               viewBounds.left + borderDistance);
-        position.x = std::min (position.x,
-                               viewBounds.left + viewBounds.width -
-                               borderDistance);
-        position.y = std::max (position.y,
-                               viewBounds.top + borderDistance);
-        position.y = std::min (position.y,
-                               viewBounds.top + viewBounds.height -
-                               borderDistance);
-        //on applique lea nouvelle position
-        aircraft->setPosition (position);
+        if (aircraft->getIdentifier() == 1)
+        {
+
+            //récupére la position de l'avion
+            sf::Vector2f position = aircraft->getPosition();
+            //on limite la position de l'avion aux bord de l'écran
+            position.x = std::max (position.x,
+                                   viewBounds.left + borderDistance);
+            position.x = std::min (position.x,
+                                   viewBounds.left + viewBounds.width -
+                                   borderDistance);
+            position.y = std::max (position.y,
+                                   viewBounds.top + borderDistance);
+            position.y = std::min (position.y,
+                                   viewBounds.top + viewBounds.height -
+                                   borderDistance);
+            //on applique la nouvelle position
+            aircraft->setPosition (position);
+        }
+        else if (aircraft->getIdentifier() == 2)
+        {
+            //récupére la position de l'avion
+            sf::Vector2f position = aircraft->getPosition();
+            //on limite la position de l'avion aux bord de l'écran
+            position.x = std::max (position.x,
+                                   viewBounds2.left + borderDistance);
+            position.x = std::min (position.x,
+                                   viewBounds2.left + viewBounds2.width -
+                                   borderDistance);
+            position.y = std::max (position.y,
+                                   viewBounds2.top + borderDistance);
+            position.y = std::min (position.y,
+                                   viewBounds2.top + viewBounds2.height -
+                                   borderDistance);
+            //on applique lea nouvelle position
+            aircraft->setPosition (position);
+        }
     }
 }
 
@@ -379,21 +424,19 @@ bool matchesCategories (SceneNode::Pair&
     {
         return true;
     }
+    else if (type1 & category2 && type2 & category2)
+    {
+        return true;
+    }
+    else if (type1 & category2 && type2 & category1)
+    {
+        std::swap (colliders.first, colliders.second);
+        return true;
+    }
     else
-        if (type1 & category2 && type2 & category2)
-        {
-            return true;
-        }
-        else
-            if (type1 & category2 && type2 & category1)
-            {
-                std::swap (colliders.first, colliders.second);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+    {
+        return false;
+    }
 }
 
 void World::grilleDeCollision()
@@ -471,94 +514,88 @@ void World::handleCollisions()
             player.damage (enemy.getHitpoints());
             enemy.destroy();
         }
-        else
-            if (matchesCategories (pair,
-                                   Category::PlayerAircraft, Category::Pickup))
-            {
-                auto& player = static_cast<Aircraft&>
-                               (*pair.first);
-                auto& pickup = static_cast<Pickup&>
+        else if (matchesCategories (pair,
+                                    Category::PlayerAircraft, Category::Pickup))
+        {
+            auto& player = static_cast<Aircraft&>
+                           (*pair.first);
+            auto& pickup = static_cast<Pickup&>
+                           (*pair.second);
+            pickup.apply (player);
+            pickup.destroy();
+            player.playLocalSound (m_commandQueue,
+                                   SoundEffect::CollectPickup);
+        }
+        else if (matchesCategories (pair,
+                                    Category::EnemyAircraft,
+                                    Category::AlliedProjectile)
+                 || matchesCategories (pair,
+                                       Category::PlayerAircraft,
+                                       Category::EnemyProjectile))
+
+        {
+            auto& aircraft = static_cast<Aircraft&>
+                             (*pair.first);
+            auto& projectile = static_cast<Projectile&>
                                (*pair.second);
-                pickup.apply (player);
-                pickup.destroy();
-                player.playLocalSound (m_commandQueue,
-                                       SoundEffect::CollectPickup);
-            }
-            else
-                if (matchesCategories (pair,
-                                       Category::EnemyAircraft,
+            aircraft.damage (projectile.getDamage());
+            projectile.destroy();
+        }
+        else if (matchesCategories (pair,
+                                    Category::Base,
+                                    Category::EnemyProjectile)
+                 || matchesCategories (pair,
+                                       Category::Base,
                                        Category::AlliedProjectile)
-                        || matchesCategories (pair,
-                                              Category::PlayerAircraft,
-                                              Category::EnemyProjectile))
+                 || matchesCategories (pair,
+                                       Category::Base,
+                                       Category::Asteroide))
+        {
+            auto& base = static_cast<Base&> (*pair.first);
+            auto& projectile = static_cast<Projectile&> (*pair.second);
+            base.damage (projectile.getDamage());
+            projectile.destroy();
+        }
+        else if (matchesCategories (pair,
+                                    Category::Base,
+                                    Category::EnemyAircraft))
+        {
+            auto& base = static_cast<Base&> (*pair.first);
+            auto& enemy = static_cast<Aircraft&> (*pair.second);
+            base.damage (enemy.getHitpoints());
+            enemy.destroy();
+        }
+        else if (matchesCategories (pair,
+                                    Category::Asteroide,
+                                    Category::EnemyAircraft)
+                 || matchesCategories (pair,
+                                       Category::Asteroide,
+                                       Category::PlayerAircraft))
+        {
+            auto& aircraft = static_cast<Aircraft&>
+                             (*pair.second);
+            auto& asteroide = static_cast<Asteroide&>
+                              (*pair.first);
 
-                {
-                    auto& aircraft = static_cast<Aircraft&>
-                                     (*pair.first);
-                    auto& projectile = static_cast<Projectile&>
-                                       (*pair.second);
-                    aircraft.damage (projectile.getDamage());
-                    projectile.destroy();
-                }
-                else
-                    if (matchesCategories (pair,
-                                           Category::Base,
-                                           Category::EnemyProjectile)
-                            || matchesCategories (pair,
-                                                  Category::Base,
-                                                  Category::AlliedProjectile)
-                            || matchesCategories (pair,
-                                                  Category::Base,
-                                                  Category::Asteroide))
-                    {
-                        auto& base = static_cast<Base&> (*pair.first);
-                        auto& projectile = static_cast<Projectile&> (*pair.second);
-                        base.damage (projectile.getDamage());
-                        projectile.destroy();
-                    }
-                    else
-                        if (matchesCategories (pair,
-                                               Category::Base,
-                                               Category::EnemyAircraft))
-                        {
-                            auto& base = static_cast<Base&> (*pair.first);
-                            auto& enemy = static_cast<Aircraft&> (*pair.second);
-                            base.damage (enemy.getHitpoints());
-                            enemy.destroy();
-                        }
-                        else
-                            if (matchesCategories (pair,
-                                                   Category::Asteroide,
-                                                   Category::EnemyAircraft)
-                                    || matchesCategories (pair,
-                                                          Category::Asteroide,
-                                                          Category::PlayerAircraft))
-                            {
-                                auto& aircraft = static_cast<Aircraft&>
-                                                 (*pair.second);
-                                auto& asteroide = static_cast<Asteroide&>
-                                                  (*pair.first);
+            asteroide.damage (aircraft.getHitpoints());
+            aircraft.damage (asteroide.getDamage());
 
-                                asteroide.damage (aircraft.getHitpoints());
-                                aircraft.damage (asteroide.getDamage());
+        }
+        else if (matchesCategories (pair,
+                                    Category::Asteroide,
+                                    Category::AlliedProjectile)
+                 || matchesCategories (pair,
+                                       Category::Asteroide,
+                                       Category::EnemyProjectile))
+        {
+            auto& asteroide = static_cast<Asteroide&>
+                              (*pair.first);
+            auto& projectile = static_cast<Projectile&>
+                               (*pair.second);
 
-                            }
-                            else
-                                if (matchesCategories (pair,
-                                                       Category::Asteroide,
-                                                       Category::AlliedProjectile)
-                                        || matchesCategories (pair,
-                                                              Category::Asteroide,
-                                                              Category::EnemyProjectile))
-                                {
-                                    auto& asteroide = static_cast<Asteroide&>
-                                                      (*pair.first);
-                                    auto& projectile = static_cast<Projectile&>
-                                                       (*pair.second);
-
-                                    asteroide.damage (projectile.getDamage());
-                                    projectile.destroy();
-                                }
+            asteroide.damage (projectile.getDamage());
+            projectile.destroy();
+        }
     }
 }
 
@@ -821,6 +858,13 @@ sf::FloatRect World::getViewBounds() const
     return sf::FloatRect (m_worldView.getCenter() -
                           m_worldView.getSize() / 2.f,
                           m_worldView.getSize());
+}
+
+sf::FloatRect World::getViewBoundsTeam2() const
+{
+    return sf::FloatRect (m_viewTeam2.getCenter() -
+                          m_viewTeam2.getSize() / 2.f,
+                          m_viewTeam2.getSize());
 }
 
 sf::FloatRect World::getWorldBounds() const
