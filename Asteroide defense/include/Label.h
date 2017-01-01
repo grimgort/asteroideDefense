@@ -19,12 +19,12 @@ public:
     Label (const std::string& text, const FontHolder& fonts);
 
     virtual bool isSelectable() const;
-    void setText(const std::string& text);
+    void setText (const std::string& text);
 
-    virtual void handleEvent(const sf::Event& event);
+    virtual void handleEvent (const sf::Event& event);
 
 private:
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void draw (sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
     sf::Text m_text;

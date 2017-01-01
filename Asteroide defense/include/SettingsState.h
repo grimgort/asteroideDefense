@@ -15,21 +15,23 @@
 class SettingsState : public State
 {
 public:
-    SettingsState(StateStack& stack, Context context);
+    SettingsState (StateStack& stack, Context context);
 
     virtual void draw();
-    virtual bool update(sf::Time dt);
-    virtual bool handleEvent(const sf::Event& event);
+    virtual bool update (sf::Time dt);
+    virtual bool handleEvent (const sf::Event& event);
 
 private:
     void updateLabels();
-    void addButtonLabel(std::size_t index, std::size_t x, std::size_t y, const std::string& text, Context context);
+    void addButtonLabel (std::size_t index, std::size_t x, std::size_t y,
+                         const std::string& text, Context context);
 
 private:
     sf::Sprite m_backgroundSprite;
     GUI::Container m_GUIContainer;
-    std::array<GUI::Button::Ptr, 2*PlayerAction::Count> m_bindingButtons;
-    std::array<GUI::Label::Ptr, 2*PlayerAction::Count> m_bindingLabels;
+    std::array<GUI::Button::Ptr, 2 * PlayerAction::Count>
+    m_bindingButtons;
+    std::array<GUI::Label::Ptr, 2 * PlayerAction::Count> m_bindingLabels;
 };
 
 #endif // SETTINGSSTATE_H

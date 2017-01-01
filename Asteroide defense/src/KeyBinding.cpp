@@ -5,7 +5,7 @@
 #include <algorithm>
 
 
-KeyBinding::KeyBinding(int controlPreconfiguration)
+KeyBinding::KeyBinding (int controlPreconfiguration)
     : m_keyMap()
 {
     if (controlPreconfiguration == 1)
@@ -31,33 +31,35 @@ KeyBinding::KeyBinding(int controlPreconfiguration)
     }
 }
 
-void KeyBinding::assignKey(Action action, sf::Keyboard::Key key)
+void KeyBinding::assignKey (Action action, sf::Keyboard::Key key)
 {
     for (auto itr = m_keyMap.begin(); itr != m_keyMap.end();)
     {
         if (itr->second == action)
-            m_keyMap.erase(itr++);
+        { m_keyMap.erase (itr++); }
         else
-            ++itr;
+        { ++itr; }
     }
 
     m_keyMap[key] = action;
 }
 
-sf::Keyboard::Key KeyBinding::getAssignedKey(Action action) const
+sf::Keyboard::Key KeyBinding::getAssignedKey (Action action) const
 {
-    FOREACH(auto pair, m_keyMap)
+    FOREACH (auto pair, m_keyMap)
     {
         if (pair.second == action)
-            return pair.first;
+        { return pair.first; }
     }
 
     return sf::Keyboard::Unknown;
 }
 
-bool KeyBinding::checkAction(sf::Keyboard::Key key, Action& out) const
+bool KeyBinding::checkAction (sf::Keyboard::Key key,
+                              Action& out) const
 {
-    auto found = m_keyMap.find(key);
+    auto found = m_keyMap.find (key);
+
     if (found == m_keyMap.end())
     {
         return false;
@@ -73,16 +75,17 @@ std::vector<KeyBinding::Action> KeyBinding::getRealtimeActions() const
 {
     std::vector<Action> actions;
 
-    FOREACH(auto pair, m_keyMap)
+    FOREACH (auto pair, m_keyMap)
     {
-        if (sf::Keyboard::isKeyPressed(pair.first) && isRealtimeAction(pair.second))
-            actions.push_back(pair.second);
+        if (sf::Keyboard::isKeyPressed (pair.first)
+                && isRealtimeAction (pair.second))
+        { actions.push_back (pair.second); }
     }
 
     return actions;
 }
 
-bool isRealtimeAction(PlayerAction::Type action)
+bool isRealtimeAction (PlayerAction::Type action)
 {
     switch (action)
     {
@@ -92,6 +95,7 @@ bool isRealtimeAction(PlayerAction::Type action)
     case PlayerAction::MoveUp:
     case PlayerAction::Fire:
         return true;
+
     default:
         return false;
     }

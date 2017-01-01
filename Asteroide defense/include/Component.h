@@ -15,7 +15,8 @@ class Event;
 namespace GUI
 {
 
-class Component : public sf::Transformable, public sf::NonCopyable, public sf::Drawable
+class Component : public sf::Transformable, public sf::NonCopyable,
+    public sf::Drawable
 {
 public:
     typedef std::shared_ptr<Component> Ptr;
@@ -33,7 +34,7 @@ public:
     virtual void activate();
     virtual void deactivate();
 
-    virtual void handleEvent(const sf::Event& event) = 0;
+    virtual void handleEvent (const sf::Event& event) = 0;
 
 private:
     bool m_isSelected;

@@ -9,11 +9,11 @@
 class TitleState : public State
 {
 public:
-    TitleState(StateStack& stack, Context context);
+    TitleState (StateStack& stack, Context context);
 
-    virtual bool update(sf::Time  dt);
+    virtual bool update (sf::Time  dt);
     virtual void draw();
-    virtual bool handleEvent(const sf::Event& event);
+    virtual bool handleEvent (const sf::Event& event);
 
 private:
     sf::Sprite m_backgroundSprite;

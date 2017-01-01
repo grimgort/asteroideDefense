@@ -21,10 +21,10 @@ public:
 
 private:
     void processInput();
-    void update(sf::Time dt);
+    void update (sf::Time dt);
     void render();
 
-    void updateStatistics(sf::Time dt);
+    void updateStatistics (sf::Time dt);
     void registerStates();
 
 private:
@@ -32,7 +32,7 @@ private:
 
     sf::RenderWindow m_window;
     TextureHolder m_textures;
-    FontHolder	m_fonts;
+    FontHolder  m_fonts;
     MusicPlayer m_music;
     SoundPlayer m_sounds;
 
@@ -42,7 +42,7 @@ private:
 
     sf::Text m_statisticsText;
     sf::Time m_statisticsUpdateTime;
-    std::size_t	 m_statisticsNumFrames;
+    std::size_t  m_statisticsNumFrames;
 };
 
 #endif // APPLICATION_H

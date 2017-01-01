@@ -15,7 +15,7 @@
 
 class SoundPlayer;
 /*
-Permet de fabriquer et gérer les boutons.
+    Permet de fabriquer et gérer les boutons.
 */
 namespace GUI
 {
@@ -23,7 +23,7 @@ class Button : public Component
 {
 public:
     typedef std::shared_ptr<Button> Ptr;
-    typedef std::function<void()> CallBack;
+    typedef std::function<void() > CallBack;
 
     enum Type
     {
@@ -34,11 +34,11 @@ public:
     };
 
 public:
-    Button(State::Context context);
+    Button (State::Context context);
 
-    void setCallBack(CallBack callBack);
-    void setText(const std::string& text);
-    void setToggle(bool flag);
+    void setCallBack (CallBack callBack);
+    void setText (const std::string& text);
+    void setToggle (bool flag);
 
     virtual bool isSelectable() const;
     virtual void select();
@@ -47,11 +47,12 @@ public:
     virtual void activate();
     virtual void deactivate();
 
-    virtual void handleEvent(const sf::Event& event);
+    virtual void handleEvent (const sf::Event& event);
 
 private:
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-    void changeTexture(Type buttonType);
+    virtual void draw (sf::RenderTarget& target,
+                       sf::RenderStates states) const;
+    void changeTexture (Type buttonType);
 
 private:
     CallBack m_callBack;

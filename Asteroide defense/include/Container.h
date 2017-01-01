@@ -16,16 +16,17 @@ public:
 public:
     Container();
 
-    void pack(Component::Ptr Component);
+    void pack (Component::Ptr Component);
 
     virtual bool isSelectable() const;
-    virtual void handleEvent(const sf::Event& event);
+    virtual void handleEvent (const sf::Event& event);
 
 private:
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void draw (sf::RenderTarget& target,
+                       sf::RenderStates states) const;
 
     bool hasSelection() const;
-    void select(std::size_t index);
+    void select (std::size_t index);
     void selectNext();
     void selectPrevious();
 

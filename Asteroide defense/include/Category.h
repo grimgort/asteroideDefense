@@ -3,7 +3,7 @@
 
 
 /*
-Attribut un entier à une catégorie. "1 << 0" : le 1 définit que l'etier est codé sur 1byte ; le "0" donne la valeur d'initialisation.
+    Attribut un entier à une catégorie. "1 << 0" : le 1 définit que l'etier est codé sur 1byte ; le "0" donne la valeur d'initialisation.
 */
 namespace Category
 {

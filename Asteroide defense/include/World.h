@@ -139,7 +139,9 @@ private:
 private:
     sf::RenderTarget& m_target;
     sf::RenderTexture m_sceneTexture;
+
     sf::View m_worldView;
+    sf::View m_viewTeam2;
 
     TextureHolder m_textures;
     FontHolder& m_fonts;

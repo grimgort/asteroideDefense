@@ -3,8 +3,8 @@
 namespace GUI
 {
 Component::Component() :
-    m_isSelected(false),
-    m_isActive(false)
+    m_isSelected (false),
+    m_isActive (false)
 {
 }
 

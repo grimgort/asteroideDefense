@@ -30,31 +30,32 @@ public:
         Clear,
     };
 public:
-    explicit StateStack(State::Context context);
+    explicit StateStack (State::Context context);
 
     template<typename T>
-    void registerState(States::ID stateID);
+    void registerState (States::ID stateID);
     template<typename T, typename Param1>
-    void registerState(States::ID stateID, Param1 arg1);
+    void registerState (States::ID stateID, Param1 arg1);
 
-    void update(sf::Time dt);
+    void update (sf::Time dt);
     void draw();
-    void handleEvent(const sf::Event& event);
+    void handleEvent (const sf::Event& event);
 
-    void pushState(States::ID stateID);
+    void pushState (States::ID stateID);
     void popState();
     void clearStates();
 
     bool isEmpty() const;
 
 private:
-    State::Ptr createState(States::ID stateID);
+    State::Ptr createState (States::ID stateID);
     void applyPendingChanges();
 
 private:
     struct PendingChange
     {
-        explicit PendingChange(Action action,  States::ID stateID = States::None);
+        explicit PendingChange (Action action,
+                                States::ID stateID = States::None);
         Action action;
         States::ID stateID;
     };
@@ -64,25 +65,25 @@ private:
     std::vector<PendingChange> m_pendingList;
     State::Context m_context;
     //Contient l'ensemble des états possible
-    std::map<States::ID, std::function<State::Ptr()>> m_factories;
+    std::map<States::ID, std::function<State::Ptr() >> m_factories;
 };
 
 template <typename T>
-void StateStack::registerState(States::ID stateID)
+void StateStack::registerState (States::ID stateID)
 {
     m_factories[stateID] = [this] ()
     {
-        return State::Ptr(new T(*this, m_context));
+        return State::Ptr (new T (*this, m_context));
     };
 }
 
 
 template <typename T, typename Param1>
-void StateStack::registerState(States::ID stateID, Param1 arg1)
+void StateStack::registerState (States::ID stateID, Param1 arg1)
 {
     m_factories[stateID] = [this, arg1] ()
     {
-        return State::Ptr(new T(*this, m_context, arg1));
+        return State::Ptr (new T (*this, m_context, arg1));
     };
 }
 

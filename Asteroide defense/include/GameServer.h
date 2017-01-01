@@ -17,12 +17,14 @@
 class GameServer
 {
 public:
-    explicit GameServer(sf::Vector2f battlefieldSize);
+    explicit GameServer (sf::Vector2f battlefieldSize);
     ~GameServer();
 
-    void notifyPlayerSpawn(sf::Int32 aircraftIdentifier);
-    void notifyPlayerRealtimeChange(sf::Int32 aircraftIdentifier, sf::Int32 action, bool actionEnable);
-    void notifyPlayerEvent(sf::Int32 aircraftIdentifier, sf::Int32 action);
+    void notifyPlayerSpawn (sf::Int32 aircraftIdentifier);
+    void notifyPlayerRealtimeChange (sf::Int32 aircraftIdentifier,
+                                     sf::Int32 action, bool actionEnable);
+    void notifyPlayerEvent (sf::Int32 aircraftIdentifier,
+                            sf::Int32 action);
 
 private:
     struct RemotePeer
@@ -46,20 +48,21 @@ private:
     typedef std::unique_ptr<RemotePeer> PeerPtr;
 
 private:
-    void setListening(bool enable);
+    void setListening (bool enable);
     void executionThread();
     void tick();
     sf::Time now() const;
 
     void handleIncomingPackets();
-    void handleIncomingPacket(sf::Packet& packet, RemotePeer& receivingPeer, bool& detectedTimeout);
+    void handleIncomingPacket (sf::Packet& packet,
+                               RemotePeer& receivingPeer, bool& detectedTimeout);
 
     void handleIncomingConnections();
     void handleDisconnections();
 
-    void informWorldState(sf::TcpSocket& socket);
-    void broadcastMessage(const std::string& message);
-    void sendToAll(sf::Packet& packet);
+    void informWorldState (sf::TcpSocket& socket);
+    void broadcastMessage (const std::string& message);
+    void sendToAll (sf::Packet& packet);
     void updateClientState();
 
 private:

@@ -19,9 +19,9 @@ public:
     };
 
 public:
-    Projectile(Type type, const TextureHolder& textures);
+    Projectile (Type type, const TextureHolder& textures);
 
-    void guideTowards(sf::Vector2f position);
+    void guideTowards (sf::Vector2f position);
     bool isGuided() const;
 
     virtual unsigned int getCategory() const;
@@ -29,11 +29,12 @@ public:
     float getMaxSpeed() const;
     int getDamage() const;
 
-    void changeScale(float x, float y);
+    void changeScale (float x, float y);
 
 private:
-    virtual void updateCurrent(sf::Time dt, CommandQueue& commands);
-    virtual void drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
+    virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
+    virtual void drawCurrent (sf::RenderTarget& target,
+                              sf::RenderStates states) const;
 
 private:
     Type m_type;

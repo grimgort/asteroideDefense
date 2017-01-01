@@ -16,18 +16,19 @@
 class MultiplayerGameState : public State
 {
 public:
-    MultiplayerGameState(StateStack& stack, Context context, bool isHost);
+    MultiplayerGameState (StateStack& stack, Context context,
+                          bool isHost);
     virtual void draw();
-    virtual bool update(sf::Time dt);
-    virtual bool handleEvent(const sf::Event& event);
+    virtual bool update (sf::Time dt);
+    virtual bool handleEvent (const sf::Event& event);
     virtual void onActivate();
     void onDestroy();
 
     void disableAllRealtimeActions();
 
 private:
-    void updateBroadcastMessage(sf::Time elapsedTime);
-    void handlePacket(sf::Int32 packetType, sf::Packet& packet);
+    void updateBroadcastMessage (sf::Time elapsedTime);
+    void handlePacket (sf::Int32 packetType, sf::Packet& packet);
 
 private:
     typedef std::unique_ptr<Player> PlayerPtr;

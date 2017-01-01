@@ -27,13 +27,13 @@ public:
     typedef PlayerAction::Type Action;
 
 public:
-    explicit KeyBinding(int controlPreconfiguration);
+    explicit KeyBinding (int controlPreconfiguration);
 
-    void assignKey(Action action, sf::Keyboard::Key key);
-    sf::Keyboard::Key getAssignedKey(Action action) const;
+    void assignKey (Action action, sf::Keyboard::Key key);
+    sf::Keyboard::Key getAssignedKey (Action action) const;
 
-    bool checkAction(sf::Keyboard::Key key, Action& out) const;
-    std::vector<Action> getRealtimeActions()const;
+    bool checkAction (sf::Keyboard::Key key, Action& out) const;
+    std::vector<Action> getRealtimeActions() const;
 
 private:
     void initializeActions();
@@ -42,6 +42,6 @@ private:
     std::map<sf::Keyboard::Key, Action> m_keyMap;
 };
 
-bool isRealtimeAction(PlayerAction::Type action);
+bool isRealtimeAction (PlayerAction::Type action);
 
 #endif // KEYBINDING_H

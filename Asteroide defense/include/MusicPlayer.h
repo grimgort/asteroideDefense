@@ -15,11 +15,11 @@ class MusicPlayer : private sf::NonCopyable
 public:
     MusicPlayer();
 
-    void play(Music::ID theme);
+    void play (Music::ID theme);
     void stop();
 
-    void setPaused(bool paused);
-    void setVolume(float volume);
+    void setPaused (bool paused);
+    void setVolume (float volume);
 
 private:
     sf::Music m_music;

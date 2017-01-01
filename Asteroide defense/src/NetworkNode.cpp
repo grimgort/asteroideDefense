@@ -12,12 +12,13 @@ unsigned int NetworkNode::getCategory() const
     return Category::Network;
 }
 
-void NetworkNode::notifyGameAction(GameActions::Type type, sf::Vector2f position)
+void NetworkNode::notifyGameAction (GameActions::Type type,
+                                    sf::Vector2f position)
 {
-    m_pendingActions.push(GameActions::Action(type, position));
+    m_pendingActions.push (GameActions::Action (type, position));
 }
 
-bool NetworkNode::pollGameAction(GameActions::Action& out)
+bool NetworkNode::pollGameAction (GameActions::Action& out)
 {
     if (m_pendingActions.empty())
     {

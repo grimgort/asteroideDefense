@@ -260,29 +260,29 @@ void SceneNode::checkSceneCollision (
                                               Category::EnemyAircraft,
                                               Category::AlliedProjectile)
                         || matchesCategories (*it->second, *it2->second,
-                          Category::Base,
-                          Category::EnemyProjectile)
+                                              Category::Base,
+                                              Category::EnemyProjectile)
                         || matchesCategories (*it->second, *it2->second,
-                          Category::EnemyAircraft,
-                          Category::Base)
+                                              Category::EnemyAircraft,
+                                              Category::Base)
                         || matchesCategories (*it->second, *it2->second,
-                          Category::AlliedProjectile,
-                          Category::Base)
+                                              Category::AlliedProjectile,
+                                              Category::Base)
                         || matchesCategories (*it->second, *it2->second,
-                          Category::Asteroide,
-                          Category::Base)
+                                              Category::Asteroide,
+                                              Category::Base)
                         || matchesCategories (*it->second, *it2->second,
-                          Category::Asteroide,
-                          Category::EnemyAircraft)
+                                              Category::Asteroide,
+                                              Category::EnemyAircraft)
                         || matchesCategories (*it->second, *it2->second,
-                              Category::Asteroide,
-                              Category::PlayerAircraft)
+                                              Category::Asteroide,
+                                              Category::PlayerAircraft)
                         || matchesCategories (*it->second, *it2->second,
-                              Category::Asteroide,
-                              Category::AlliedProjectile)
-                         || matchesCategories (*it->second, *it2->second,
-                              Category::Asteroide,
-                              Category::EnemyProjectile)
+                                              Category::Asteroide,
+                                              Category::AlliedProjectile)
+                        || matchesCategories (*it->second, *it2->second,
+                                              Category::Asteroide,
+                                              Category::EnemyProjectile)
                    )
                 {
                     if (it->second != it2->second
@@ -290,10 +290,10 @@ void SceneNode::checkSceneCollision (
                             && !it->second->isDestroyed()
                             && !it2->second->isDestroyed())
                     {
-//                                                std::cout << "it  " << it->second << "  " <<
-//                                                          it->first << std::endl;
-//                                                std::cout << "it2  " << it2->second << "  " <<
-//                                                          it2->first << std::endl;
+                        //                                                std::cout << "it  " << it->second << "  " <<
+                        //                                                          it->first << std::endl;
+                        //                                                std::cout << "it2  " << it2->second << "  " <<
+                        //                                                          it2->first << std::endl;
                         collisionPairs.insert (std::minmax (it->second,
                                                             it2->second));
                     }
@@ -356,19 +356,17 @@ bool SceneNode::matchesCategories (
     {
         return true;
     }
+    else if (type1 & category2 && type2 & category2)
+    {
+        return true;
+    }
+    else if (type1 & category2 && type2 & category1)
+    {
+        return true;
+    }
     else
-        if (type1 & category2 && type2 & category2)
-        {
-            return true;
-        }
-        else
-            if (type1 & category2 && type2 & category1)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+    {
+        return false;
+    }
 }
 

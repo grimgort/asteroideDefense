@@ -236,12 +236,12 @@ bool MultiplayerGameState::update (sf::Time dt)
 
         m_timeSinceLastPacket += dt;
     }
-    else
-        if (m_failedConnectionClock.getElapsedTime() >= sf::seconds (5.f))
-        {
-            requestStateClear();
-            requestStackPush (States::Menu);
-        }
+    else if (m_failedConnectionClock.getElapsedTime() >= sf::seconds (
+                 5.f))
+    {
+        requestStateClear();
+        requestStackPush (States::Menu);
+    }
 
     return true;
 }
@@ -272,23 +272,20 @@ bool MultiplayerGameState::handleEvent (const sf::Event& event)
             m_socket.send (packet);
         }
 
-        else
-            if (event.key.code == sf::Keyboard::Escape)
-            {
-                disableAllRealtimeActions();
-                requestStackPush (States::NetworkPause);
-            }
-    }
-    else
-        if (event.type == sf::Event::GainedFocus)
+        else if (event.key.code == sf::Keyboard::Escape)
         {
-            m_hasFocus = true;
+            disableAllRealtimeActions();
+            requestStackPush (States::NetworkPause);
         }
-        else
-            if (event.type == sf::Event::LostFocus)
-            {
-                m_hasFocus = false;
-            }
+    }
+    else if (event.type == sf::Event::GainedFocus)
+    {
+        m_hasFocus = true;
+    }
+    else if (event.type == sf::Event::LostFocus)
+    {
+        m_hasFocus = false;
+    }
 
     return true;
 }
@@ -418,8 +415,8 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
                                              aircraftIdentifier, getContext().keys2));
         m_localPlayerIdentifiers.push_back (aircraftIdentifier);
 
- //       aircraft->setHitpoints (50);
- //       aircraft->setPosition(m_world.getWorldBounds().top) ;
+        //       aircraft->setHitpoints (50);
+        //       aircraft->setPosition(m_world.getWorldBounds().top) ;
     }
     break;
 

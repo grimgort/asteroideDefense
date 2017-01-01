@@ -33,7 +33,7 @@
 class Base : public Entity
 {
 public:
-        /////////////////////////////////////////////////
+    /////////////////////////////////////////////////
     /// \enum Définit le type de base
     ///
     /// Permet de définit les caractéristique de la base en fonction du type
@@ -139,11 +139,11 @@ private:
     /// On utilise aussi la fonction updateCurrent de l'entité.
     /////////////////////////////////////////////////
     virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
-        /////////////////////////////////////////////////
+    /////////////////////////////////////////////////
     /// \brief Met a jour le texte (point de vie de la base)
     ///
     /////////////////////////////////////////////////
-        void updateTexts();
+    void updateTexts();
 
 
 private:

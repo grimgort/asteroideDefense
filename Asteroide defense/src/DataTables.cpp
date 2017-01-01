@@ -87,7 +87,8 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::AsteroideUn].damage = 20;
     data[Projectile::AsteroideUn].speed = 150.f;
     data[Projectile::AsteroideUn].texture = Textures::AsteroideUn;
-    data[Projectile::AsteroideUn].textureRect = sf::IntRect (0, 0, 500, 500);
+    data[Projectile::AsteroideUn].textureRect = sf::IntRect (0, 0, 500,
+            500);
     data[Projectile::AsteroideUn].distanceMax = -9999.f;
 
     return data;
@@ -142,7 +143,7 @@ std::vector<BaseData> initializeBaseData()
     //Premier type de base
     data[Base::BaseTypeUn].hitpoints = 10000;
     data[Base::BaseTypeUn].texture = Textures::Base;
- //   data[Base::BaseTypeUn].textureRect = sf::IntRect (228, 0, 60, 59);
+    //   data[Base::BaseTypeUn].textureRect = sf::IntRect (228, 0, 60, 59);
 
     return data;
 }

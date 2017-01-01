@@ -76,13 +76,14 @@ enum ID
 template <typename Resource, typename Identifier>
 class ResourceHolder;
 /*
-ResourceHolder<sf::Texture, Textures::ID> TextureHolder = Template de classe ResourceHolder définit
-en tant que conteneur des classes Texture de SFML et nommé comme classe RessourceHolder.
-typedef ResourceHolder<sf::Font, Fonts::ID>	FontHolder = Pareil mais pour la classe Font de SFML
+    ResourceHolder<sf::Texture, Textures::ID> TextureHolder = Template de classe ResourceHolder définit
+    en tant que conteneur des classes Texture de SFML et nommé comme classe RessourceHolder.
+    typedef ResourceHolder<sf::Font, Fonts::ID> FontHolder = Pareil mais pour la classe Font de SFML
 */
 typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
-typedef ResourceHolder<sf::Font, Fonts::ID>	FontHolder;
+typedef ResourceHolder<sf::Font, Fonts::ID> FontHolder;
 typedef ResourceHolder<sf::Shader, Shaders::ID> ShaderHolder;
-typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID> SoundBufferHolder;
+typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID>
+SoundBufferHolder;
 
 #endif // RESOURCEIDENTIFIERS_H_INCLUDED

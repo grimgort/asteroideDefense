@@ -9,21 +9,21 @@ class Animation : public sf::Drawable, public sf::Transformable
 {
 public:
     Animation();
-    explicit Animation(const sf::Texture& texture);
+    explicit Animation (const sf::Texture& texture);
 
-    void setTexture(const sf::Texture& texture);
+    void setTexture (const sf::Texture& texture);
     const sf::Texture* getTexture() const;
 
-    void setFrameSize(sf::Vector2i mFrameSize);
+    void setFrameSize (sf::Vector2i mFrameSize);
     sf::Vector2i getFrameSize() const;
 
-    void setNumFrames(std::size_t numFrames);
+    void setNumFrames (std::size_t numFrames);
     std::size_t getNumFrames() const;
 
-    void setDuration(sf::Time duration);
+    void setDuration (sf::Time duration);
     sf::Time getDuration() const;
 
-    void setRepeating(bool flag);
+    void setRepeating (bool flag);
     bool isRepeating() const;
 
     void restart();
@@ -32,10 +32,10 @@ public:
     sf::FloatRect getLocalBounds() const;
     sf::FloatRect getGlobalBounds() const;
 
-    void update(sf::Time dt);
+    void update (sf::Time dt);
 
 private:
-    void draw(sf::RenderTarget& target, sf::RenderStates States) const;
+    void draw (sf::RenderTarget& target, sf::RenderStates States) const;
 
 private:
     sf::Sprite m_sprite;

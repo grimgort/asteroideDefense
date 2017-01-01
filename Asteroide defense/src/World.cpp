@@ -23,6 +23,7 @@ World::World (sf::RenderTarget& outputTarget,
     : m_target (outputTarget)
     , m_sceneTexture()
     , m_worldView (outputTarget.getDefaultView())
+    , m_viewTeam2 (outputTarget.getDefaultView())
     , m_textures()
     , m_fonts (fonts)
     , m_sounds (sounds)
@@ -48,6 +49,7 @@ World::World (sf::RenderTarget& outputTarget,
     loadTextures();
     buildScene();
     m_worldView.setCenter (m_spawnPosition);
+    m_viewTeam2.setCenter (m_spawnPosition);
     grilleDeCollision();
 }
 
@@ -71,36 +73,78 @@ void World::update (sf::Time dt)
         //on récupére la vitesse et la position global de l'avion.
         sf::Vector2f velocity = a->getVelocity();
         sf::FloatRect position = a->getBoundingRect();
+        int identifier = a->getIdentifier();
 
-        //Déplacement en x
-        if (position.left + position.width +
-                m_worldView.getSize().x / 2.f >=
-                m_worldBounds.width) {}
-        else
+        if (identifier == 1)
         {
-            if (position.left - m_worldView.getSize().x / 2.f -
-                    position.width / 2.f <= 0.f) {}
+            //Déplacement en x
+            if (position.left + position.width +
+                    m_worldView.getSize().x / 2.f >=
+                    m_worldBounds.width) {}
             else
             {
-                m_worldView.move (velocity.x * dt.asSeconds() *
-                                  m_scrollSpeedCompensation, 0.f);
+                if (position.left - m_worldView.getSize().x / 2.f -
+                        position.width / 2.f <= 0.f) {}
+                else
+                {
+                    m_worldView.move (velocity.x * dt.asSeconds() *
+                                      m_scrollSpeedCompensation, 0.f);
+                }
+
             }
 
-        }
-
-        //Déplacement en y
-        if (position.top - m_worldView.getSize().y / 2.f <=
-                m_worldBounds.top) {}
-        else
-        {
-            if (position.top + m_worldView.getSize().y / 2.f +
-                    position.height >= m_worldBounds.height) {}
+            //Déplacement en y
+            if (position.top - m_worldView.getSize().y / 2.f <=
+                    m_worldBounds.top) {}
             else
             {
-                m_worldView.move (0.f,
-                                  velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+                if (position.top + m_worldView.getSize().y / 2.f +
+                        position.height >= m_worldBounds.height) {}
+                else
+                {
+                    m_worldView.move (0.f,
+                                      velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+                }
             }
         }
+        else
+            if (identifier == 2)
+            {
+                m_worldView.setViewport (sf::FloatRect (0, 0, 0.5f, 1));
+                m_viewTeam2.setViewport (sf::FloatRect (0.5f, 0, 0.5f, 1));
+
+                //Déplacement en x
+                if (position.left + position.width +
+                        m_viewTeam2.getSize().x / 2.f >=
+                        m_worldBounds.width) {}
+                else
+                {
+                    if (position.left - m_viewTeam2.getSize().x / 2.f -
+                            position.width / 2.f <= 0.f) {}
+                    else
+                    {
+                        m_viewTeam2.move (velocity.x * dt.asSeconds() *
+                                          m_scrollSpeedCompensation, 0.f);
+                    }
+
+                }
+
+                //Déplacement en y
+                if (position.top - m_viewTeam2.getSize().y / 2.f <=
+                        m_worldBounds.top) {}
+                else
+                {
+                    if (position.top + m_viewTeam2.getSize().y / 2.f +
+                            position.height >= m_worldBounds.height) {}
+                    else
+                    {
+                        m_viewTeam2.move (0.f,
+                                          velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+                    }
+                }
+            }
+
+
     }
     //initialise la vitesse de l'avion du joueur à 0.
     //RQ:: sa vitesse est relative au monde(noeud enfant du noeud monde)
@@ -144,6 +188,11 @@ void World::draw()
         m_sceneTexture.draw (m_sceneGraph);
         m_sceneTexture.display();
         m_bloomEffect.apply (m_sceneTexture, m_target);
+
+                m_sceneTexture.clear();
+        m_sceneTexture.setView (m_viewTeam2);
+        m_sceneTexture.draw (m_sceneGraph);
+        m_sceneTexture.display();
     }
     else
     {

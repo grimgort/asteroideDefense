@@ -5,12 +5,12 @@
 #include <queue>
 
 /*
-Crer et permet de gérer la liste des commande
+    Crer et permet de gérer la liste des commande
 */
 class CommandQueue
 {
 public:
-    void push(const Command& command);
+    void push (const Command& command);
     Command pop();
     bool isEmpty() const;
 

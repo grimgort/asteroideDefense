@@ -12,12 +12,13 @@ namespace
 const std::vector<PickupData> Table = initializePickupData();
 }
 
-Pickup::Pickup(Type type, const TextureHolder& textures)
-    : Entity(1)
-    , m_type(type)
-    , m_sprite(textures.get(Table[type].texture), Table[type].textureRect)
+Pickup::Pickup (Type type, const TextureHolder& textures)
+    : Entity (1)
+    , m_type (type)
+    , m_sprite (textures.get (Table[type].texture),
+                Table[type].textureRect)
 {
-    centerOrigin(m_sprite);
+    centerOrigin (m_sprite);
 }
 
 unsigned int Pickup::getCategory() const
@@ -27,17 +28,18 @@ unsigned int Pickup::getCategory() const
 
 sf::FloatRect Pickup::getBoundingRect() const
 {
-    return getWorldTransform().transformRect(m_sprite.getGlobalBounds());
+    return getWorldTransform().transformRect (m_sprite.getGlobalBounds());
 }
 
-void Pickup::apply(Aircraft& player) const
+void Pickup::apply (Aircraft& player) const
 {
-    Table[m_type].action(player);
+    Table[m_type].action (player);
 }
 
-void Pickup::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
+void Pickup::drawCurrent (sf::RenderTarget& target,
+                          sf::RenderStates states) const
 {
-    target.draw(m_sprite, states);
+    target.draw (m_sprite, states);
 }
 
 

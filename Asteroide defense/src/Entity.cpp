@@ -93,9 +93,9 @@ void Entity::checkNodePosition (const
                                 , sf::Int32 nbCutY)
 {
     /*
-    Recalcule la position dans la grille de
-    colllision si l'objet a bougé ou n'est pas
-    initialisé
+        Recalcule la position dans la grille de
+        colllision si l'objet a bougé ou n'est pas
+        initialisé
     */
     if (m_positionCollision == -9999)
     {
@@ -120,18 +120,18 @@ void Entity::checkNodePosition (const
     else
     {
         /*
-        Vérifie si l'objet est dans la grille du
-        dessous ou dessus.
-        Optimisable en rajoutant l'ensemble des
-        cases adjacentes (sur les côté) mais
-        nécessite de conaitre le nombre de
-        case en X et Y.
+            Vérifie si l'objet est dans la grille du
+            dessous ou dessus.
+            Optimisable en rajoutant l'ensemble des
+            cases adjacentes (sur les côté) mais
+            nécessite de conaitre le nombre de
+            case en X et Y.
         */
         for (int i = m_positionCollision - 1
                      ; i <= m_positionCollision + 1 ; ++i)
         {
-            /*Supprime les i négatif pour éviter
-            d'avoir vector[-x](négatif) */
+            /*  Supprime les i négatif pour éviter
+                d'avoir vector[-x](négatif) */
             if (i > 0)
             {
                 // Regarde si la grille de collision contient le point. Plus optimisé que la fonction intersect.
@@ -181,14 +181,14 @@ void Entity::checkNodePosition (const
     }
 
     /*
-    Sinon on a un problème car l'ensemble des entitées devrai avoir une position
+        Sinon on a un problème car l'ensemble des entitées devrai avoir une position
     */
-//    else
-//    {
-//        std::cout << "ERROR = " << m_positionCollision << std::endl;
-//
-////        collisionListeToTest.insert(std::pair<int,SceneNode*>(m_positionCollision,this));
-//    }
+    //    else
+    //    {
+    //        std::cout << "ERROR = " << m_positionCollision << std::endl;
+    //
+    ////        collisionListeToTest.insert(std::pair<int,SceneNode*>(m_positionCollision,this));
+    //    }
 }
 
 int Entity::getPositionCollision() const

@@ -69,14 +69,14 @@ struct Action
         // leave uninitialized
     }
 
-    Action(Type type, sf::Vector2f position)
-        : type(type)
-        , position(position)
+    Action (Type type, sf::Vector2f position)
+        : type (type)
+        , position (position)
     {
     }
 
-    Type			type;
-    sf::Vector2f	position;
+    Type            type;
+    sf::Vector2f    position;
 };
 }
 

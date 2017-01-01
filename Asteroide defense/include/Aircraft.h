@@ -12,9 +12,9 @@
 #include <SFML/Graphics/Sprite.hpp>
 
 /*
-Aircraft est la class associé aux textures d'avions Eagle et raptor. Elle hérite de la class Entity
-qui définit la position et vitesse de l'image. Elle permet donc de spécifier des méthodes particulière aux Aircraft,
-et nottament si l'avion est le joueur ou l'ennemie.
+    Aircraft est la class associÃ© aux textures d'avions Eagle et raptor. Elle hÃ©rite de la class Entity
+    qui dÃ©finit la position et vitesse de l'image. Elle permet donc de spÃ©cifier des mÃ©thodes particuliÃ¨re aux Aircraft,
+    et nottament si l'avion est le joueur ou l'ennemie.
 */
 class Aircraft : public Entity
 {
@@ -28,7 +28,8 @@ public:
     };
 
 public:
-    Aircraft(Type type, const TextureHolder& textures, const FontHolder& fonts);
+    Aircraft (Type type, const TextureHolder& textures,
+              const FontHolder& fonts);
 
     virtual unsigned int getCategory() const;
     virtual sf::FloatRect getBoundingRect() const;
@@ -40,31 +41,36 @@ public:
 
     void increaseFireRate();
     void increaseSpread();
-    void collectMissiles(unsigned int count);
+    void collectMissiles (unsigned int count);
 
     void fire();
     void launchMissile();
     void launchAsteroideUn();
-    void playLocalSound(CommandQueue& commands, SoundEffect::ID effect);
+    void playLocalSound (CommandQueue& commands, SoundEffect::ID effect);
     int getIdentifier();
-    void setIdentifier(int identifier);
+    void setIdentifier (int identifier);
     int getMissileAmmo() const;
-    void setMissileAmmo(int ammo);
+    void setMissileAmmo (int ammo);
 
 private:
     /*
-    Dessine la texture de l'avion sur la fenêtre target(RenderTarget) avec les éventuel transformation de "RenderStates".
+        Dessine la texture de l'avion sur la fenÃªtre target(RenderTarget) avec les Ã©ventuel transformation de "RenderStates".
     */
-    virtual void drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const;
-    virtual void updateCurrent(sf::Time dt, CommandQueue& commands);
-    void updateMovementPattern(sf::Time dt);
-    void checkPickupDrop(CommandQueue& commands);
-    void checkProjectileLaunch(sf::Time dt, CommandQueue& commands);
+    virtual void drawCurrent (sf::RenderTarget& target,
+                              sf::RenderStates states) const;
+    virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
+    void updateMovementPattern (sf::Time dt);
+    void checkPickupDrop (CommandQueue& commands);
+    void checkProjectileLaunch (sf::Time dt, CommandQueue& commands);
 
-    void createBullets(SceneNode& node, const TextureHolder& textures) const;
-    void createProjectile(SceneNode& node, Projectile::Type type, float XOffset, float yOffset, const TextureHolder& textures) const;
-    void createPickup(SceneNode& node, const TextureHolder& textures) const;
-    void createAsteroideUn(SceneNode& node, Projectile::Type type, float XOffset, float yOffset, const TextureHolder& textures) const;
+    void createBullets (SceneNode& node,
+                        const TextureHolder& textures) const;
+    void createProjectile (SceneNode& node, Projectile::Type type,
+                           float XOffset, float yOffset, const TextureHolder& textures) const;
+    void createPickup (SceneNode& node,
+                       const TextureHolder& textures) const;
+    void createAsteroideUn (SceneNode& node, Projectile::Type type,
+                            float XOffset, float yOffset, const TextureHolder& textures) const;
 
     void updateTexts();
     void updateRollAnimation();

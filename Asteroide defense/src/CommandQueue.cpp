@@ -3,15 +3,15 @@
 
 
 /*
-Rajoute la commande dans la queue des commande
+    Rajoute la commande dans la queue des commande
 */
-void CommandQueue::push(const Command& command)
+void CommandQueue::push (const Command& command)
 {
-    m_queue.push(command);
+    m_queue.push (command);
 }
 
 /*
-Supprime la 1ère commande
+    Supprime la 1ère commande
 */
 Command CommandQueue::pop()
 {
@@ -21,7 +21,7 @@ Command CommandQueue::pop()
 }
 
 /*
-Renvoie true si la queue est vide
+    Renvoie true si la queue est vide
 */
 bool CommandQueue::isEmpty() const
 {

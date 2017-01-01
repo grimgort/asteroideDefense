@@ -11,12 +11,12 @@
 class Asteroide : public Projectile
 {
 public:
-Asteroide (Type type, const TextureHolder& textures);
+    Asteroide (Type type, const TextureHolder& textures);
 
 
-    protected:
+protected:
 
-    private:
+private:
 };
 
 #endif // ASTEROIDE_H

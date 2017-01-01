@@ -17,8 +17,8 @@ using namespace std::placeholders;
 //const std::vector<AsteroideData> Table = initializeAsteroideData();
 //}
 
-Asteroide::Asteroide(Type type, const TextureHolder& textures)
-        : Projectile(type, textures)
-        {
+Asteroide::Asteroide (Type type, const TextureHolder& textures)
+    : Projectile (type, textures)
+{
 
-        }
+}
