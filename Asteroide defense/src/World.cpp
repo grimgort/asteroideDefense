@@ -218,8 +218,12 @@ void World::draw()
     }
     else
     {
-        m_target.setView (m_worldView);
-        m_target.draw (m_sceneGraph);
+        /*Applique la scéne à la deuxième vue pour le split screen*/
+        m_sceneTexture.setView (m_viewTeam2);
+        m_sceneTexture.draw (m_sceneGraph);
+        /*Applique la scéne à la vue de base*/
+        m_sceneTexture.setView (m_worldView);
+        m_sceneTexture.draw (m_sceneGraph);
     }
 }
 
@@ -286,8 +290,7 @@ bool World::pollGameAction (GameActions::Action&
     return m_networkNode->pollGameAction (out);
 }
 
-void World::setCurrentBattleFieldPosition (
-    float lineY)
+void World::setCurrentBattleFieldPosition (float lineY)
 {
     m_worldView.setCenter (m_worldView.getCenter().x,
                            lineY - m_worldView.getSize().y / 2);
