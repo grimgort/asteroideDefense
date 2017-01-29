@@ -405,6 +405,7 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
     }
     break;
 
+    // Rajoute un joueur en splitscreen
     case Server::AcceptCoopPartner:
     {
         sf::Int32 aircraftIdentifier;
@@ -414,9 +415,6 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
         m_players[aircraftIdentifier].reset (new Player (&m_socket,
                                              aircraftIdentifier, getContext().keys2));
         m_localPlayerIdentifiers.push_back (aircraftIdentifier);
-
-        //       aircraft->setHitpoints (50);
-        //       aircraft->setPosition(m_world.getWorldBounds().top) ;
     }
     break;
 

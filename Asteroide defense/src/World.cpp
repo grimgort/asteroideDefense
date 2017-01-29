@@ -31,8 +31,9 @@ World::World (sf::RenderTarget& outputTarget,
     , m_sceneLayers()
     , m_worldBounds (0.f, 0.f, 2000.f, 5000.f)
     , m_spawnPosition (m_worldView.getSize().x / 2.f
-                       ,   m_worldBounds.height - m_worldView.getSize().y /
-                       2.f)
+                       , m_worldBounds.height - m_worldView.getSize().y / 2.f)
+    , m_spawnPositionTeam2 (m_worldView.getSize().x / 2.f
+                       , m_worldView.getSize().y / 2.f)
     , m_scrollSpeed (0.f)
     , m_scrollSpeedCompensation (1.f)
     , m_playerAircrafts()
@@ -49,7 +50,7 @@ World::World (sf::RenderTarget& outputTarget,
     loadTextures();
     buildScene();
     m_worldView.setCenter (m_spawnPosition);
-    m_viewTeam2.setCenter (m_spawnPosition);
+    m_viewTeam2.setCenter (m_spawnPositionTeam2);
     grilleDeCollision();
 }
 
@@ -116,6 +117,7 @@ void World::update (sf::Time dt)
                                        2.f);
             }
         }
+        // Correspond à l'avion 2 du split screen. A améliorer.
         else if (identifier == 2)
         {
             m_worldView.setViewport (sf::FloatRect (0, 0, 0.5f, 1));

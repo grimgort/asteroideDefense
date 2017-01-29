@@ -353,7 +353,12 @@ private:
     CommandQueue m_commandQueue;
 
     sf::FloatRect m_worldBounds;
+    ///<  Définit la Position de la vue initiale pour l'équipe 1.
     sf::Vector2f m_spawnPosition;
+
+    ///<  Définit la Position de la vue initiale pour l'équipe 2.
+    sf::Vector2f m_spawnPositionTeam2;
+
     float m_scrollSpeed;
     float m_scrollSpeedCompensation;
     std::vector<Aircraft*>  m_playerAircrafts;

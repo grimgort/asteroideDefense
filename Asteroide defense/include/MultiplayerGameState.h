@@ -12,7 +12,20 @@
 #include <SFML/Network/TcpSocket.hpp>
 #include <SFML/Network/Packet.hpp>
 
+/////////////////////////////////////////////////
+/// \file MultiplayerGameState.h
+/// \brief Créer une game state multijoueur
+/// \author Fred
+/// \version 0.0
+///
+/////////////////////////////////////////////////
 
+/////////////////////////////////////////////////
+/// \class MultiplayerGameState
+/// \brief Classe representant game state multijoueur
+///
+///
+/////////////////////////////////////////////////
 class MultiplayerGameState : public State
 {
 public:
@@ -28,6 +41,15 @@ public:
 
 private:
     void updateBroadcastMessage (sf::Time elapsedTime);
+    /////////////////////////////////////////////////
+    /// \brief Permet de gérér les evenements lié aux joueurs
+    ///
+    /// \param packetType : nom du packet envoyer par le serveur
+    /// \param packet : Information récupéré (position, identifier, etc...)
+    ///
+    /// Permet de gérer l'arrivé et le départ des joueurs (rajoute et enléve le joueur).
+    ///
+    /////////////////////////////////////////////////
     void handlePacket (sf::Int32 packetType, sf::Packet& packet);
 
 private:

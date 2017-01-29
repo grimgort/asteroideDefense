@@ -166,8 +166,10 @@ protected:
 private:
     ///<  Vecteur 2D de la vitesse de l'entité.
     sf::Vector2f m_velocity;
+
     ///< Point de vie de l'entité.
     int m_hitPoints;
+
     ///< Numéro de rectangle de la grille de collision.
     int m_positionCollision;
 };
