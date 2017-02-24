@@ -30,8 +30,7 @@ std::vector<AircraftData> initializeAircraftData()
     data[Aircraft::Raptor].texture = Textures::Entities;
     data[Aircraft::Raptor].textureRect = sf::IntRect (144, 0, 84, 64);
     data[Aircraft::Raptor].directions.push_back (Direction (+45.f, 80.f));
-    data[Aircraft::Raptor].directions.push_back (Direction (-45.f,
-            160.f));
+    data[Aircraft::Raptor].directions.push_back (Direction (-45.f, 160.f));
     data[Aircraft::Raptor].directions.push_back (Direction (+45.f, 80.f));
     data[Aircraft::Raptor].fireInterval = sf::Time::Zero;
     data[Aircraft::Raptor].hasRollAnimation = false;
@@ -41,14 +40,11 @@ std::vector<AircraftData> initializeAircraftData()
     data[Aircraft::Avenger].speed = 50.f;
     data[Aircraft::Avenger].texture = Textures::Entities;
     data[Aircraft::Avenger].textureRect = sf::IntRect (228, 0, 60, 59);
-    data[Aircraft::Avenger].directions.push_back (Direction (+45.f,
-            50.f));
-    data[Aircraft::Avenger].directions.push_back (Direction (0.f,  50.f));
-    data[Aircraft::Avenger].directions.push_back (Direction (-45.f,
-            100.f));
-    data[Aircraft::Avenger].directions.push_back (Direction (0.f,  50.f));
-    data[Aircraft::Avenger].directions.push_back (Direction (+45.f,
-            50.f));
+    data[Aircraft::Avenger].directions.push_back (Direction (+45.f, 50.f));
+    data[Aircraft::Avenger].directions.push_back (Direction (0.f, 50.f));
+    data[Aircraft::Avenger].directions.push_back (Direction (-45.f, 100.f));
+    data[Aircraft::Avenger].directions.push_back (Direction (0.f, 50.f));
+    data[Aircraft::Avenger].directions.push_back (Direction (+45.f, 50.f));
     data[Aircraft::Avenger].fireInterval = sf::seconds (2);
     data[Aircraft::Avenger].hasRollAnimation = false;
 
@@ -64,16 +60,14 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::AlliedBullet].damage = 10;
     data[Projectile::AlliedBullet].speed = 500.f;
     data[Projectile::AlliedBullet].texture = Textures::Entities;
-    data[Projectile::AlliedBullet].textureRect = sf::IntRect (175, 64, 3,
-            14);
+    data[Projectile::AlliedBullet].textureRect = sf::IntRect (175, 64, 3, 14);
     data[Projectile::AlliedBullet].distanceMax = 800.f;
 
     data[Projectile::EnemyBullet].hitpoints = 1;
     data[Projectile::EnemyBullet].damage = 10;
     data[Projectile::EnemyBullet].speed = 300.f;
     data[Projectile::EnemyBullet].texture = Textures::Entities;
-    data[Projectile::EnemyBullet].textureRect = sf::IntRect (178, 64, 3,
-            14);
+    data[Projectile::EnemyBullet].textureRect = sf::IntRect (178, 64, 3, 14);
     data[Projectile::EnemyBullet].distanceMax = 800.f;
 
     data[Projectile::Missile].hitpoints = 1;
@@ -87,8 +81,7 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::AsteroideUn].damage = 20;
     data[Projectile::AsteroideUn].speed = 150.f;
     data[Projectile::AsteroideUn].texture = Textures::AsteroideUn;
-    data[Projectile::AsteroideUn].textureRect = sf::IntRect (0, 0, 500,
-            500);
+    data[Projectile::AsteroideUn].textureRect = sf::IntRect (0, 0, 500, 500);
     data[Projectile::AsteroideUn].distanceMax = -9999.f;
 
     return data;
@@ -106,8 +99,7 @@ std::vector<PickupData> initializePickupData()
     };
 
     data[Pickup::MissileRefill].texture = Textures::Entities;
-    data[Pickup::MissileRefill].textureRect = sf::IntRect (40, 64, 40,
-            40);
+    data[Pickup::MissileRefill].textureRect = sf::IntRect (40, 64, 40, 40);
     data[Pickup::MissileRefill].action = std::bind (
             &Aircraft::collectMissiles, _1, 3);
 
