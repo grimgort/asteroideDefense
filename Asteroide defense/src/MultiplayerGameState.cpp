@@ -67,6 +67,7 @@ MultiplayerGameState::MultiplayerGameState (StateStack& stack,
 
     sf::IpAddress ip;
 
+    //Si le joueur est l'hôte, on va chercher son adresse IP
     if (isHost)
     {
         m_gameServer.reset (new GameServer (sf::Vector2f (
@@ -415,9 +416,9 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
         Aircraft* aircraft = m_world.addAircraft (aircraftIdentifier);
         //On retourne l'aircraft pour qu'il soit dans le sens du joueur
         aircraft->setRotation(180);
-        //On retourne le nombre de missiles
-        //Aircraft* m_missileDisplay;
-        //m_missileDisplay->setRotation(180);
+        //Pourquoi cela ne marche pas????!!!
+        //aircraft.m_healthDisplay->setRotation(180);
+
         m_players[aircraftIdentifier].reset (new Player (&m_socket,
                                              aircraftIdentifier, getContext().keys2));
         m_localPlayerIdentifiers.push_back (aircraftIdentifier);

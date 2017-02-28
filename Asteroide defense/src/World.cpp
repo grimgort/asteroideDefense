@@ -50,7 +50,10 @@ World::World (sf::RenderTarget& outputTarget,
     loadTextures();
     buildScene();
     m_worldView.setCenter (m_spawnPosition);
+    //On rajoute l'écran pour le J2 en local et on le tourne de 180°
     m_viewTeam2.setCenter (m_spawnPositionTeam2);
+    m_viewTeam2.setRotation(180);
+
     grilleDeCollision();
 }
 
@@ -329,8 +332,8 @@ void World::loadTextures()
 {
     m_textures.load (Textures::Entities,
                      "media/Textures/Entities.png");
-    m_textures.load (Textures::Jungle,
-                     "media/Textures/Jungle.png");
+    m_textures.load (Textures::Space,
+                     "media/Textures/Space.png");
     m_textures.load (Textures::Explosion,
                      "media/Textures/Explosion.png");
     m_textures.load (Textures::Particle,
@@ -637,10 +640,10 @@ void World::buildScene()
         m_sceneGraph.attachChild (std::move (layer));
     }
 
-    //Récupére la texture jungle
-    sf::Texture& jungleTexture = m_textures.get (
-                                     Textures::Jungle);
-    jungleTexture.setRepeated (true);
+    //Récupére la texture Space
+    sf::Texture& SpaceTexture = m_textures.get (
+                                     Textures::Space);
+    SpaceTexture.setRepeated (true);
     float viewHeight = m_worldView.getSize().y;
     //Définit un rectangle avec les dimension correspondant au monde ou niveau
     sf::IntRect textureRect (m_worldBounds);
@@ -649,14 +652,14 @@ void World::buildScene()
     //RQ:La classe SpriteNode va tracer la texture dans le rectangle lui étant associé.
     //Par conséquent, la texture desert va être répéter à l'intérieur du rectangle textureRect et non en dehors.
     //Définit le noeud correspondant au terrain
-    std::unique_ptr<SpriteNode> jungleSprite (
-        new SpriteNode (jungleTexture, textureRect));
+    std::unique_ptr<SpriteNode> SpaceSprite (
+        new SpriteNode (SpaceTexture, textureRect));
     //place ce noeud en haut à gauche du monde ou niveau
-    jungleSprite->setPosition (m_worldBounds.left,
+    SpaceSprite->setPosition (m_worldBounds.left,
                                m_worldBounds.top);
     //Attache ce noeud à la scéne dans la partie bakground.
     m_sceneLayers[background]->attachChild (
-        std::move (jungleSprite));
+        std::move (SpaceSprite));
 
 
 

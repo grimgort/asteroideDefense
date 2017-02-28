@@ -8,6 +8,8 @@
 KeyBinding::KeyBinding (int controlPreconfiguration)
     : m_keyMap()
 {
+
+    //Il faudra prévoir un fichier dans lequel les racourcis seront implémentés. Ainsi le joueur n'aura pas besoin de modifier les raccourcis à chaque ouverture du jeu
     if (controlPreconfiguration == 1)
     {
         m_keyMap[sf::Keyboard::Left] = PlayerAction::MoveLeft;
@@ -21,10 +23,11 @@ KeyBinding::KeyBinding (int controlPreconfiguration)
     }
     else if (controlPreconfiguration == 2)
     {
-        m_keyMap[sf::Keyboard::Q] = PlayerAction::MoveLeft;
-        m_keyMap[sf::Keyboard::D] = PlayerAction::MoveRight;
-        m_keyMap[sf::Keyboard::Z] = PlayerAction::MoveUp;
-        m_keyMap[sf::Keyboard::S] = PlayerAction::MoveDown;
+        //Etant donné que l'écran est retourné, il faut aussi inverser les touches du J2
+        m_keyMap[sf::Keyboard::D] = PlayerAction::MoveLeft;
+        m_keyMap[sf::Keyboard::Q] = PlayerAction::MoveRight;
+        m_keyMap[sf::Keyboard::S] = PlayerAction::MoveUp;
+        m_keyMap[sf::Keyboard::Z] = PlayerAction::MoveDown;
         m_keyMap[sf::Keyboard::F] = PlayerAction::Fire;
         m_keyMap[sf::Keyboard::R] = PlayerAction::LaunchMissile;
         m_keyMap[sf::Keyboard::W] = PlayerAction::LaunchAsteroideUn;
