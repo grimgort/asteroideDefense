@@ -9,6 +9,8 @@
 #include <PauseState.h>
 #include <SettingsState.h>
 #include <GameOverState.h>
+#include <LoadingState.h>
+#include <PresentationState.h>
 #include <iostream>
 const sf::Time Application::timePerFrame = sf::seconds (1.f / 90.f);
 
@@ -30,13 +32,16 @@ Application::Application()
     , m_statisticsUpdateTime()  //Class SFML Time
     , m_statisticsNumFrames (0)
 {
-    m_window.setKeyRepeatEnabled (false);
+    m_window.setKeyRepeatEnabled (true);
     m_window.setVerticalSyncEnabled (
         false); //limite le nombre de fps à l'affichage écran si vrai (60fps pour pc)
 
     // Chargement des textures de bases
     m_fonts.load (Fonts::Main,
                   "media/Sansation.ttf");  //chargement de la fonte sous l'identifiant "Main"
+
+    // Chargement des textures de l'écran de présentation
+    m_textures.load(Textures::PresentationScreen,"media/Textures/Presentation.png");
 
     m_textures.load (Textures::TitleScreen,
                      "media/Textures/TitleScreen.png");   //chargement de l'image de départ sous l'identifiant "TitleScreen"
@@ -49,7 +54,7 @@ Application::Application()
 
     registerStates();
     //Initialise la pile des stack avec la page de titre
-    m_stateStack.pushState (States::Title);
+    m_stateStack.pushState (States::Presentation);
 
     m_music.setVolume (25.f);
 }
@@ -160,7 +165,9 @@ void Application::updateStatistics (sf::Time dt)
 */
 void Application::registerStates()
 {
+    m_stateStack.registerState<PresentationState> (States::Presentation);
     m_stateStack.registerState<TitleState> (States::Title);
+    m_stateStack.registerState<LoadingState> (States::Loading);
     m_stateStack.registerState<MenuState> (States::Menu);
     m_stateStack.registerState<GameState> (States::Game);
     m_stateStack.registerState<MultiplayerGameState> (States::HostGame,

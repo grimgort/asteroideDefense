@@ -331,6 +331,7 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
     }
     break;
 
+    //On place l'avion du joueur initial
     case Server::SpawnSelf:
     {
         sf::Int32 aircraftIdentifier;
@@ -349,6 +350,7 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
     }
     break;
 
+    //Cas si un joueur rejoint le serveur
     case Server::PlayerConnect:
     {
         sf::Int32 aircraftIdentifier;
@@ -358,7 +360,6 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
 
         Aircraft* aircraft = m_world.addAircraft (aircraftIdentifier);
         aircraft->setPosition (aircraftPosition);
-
         m_players[aircraftIdentifier].reset (new Player (&m_socket,
                                              aircraftIdentifier, nullptr));
     }
@@ -412,6 +413,11 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
         packet >> aircraftIdentifier;
 
         Aircraft* aircraft = m_world.addAircraft (aircraftIdentifier);
+        //On retourne l'aircraft pour qu'il soit dans le sens du joueur
+        aircraft->setRotation(180);
+        //On retourne le nombre de missiles
+        //Aircraft* m_missileDisplay;
+        //m_missileDisplay->setRotation(180);
         m_players[aircraftIdentifier].reset (new Player (&m_socket,
                                              aircraftIdentifier, getContext().keys2));
         m_localPlayerIdentifiers.push_back (aircraftIdentifier);

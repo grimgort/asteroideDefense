@@ -10,6 +10,8 @@
 LoadingState::LoadingState (StateStack& stack, Context context)
     : State (stack, context)
 {
+    //On applique la texture de chargement
+
     sf::RenderWindow& window = *getContext().window;
     sf::Font& font = context.fonts->get (Fonts::Main);
     sf::Vector2f viewSize = window.getView().getSize();

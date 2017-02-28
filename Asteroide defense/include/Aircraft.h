@@ -12,9 +12,9 @@
 #include <SFML/Graphics/Sprite.hpp>
 
 /*
-    Aircraft est la class associÃ© aux textures d'avions Eagle et raptor. Elle hÃ©rite de la class Entity
-    qui dÃ©finit la position et vitesse de l'image. Elle permet donc de spÃ©cifier des mÃ©thodes particuliÃ¨re aux Aircraft,
-    et nottament si l'avion est le joueur ou l'ennemie.
+    Aircraft est la classe associée aux textures d'avions Eagle et raptor. Elle hérite de la class Entity
+    qui définit la position et vitesse de l'image. Elle permet donc de spécifier des méthodes particulière aux Aircraft,
+    et nottament si l'avion est le joueur ou l'ennemi.
 */
 class Aircraft : public Entity
 {
@@ -54,7 +54,7 @@ public:
 
 private:
     /*
-        Dessine la texture de l'avion sur la fenÃªtre target(RenderTarget) avec les Ã©ventuel transformation de "RenderStates".
+        Dessine la texture de l'avion sur la fenêtre target(RenderTarget) avec les éventuel transformation de "RenderStates".
     */
     virtual void drawCurrent (sf::RenderTarget& target,
                               sf::RenderStates states) const;

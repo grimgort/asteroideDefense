@@ -715,6 +715,7 @@ void World::buildScene()
 
 }
 
+// Fonction à supprimer ou modifier
 void World::addEnemies()
 {
     if (m_networkedWorld)
@@ -722,6 +723,7 @@ void World::addEnemies()
         return;
     }
 
+    /*
     for (float i = -10.f; i < 10.f; i++)
     {
         addEnemy (Aircraft::Avenger, i * 70, 1500.f);
@@ -747,6 +749,7 @@ void World::addEnemies()
     {
         addEnemy (Aircraft::Raptor, i * 70, 800.f);
     }
+    */
 
     sortEnemies();
 }
