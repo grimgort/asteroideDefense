@@ -40,16 +40,12 @@ public:
 
     void increaseFireRate();
     void increaseSpread();
-    void collectMissiles (unsigned int count);
 
     void fire();
-    void launchMissile();
     void launchAsteroideUn();
     void playLocalSound (CommandQueue& commands, SoundEffect::ID effect);
     int getIdentifier();
     void setIdentifier (int identifier);
-    int getMissileAmmo() const;
-    void setMissileAmmo (int ammo);
 
 private:
     /*
@@ -76,11 +72,9 @@ private:
     sf::Sprite m_sprite;
     Animation m_explosion;
     Command m_fireCommand;
-    Command m_missileCommand;
     Command m_asteroideUnCommand;
     sf::Time m_fireCountDown;
     bool m_isFiring;
-    bool m_isLaunchingMissile;
     bool m_isLaunchingAsteroideUn;
     bool m_showExplosion;
     bool m_explosionBegan;
@@ -92,7 +86,6 @@ private:
     float m_travelledDistance;
     std::size_t m_directionIndex;
     TextNode* m_healthDisplay;
-    TextNode* m_missileDisplay;
 
     int m_identifier;
 };

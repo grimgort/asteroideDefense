@@ -69,13 +69,6 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::EnemyBullet].textureRect = sf::IntRect (178, 64, 3, 14);
     data[Projectile::EnemyBullet].distanceMax = 800.f;
 
-    data[Projectile::Missile].hitpoints = 1;
-    data[Projectile::Missile].damage = 200;
-    data[Projectile::Missile].speed = 150.f;
-    data[Projectile::Missile].texture = Textures::Entities;
-    data[Projectile::Missile].textureRect = sf::IntRect (160, 64, 15, 32);
-    data[Projectile::Missile].distanceMax = -9999.f;
-
     data[Projectile::AsteroideUn].hitpoints = 20;
     data[Projectile::AsteroideUn].damage = 20;
     data[Projectile::AsteroideUn].speed = 150.f;

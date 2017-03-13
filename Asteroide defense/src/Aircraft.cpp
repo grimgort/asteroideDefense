@@ -40,11 +40,9 @@ Aircraft::Aircraft (Type type
                 Table[type].textureRect)
     , m_explosion (textures.get (Textures::Explosion))
     , m_fireCommand()
-    , m_missileCommand()
     , m_asteroideUnCommand()
     , m_fireCountDown (sf::Time::Zero)
     , m_isFiring (false)
-    , m_isLaunchingMissile (false)
     , m_isLaunchingAsteroideUn (false)
     , m_showExplosion (true)
     , m_explosionBegan (false)
@@ -53,7 +51,6 @@ Aircraft::Aircraft (Type type
     , m_missileAmmo (2)
     , m_travelledDistance (0.f)
     , m_directionIndex (0)
-    , m_missileDisplay (nullptr)
     , m_identifier (0)
 {
     m_explosion.setFrameSize (sf::Vector2i (256, 256));
@@ -69,13 +66,6 @@ Aircraft::Aircraft (Type type
         createBullets (node, textures);
     };
 
-    m_missileCommand.category = Category::SceneAirLayer;
-    m_missileCommand.action = [this, &textures] (SceneNode & node,
-                              sf::Time)
-    {
-        createProjectile (node, Projectile::Missile, 0.f, 0.5f, textures);
-    };
-
     m_asteroideUnCommand.category = Category::SceneAirLayer;
     m_asteroideUnCommand.action = [this, &textures] (SceneNode & node,
                                   sf::Time)
@@ -87,25 +77,7 @@ Aircraft::Aircraft (Type type
     m_healthDisplay = healthDisplay.get();
     attachChild (std::move (healthDisplay));
 
-    if (getCategory() == Category::PlayerAircraft)
-    {
-        std::unique_ptr<TextNode> missileDisplay (new TextNode (fonts, ""));
-        missileDisplay->setPosition (0, 70);
-        m_missileDisplay = missileDisplay.get();
-        attachChild (std::move (missileDisplay));
-    }
-
     updateTexts();
-}
-
-int Aircraft::getMissileAmmo() const
-{
-    return m_missileAmmo;
-}
-
-void Aircraft::setMissileAmmo (int ammo)
-{
-    m_missileAmmo = ammo;
 }
 
 /*
@@ -215,24 +187,10 @@ void Aircraft::increaseSpread()
     if (m_spreadLevel < 3) { ++m_spreadLevel; }
 }
 
-void Aircraft::collectMissiles (unsigned int count)
-{
-    m_missileAmmo += count;
-}
-
 void Aircraft::fire()
 {
     if (Table[m_type].fireInterval != sf::Time::Zero)
     { m_isFiring = true; }
-}
-
-void Aircraft::launchMissile()
-{
-    if (m_missileAmmo > 0)
-    {
-        m_isLaunchingMissile = true;
-        --m_missileAmmo;
-    }
 }
 
 void Aircraft::launchAsteroideUn()
@@ -308,13 +266,6 @@ void Aircraft::checkProjectileLaunch (sf::Time dt,
     {
         m_fireCountDown -= dt;
         m_isFiring = false;
-    }
-
-    if (m_isLaunchingMissile)
-    {
-        commands.push (m_missileCommand);
-        playLocalSound (commands, SoundEffect::LaunchMissile);
-        m_isLaunchingMissile = false;
     }
 
     if (m_isLaunchingAsteroideUn)
@@ -399,14 +350,6 @@ void Aircraft::updateTexts()
     m_healthDisplay->setPosition (0.f, 50.f);
     //Pourquoi cette ligne?
     //m_healthDisplay->setRotation (-getRotation());
-
-    if (m_missileDisplay)
-    {
-        if (m_missileAmmo == 0 || isDestroyed())
-        { m_missileDisplay->setString (""); }
-        else
-        { m_missileDisplay->setString ("M: " + toString (m_missileAmmo)); }
-    }
 }
 
 void Aircraft::updateRollAnimation()
