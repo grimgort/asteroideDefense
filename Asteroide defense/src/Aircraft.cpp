@@ -1,7 +1,6 @@
 #include <Aircraft.h>
 #include <DataTables.h>
 #include <Utility.h>
-#include <Pickup.h>
 #include <CommandQueue.h>
 #include <SoundNode.h>
 #include <NetworkNode.h>
@@ -49,12 +48,9 @@ Aircraft::Aircraft (Type type
     , m_isLaunchingAsteroideUn (false)
     , m_showExplosion (true)
     , m_explosionBegan (false)
-    , m_spawnedPickup (false)
-    , m_pickupsEnabled (true)
     , m_fireRateLevel (1)
     , m_spreadLevel (1)
     , m_missileAmmo (2)
-    , m_dropPickupCommand()
     , m_travelledDistance (0.f)
     , m_directionIndex (0)
     , m_missileDisplay (nullptr)
@@ -85,13 +81,6 @@ Aircraft::Aircraft (Type type
                                   sf::Time)
     {
         createAsteroideUn (node, Asteroide::AsteroideUn, 0.f, 0.5f, textures);
-    };
-
-    m_dropPickupCommand.category = Category::SceneAirLayer;
-    m_dropPickupCommand.action = [this, &textures] (SceneNode & node,
-                                 sf::Time)
-    {
-        createPickup (node, textures);
     };
 
     std::unique_ptr<TextNode> healthDisplay (new TextNode (fonts, ""));
@@ -134,11 +123,6 @@ void Aircraft::drawCurrent (sf::RenderTarget& target
     { target.draw (m_sprite, states); }
 }
 
-void Aircraft::disablePickups()
-{
-    m_pickupsEnabled = false;
-}
-
 void Aircraft::updateCurrent (sf::Time dt, CommandQueue& commands)
 {
     updateTexts();
@@ -146,7 +130,6 @@ void Aircraft::updateCurrent (sf::Time dt, CommandQueue& commands)
 
     if (isDestroyed())
     {
-        checkPickupDrop (commands);
         m_explosion.update (dt);
 
         if (!m_explosionBegan)
@@ -306,15 +289,6 @@ void Aircraft::updateMovementPattern (sf::Time dt)
     }
 }
 
-void Aircraft::checkPickupDrop (CommandQueue& commands)
-{
-    if (!isAllied() && randomInt (1) == 0 && !m_spawnedPickup
-            && m_pickupsEnabled)
-    { commands.push (m_dropPickupCommand); }
-
-    m_spawnedPickup = true;
-}
-
 void Aircraft::checkProjectileLaunch (sf::Time dt,
                                       CommandQueue& commands)
 {
@@ -415,17 +389,6 @@ void Aircraft::createAsteroideUn (SceneNode& node,
     node.attachChild (std::move (asteroide));
 }
 
-void Aircraft::createPickup (SceneNode& node,
-                             const TextureHolder& textures) const
-{
-    auto type = static_cast<Pickup::Type> (randomInt (Pickup::TypeCount));
-
-    std::unique_ptr<Pickup> pickup (new Pickup (type, textures));
-    pickup->setPosition (getWorldPosition());
-    pickup->setVelocity (0.f, 1.f);
-    node.attachChild (std::move (pickup));
-}
-
 void Aircraft::updateTexts()
 {
     if (isDestroyed())
@@ -434,7 +397,8 @@ void Aircraft::updateTexts()
     { m_healthDisplay->setString (toString (getHitpoints()) + "HP"); }
 
     m_healthDisplay->setPosition (0.f, 50.f);
-    m_healthDisplay->setRotation (-getRotation());
+    //Pourquoi cette ligne?
+    //m_healthDisplay->setRotation (-getRotation());
 
     if (m_missileDisplay)
     {

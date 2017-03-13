@@ -18,7 +18,7 @@ const sf::Time Application::timePerFrame = sf::seconds (1.f / 90.f);
     CONSTRUCTEUR/DESTRUCTEUR
 ************************************************/
 Application::Application()
-    : m_window (sf::VideoMode (1024, 768), "Asteroïd defense",
+    : m_window (sf::VideoMode (1024,768), "Asteroïd defense",
                 sf::Style::Close | sf::Style::Resize)
     , m_textures()  //Conteneur de texture(textureHolder)
     , m_fonts() //Conteneur de font (fontHolder)
@@ -32,13 +32,17 @@ Application::Application()
     , m_statisticsUpdateTime()  //Class SFML Time
     , m_statisticsNumFrames (0)
 {
-    m_window.setKeyRepeatEnabled (true);
+    m_window.setKeyRepeatEnabled (false);
     m_window.setVerticalSyncEnabled (
         false); //limite le nombre de fps à l'affichage écran si vrai (60fps pour pc)
 
     // Chargement des textures de bases
     m_fonts.load (Fonts::Main,
                   "media/Sansation.ttf");  //chargement de la fonte sous l'identifiant "Main"
+
+    //Chargement de l'icone de la fenêtre
+    m_images.load(Image::Icon,"media/Images/Icon.png");
+    m_window.setIcon(256,256,m_images.get(Image::Icon).getPixelsPtr());
 
     // Chargement des textures de l'écran de présentation
     m_textures.load(Textures::PresentationScreen,"media/Textures/Presentation.png");
@@ -167,8 +171,8 @@ void Application::registerStates()
 {
     m_stateStack.registerState<PresentationState> (States::Presentation);
     m_stateStack.registerState<TitleState> (States::Title);
-    m_stateStack.registerState<LoadingState> (States::Loading);
     m_stateStack.registerState<MenuState> (States::Menu);
+    m_stateStack.registerState<LoadingState> (States::Loading);
     m_stateStack.registerState<GameState> (States::Game);
     m_stateStack.registerState<MultiplayerGameState> (States::HostGame,
             true);

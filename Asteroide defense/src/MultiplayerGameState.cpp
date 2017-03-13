@@ -471,16 +471,6 @@ void MultiplayerGameState::handlePacket (sf::Int32 packetType,
     }
     break;
 
-    case Server::SpawnPickup:
-    {
-        sf::Int32 type;
-        sf::Vector2f position;
-        packet >> type >> position.x >> position.y;
-
-        m_world.createPickup (position, static_cast<Pickup::Type> (type));
-    }
-    break;
-
     case Server::UpdateClientState:
     {
         float currentWorldPosition;

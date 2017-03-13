@@ -252,8 +252,6 @@ void SceneNode::checkSceneCollision (
                                          *it2->second, Category::PlayerAircraft,
                                          Category::EnemyAircraft))
                         || matchesCategories (*it->second, *it2->second,
-                                              Category::PlayerAircraft, Category::Pickup)
-                        || matchesCategories (*it->second, *it2->second,
                                               Category::PlayerAircraft,
                                               Category::EnemyProjectile)
                         || matchesCategories (*it->second, *it2->second,

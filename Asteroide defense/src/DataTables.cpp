@@ -1,7 +1,6 @@
 #include "DataTables.h"
 #include <Aircraft.h>
 #include <Projectile.h>
-#include <Pickup.h>
 #include <Particle.h>
 #include <Base.h>
 #include <Asteroide.h>
@@ -83,35 +82,6 @@ std::vector<ProjectileData> initializeProjectileData()
     data[Projectile::AsteroideUn].texture = Textures::AsteroideUn;
     data[Projectile::AsteroideUn].textureRect = sf::IntRect (0, 0, 500, 500);
     data[Projectile::AsteroideUn].distanceMax = -9999.f;
-
-    return data;
-}
-
-std::vector<PickupData> initializePickupData()
-{
-    std::vector<PickupData> data (Pickup::TypeCount);
-
-    data[Pickup::HealthRefill].texture = Textures::Entities;
-    data[Pickup::HealthRefill].textureRect = sf::IntRect (0, 64, 40, 40);
-    data[Pickup::HealthRefill].action = [] (Aircraft & a)
-    {
-        a.repair (25);
-    };
-
-    data[Pickup::MissileRefill].texture = Textures::Entities;
-    data[Pickup::MissileRefill].textureRect = sf::IntRect (40, 64, 40, 40);
-    data[Pickup::MissileRefill].action = std::bind (
-            &Aircraft::collectMissiles, _1, 3);
-
-    data[Pickup::FireSpread].texture = Textures::Entities;
-    data[Pickup::FireSpread].textureRect = sf::IntRect (80, 64, 40, 40);
-    data[Pickup::FireSpread].action = std::bind (
-                                          &Aircraft::increaseSpread, _1);
-
-    data[Pickup::FireRate].texture = Textures::Entities;
-    data[Pickup::FireRate].textureRect = sf::IntRect (120, 64, 40, 40);
-    data[Pickup::FireRate].action = std::bind (
-                                        &Aircraft::increaseFireRate, _1);
 
     return data;
 }

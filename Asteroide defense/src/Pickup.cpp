@@ -1,4 +1,3 @@
-#include "Pickup.h"
 #include <DataTables.h>
 #include <Category.h>
 #include <CommandQueue.h>

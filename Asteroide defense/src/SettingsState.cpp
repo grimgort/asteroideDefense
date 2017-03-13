@@ -53,7 +53,7 @@ bool SettingsState::handleEvent (const sf::Event& event)
 {
     bool isKeyBinding = false;
 
-    //on attend que le joueur appuie sur un button, en itérant sur les button et vérifiant qu'ils ont un statue actif
+    //on attend que le joueur appuie sur un button, en itérant sur les button et vérifiant qu'ils ont un statut actif
     for (std::size_t i = 0; i < 2 * PlayerAction::Count; ++i)
     {
         if (m_bindingButtons[i]->isActive())

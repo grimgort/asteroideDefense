@@ -37,7 +37,6 @@ public:
     virtual bool isMarkedForRemoval() const;
     bool isAllied() const;
     float getMaxSpeed() const;
-    void disablePickups();
 
     void increaseFireRate();
     void increaseSpread();
@@ -60,15 +59,12 @@ private:
                               sf::RenderStates states) const;
     virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
     void updateMovementPattern (sf::Time dt);
-    void checkPickupDrop (CommandQueue& commands);
     void checkProjectileLaunch (sf::Time dt, CommandQueue& commands);
 
     void createBullets (SceneNode& node,
                         const TextureHolder& textures) const;
     void createProjectile (SceneNode& node, Projectile::Type type,
                            float XOffset, float yOffset, const TextureHolder& textures) const;
-    void createPickup (SceneNode& node,
-                       const TextureHolder& textures) const;
     void createAsteroideUn (SceneNode& node, Projectile::Type type,
                             float XOffset, float yOffset, const TextureHolder& textures) const;
 
@@ -88,14 +84,11 @@ private:
     bool m_isLaunchingAsteroideUn;
     bool m_showExplosion;
     bool m_explosionBegan;
-    bool m_spawnedPickup;
-    bool m_pickupsEnabled;
 
     int m_fireRateLevel;
     int m_spreadLevel;
     int m_missileAmmo;
 
-    Command m_dropPickupCommand;
     float m_travelledDistance;
     std::size_t m_directionIndex;
     TextNode* m_healthDisplay;

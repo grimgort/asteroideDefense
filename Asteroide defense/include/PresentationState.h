@@ -4,7 +4,6 @@
 #include "State.h"
 
 #include <SFML/Graphics/Sprite.hpp>
-#include <SFML/System/Clock.hpp>
 
 /////////////////////////////////////////////////
 /// \file PresentationState.h
@@ -27,7 +26,7 @@ class PresentationState : public State
 
     private:
         sf::Sprite m_backgroundSprite;
-        sf::Clock m_spriteClock;
+        //sf::Clock m_spriteClock;
 };
 
 #endif // PRESENTATIONSTATE_H

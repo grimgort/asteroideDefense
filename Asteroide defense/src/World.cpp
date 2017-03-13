@@ -1,6 +1,5 @@
 #include "World.h"
 #include <Projectile.h>
-#include <Pickup.h>
 #include <Foreach.hpp>
 #include <TextNode.h>
 #include <ParticleNode.h>
@@ -31,7 +30,7 @@ World::World (sf::RenderTarget& outputTarget,
     , m_sceneLayers()
     , m_worldBounds (0.f, 0.f, 2000.f, 5000.f)
     , m_spawnPosition (m_worldView.getSize().x / 2.f
-                       , m_worldBounds.height - m_worldView.getSize().y / 2.f)
+                       , m_worldBounds.height - m_worldView.getSize().y / 3.f)
     , m_spawnPositionTeam2 (m_worldView.getSize().x / 2.f
                        , m_worldView.getSize().y / 2.f)
     , m_scrollSpeed (0.f)
@@ -64,14 +63,15 @@ void World::setWorldScrollCompensation (
 }
 
 /*
-    Met a jour la position des noeud et trace les texture associé.
+    Met a jour la position des noeud et trace les textures associées.
 */
 
 void World::update (sf::Time dt)
 {
-    //    toto =0;
     //Déplace la vue en fonction de la vitesse de l'avion.
     //Si on atteint de bord de la map, la vue reste statique et donc seul l'avion bouge.
+
+    //Il faut trouver un moyen pour que la vue de l'avion soit réintégrée à sa place initiale
     FOREACH (Aircraft * a, m_playerAircrafts)
     {
         //on récupére la vitesse et la position global de l'avion.
@@ -85,6 +85,7 @@ void World::update (sf::Time dt)
             m_worldView.move (velocity.x * dt.asSeconds() *
                               m_scrollSpeedCompensation, 0.f);
 
+            //Si on est trop à gauche
             if (m_worldView.getCenter().x - m_worldView.getSize().x / 2.f <
                     m_worldBounds.left)
             {
@@ -92,6 +93,7 @@ void World::update (sf::Time dt)
                 m_worldView.setCenter (m_worldBounds.left + m_worldView.getSize().x /
                                        2.f, m_worldView.getCenter().y);
             }
+            //Si on est trop à droite
             else if (m_worldView.getCenter().x + m_worldView.getSize().x / 2.f >
                      m_worldBounds.left + m_worldBounds.width)
             {
@@ -104,6 +106,7 @@ void World::update (sf::Time dt)
             m_worldView.move (0.f,
                               velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
 
+            //Si on est trop en haut
             if (m_worldView.getCenter().y - m_worldView.getSize().y / 2.f <
                     m_worldBounds.top)
             {
@@ -111,6 +114,7 @@ void World::update (sf::Time dt)
                 m_worldView.setCenter (m_worldView.getCenter().x,
                                        m_worldBounds.top + m_worldView.getSize().y / 2.f);
             }
+            //Si on est trop en bas
             else if (m_worldView.getCenter().y + m_worldView.getSize().y / 2.f >
                      m_worldBounds.top + m_worldBounds.height)
             {
@@ -278,17 +282,6 @@ Aircraft* World::addAircraft (int identifier)
     return m_playerAircrafts.back();
 }
 
-void World::createPickup (sf::Vector2f position,
-                          Pickup::Type type)
-{
-    std::unique_ptr<Pickup> pickup (new Pickup (type,
-                                    m_textures));
-    pickup->setPosition (position);
-    pickup->setVelocity (0.f, 1.f);
-    m_sceneLayers[UpperAir]->attachChild (std::move (
-            pickup));
-}
-
 bool World::pollGameAction (GameActions::Action&
                             out)
 {
@@ -408,13 +401,13 @@ void World::adaptPlayerVelocity()
         //on récupére la vitesse de l'avion
         sf::Vector2f velocity = aircraft->getVelocity();
 
-        //si la vitesse on a un mouvement diagonal on ajuste la distance.
+        //si la vitesse a un mouvement diagonal on ajuste la distance.
         if (velocity.x != 0.f && velocity.y != 0.f)
         {
             aircraft->setVelocity (velocity / std::sqrt (2.f));
         }
 
-        //on ajoute la vitesse de défilement du monde à la vitesse des commande clavier
+        //on ajoute la vitesse de défilement du monde à la vitesse des commandes clavier
         aircraft->accelerate (0.f, m_scrollSpeed);
     }
 }
@@ -521,18 +514,6 @@ void World::handleCollisions()
                           (*pair.second);
             player.damage (enemy.getHitpoints());
             enemy.destroy();
-        }
-        else if (matchesCategories (pair,
-                                    Category::PlayerAircraft, Category::Pickup))
-        {
-            auto& player = static_cast<Aircraft&>
-                           (*pair.first);
-            auto& pickup = static_cast<Pickup&>
-                           (*pair.second);
-            pickup.apply (player);
-            pickup.destroy();
-            player.playLocalSound (m_commandQueue,
-                                   SoundEffect::CollectPickup);
         }
         else if (matchesCategories (pair,
                                     Category::EnemyAircraft,
@@ -719,6 +700,7 @@ void World::buildScene()
 }
 
 // Fonction à supprimer ou modifier
+//Il faut créer un algorithme pour les faire apparaitre
 void World::addEnemies()
 {
     if (m_networkedWorld)
@@ -786,11 +768,6 @@ void World::spawnEnemies()
                                              spawn.type, m_textures, m_fonts));
         enemy->setPosition (spawn.x, spawn.y);
         enemy->setRotation (180.f);
-
-        if (m_networkedWorld)
-        {
-            enemy->disablePickups();
-        }
 
         m_sceneLayers[UpperAir]->attachChild (std::move (
                 enemy));

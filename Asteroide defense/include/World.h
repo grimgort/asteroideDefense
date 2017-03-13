@@ -8,7 +8,6 @@
 #include <Aircraft.h>
 #include <CommandQueue.h>
 #include <Command.h>
-#include <Pickup.h>
 #include <BloomEffect.h>
 #include <SoundPlayer.h>
 #include <NetworkProtocol.h>
@@ -203,14 +202,6 @@ public:
     /// \return Le rectangle du monde
     /////////////////////////////////////////////////
     sf::FloatRect getWorldBounds() const;
-
-    /////////////////////////////////////////////////
-    /// \brief Créer un drop de bonus (pickup)
-    ///
-    /// \param position : Vecteur définissant la position du drop
-    /// \param type : Type du pickup (vie, dégat, etc...)
-    /////////////////////////////////////////////////
-    void createPickup (sf::Vector2f position, Pickup::Type type);
 
     /////////////////////////////////////////////////
     /// \brief A définir (network)
