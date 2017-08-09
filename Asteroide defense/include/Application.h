@@ -32,6 +32,7 @@ private:
 
     sf::RenderWindow m_window;
     TextureHolder m_textures;
+    ImageHolder m_images;
     FontHolder  m_fonts;
     MusicPlayer m_music;
     SoundPlayer m_sounds;

@@ -63,13 +63,6 @@ struct ProjectileData
     int hitpoints;
 };
 
-struct PickupData
-{
-    std::function<void (Aircraft&) > action;
-    Textures::ID texture;
-    sf::IntRect textureRect;
-};
-
 struct ParticleData
 {
     sf::Color color;
@@ -96,7 +89,6 @@ struct AsteroideData
 
 std::vector<AircraftData> initializeAircraftData();
 std::vector<ProjectileData> initializeProjectileData();
-std::vector<PickupData> initializePickupData();
 std::vector<ParticleData> initializeParticleData();
 std::vector<BaseData> initializeBaseData();
 std::vector<AsteroideData> initializeAsteroideData();

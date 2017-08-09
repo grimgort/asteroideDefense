@@ -19,7 +19,6 @@ enum PacketType
     PlayerDisconnect,
     AcceptCoopPartner,
     SpawnEnemy,
-    SpawnPickup,
     UpdateClientState,
     MissionSuccess
 };

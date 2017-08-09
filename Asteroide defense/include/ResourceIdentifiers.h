@@ -2,13 +2,14 @@
 #define RESOURCEIDENTIFIERS_H_INCLUDED
 
 
-// Conteneur "sf" est le conteneur définissant les classe de SFML
+// Conteneur "sf" est le conteneur définissant les classes de SFML
 namespace sf
 {
 class Texture;
 class Font;
 class Shader;
 class SoundBuffer;
+class Image;
 }
 
 namespace Textures
@@ -57,7 +58,6 @@ enum ID
     Explosion1,
     Explosion2,
     LaunchMissile,
-    CollectPickup,
     Button,
     LaunchAsteroideUn,
 };
@@ -69,6 +69,14 @@ enum ID
 {
     MenuTheme,
     MissionTheme,
+};
+}
+
+namespace Image
+{
+enum ID
+{
+    Icon,
 };
 }
 
@@ -84,7 +92,7 @@ class ResourceHolder;
 typedef ResourceHolder<sf::Texture, Textures::ID> TextureHolder;
 typedef ResourceHolder<sf::Font, Fonts::ID> FontHolder;
 typedef ResourceHolder<sf::Shader, Shaders::ID> ShaderHolder;
-typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID>
-SoundBufferHolder;
+typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID> SoundBufferHolder;
+typedef ResourceHolder<sf::Image, Image::ID> ImageHolder;
 
 #endif // RESOURCEIDENTIFIERS_H_INCLUDED

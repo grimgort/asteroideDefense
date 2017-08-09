@@ -27,8 +27,6 @@ SoundPlayer::SoundPlayer()
                          "media/Sound/Explosion2.wav");
     m_soundBuffers.load (SoundEffect::LaunchMissile,
                          "media/Sound/LaunchMissile.wav");
-    m_soundBuffers.load (SoundEffect::CollectPickup,
-                         "media/Sound/CollectPickup.wav");
     m_soundBuffers.load (SoundEffect::Button,
                          "media/Sound/Button.wav");
     m_soundBuffers.load (SoundEffect::LaunchAsteroideUn,

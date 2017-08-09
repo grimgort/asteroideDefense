@@ -3,12 +3,12 @@
 
 #include <string>
 #include <algorithm>
-
+#include <iostream>
+#include <fstream>
 
 KeyBinding::KeyBinding (int controlPreconfiguration)
     : m_keyMap()
 {
-
     //Il faudra prévoir un fichier dans lequel les racourcis seront implémentés. Ainsi le joueur n'aura pas besoin de modifier les raccourcis à chaque ouverture du jeu
     if (controlPreconfiguration == 1)
     {
@@ -30,7 +30,7 @@ KeyBinding::KeyBinding (int controlPreconfiguration)
         m_keyMap[sf::Keyboard::Z] = PlayerAction::MoveDown;
         m_keyMap[sf::Keyboard::F] = PlayerAction::Fire;
         m_keyMap[sf::Keyboard::R] = PlayerAction::LaunchMissile;
-        m_keyMap[sf::Keyboard::W] = PlayerAction::LaunchAsteroideUn;
+        m_keyMap[sf::Keyboard::A] = PlayerAction::LaunchAsteroideUn;
     }
 }
 

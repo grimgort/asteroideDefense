@@ -50,22 +50,6 @@ struct AircraftFireTrigger
     int aircraftID;
 };
 
-struct AircraftMissileTrigger
-{
-    AircraftMissileTrigger (int identifier)
-        : aircraftID (identifier)
-    {
-    }
-
-    void operator() (Aircraft& aircraft, sf::Time) const
-    {
-        if (aircraft.getIdentifier() == aircraftID)
-        { aircraft.launchMissile(); }
-    }
-
-    int aircraftID;
-};
-
 struct AircraftAsteroideUnTrigger
 {
     AircraftAsteroideUnTrigger (int identifier)
@@ -229,8 +213,6 @@ void Player::initializeActions()
         derivedAction<Aircraft> (AircraftMover (0, +1, m_identifier));
     m_actionBinding[PlayerAction::Fire].action = derivedAction<Aircraft>
             (AircraftFireTrigger (m_identifier));
-    m_actionBinding[PlayerAction::LaunchMissile].action =
-        derivedAction<Aircraft> (AircraftMissileTrigger (m_identifier));
     m_actionBinding[PlayerAction::LaunchAsteroideUn].action =
         derivedAction<Aircraft> (AircraftAsteroideUnTrigger (m_identifier));
 }

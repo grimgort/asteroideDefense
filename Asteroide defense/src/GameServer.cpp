@@ -2,7 +2,6 @@
 #include <NetworkProtocol.h>
 #include <Foreach.hpp>
 #include <Utility.h>
-#include <Pickup.h>
 #include <Aircraft.h>
 
 #include <SFML/Network/Packet.hpp>
@@ -354,8 +353,6 @@ void GameServer::handleIncomingPacket (sf::Packet& packet,
                 && &receivingPeer == m_peers[0].get())
         {
             sf::Packet packet;
-            packet << static_cast<sf::Int32> (Server::SpawnPickup);
-            packet << static_cast<sf::Int32> (randomInt (Pickup::TypeCount));
             packet << x;
             packet << y;
 

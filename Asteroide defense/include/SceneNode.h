@@ -35,7 +35,7 @@ class CommandQueue;
 /// \brief Classe representant le sceneNode
 ///
 /// La classe gère les noeuds représantant l'ensemble des objets du jeux.
-/// Par exemple, les avions, les projectiles, les pickup sont hérite des sceneNode
+/// Par exemple, les avions, les projectiles sont hérités des sceneNode
 /// Les méthodes de cette classe permettent notamment de gérer la création et
 /// la destruction des objets (ou noeud).
 ///

@@ -96,7 +96,6 @@ public:
     /// \brief Desactive les pickups
     /// \return False for m_pickupsEnabled attribute
     /////////////////////////////////////////////////
-    void disablePickups();
     /////////////////////////////////////////////////
     /// \brief Increase one level of speed fire
     /////////////////////////////////////////////////
@@ -108,7 +107,6 @@ public:
     /////////////////////////////////////////////////
     /// \brief Collect pickup with missile ammo
     /////////////////////////////////////////////////
-    void collectMissiles (unsigned int count);
     /////////////////////////////////////////////////
     /// \brief Say if the aircraft firing.
     /// \param count : number of ammo to give at aircraft
@@ -120,7 +118,6 @@ public:
     /// \brief Commande to launch Missile
     /// It's impossible to launch missile before amount of time
     /////////////////////////////////////////////////
-    void launchMissile();
     /////////////////////////////////////////////////
     /// \brief Say to launch Asteroid of type one
     /////////////////////////////////////////////////
@@ -146,13 +143,11 @@ public:
     /// \param
     /// \return
     /////////////////////////////////////////////////
-    int getMissileAmmo() const;
     /////////////////////////////////////////////////
     /// \brief
     /// \param
     /// \return
     /////////////////////////////////////////////////
-    void setMissileAmmo (int ammo);
 
 private:
     /*
@@ -162,15 +157,12 @@ private:
                               sf::RenderStates states) const;
     virtual void updateCurrent (sf::Time dt, CommandQueue& commands);
     void updateMovementPattern (sf::Time dt);
-    void checkPickupDrop (CommandQueue& commands);
     void checkProjectileLaunch (sf::Time dt, CommandQueue& commands);
 
     void createBullets (SceneNode& node,
                         const TextureHolder& textures) const;
     void createProjectile (SceneNode& node, Projectile::Type type,
                            float XOffset, float yOffset, const TextureHolder& textures) const;
-    void createPickup (SceneNode& node,
-                       const TextureHolder& textures) const;
     void createAsteroideUn (SceneNode& node, Projectile::Type type,
                             float XOffset, float yOffset, const TextureHolder& textures) const;
 
@@ -187,7 +179,6 @@ private:
     ///> Commande pour l'action "tirer Balle"
     Command m_fireCommand;
     ///> Commande pour l'action "tirer Missile"
-    Command m_missileCommand;
     ///> Commande pour l'action "tirer Asteroide"
     Command m_asteroideUnCommand;
     ///> Temps entre chaque tire de Balle
@@ -195,7 +186,6 @@ private:
     ///> True si l'avion ne peut pas tirer une autre balle (déjà entrain de tirer)
     bool m_isFiring;
     ///> True si l'avion ne peut pas tirer un autre missile (déjà entrain de tirer)
-    bool m_isLaunchingMissile;
     ///> True si l'avion ne peut pas tirer une autre astéroide (déjà entrain de tirer)
     bool m_isLaunchingAsteroideUn;
     ///> True si l'animation de l'explosion de l'avion est en cours d'execution.
@@ -203,9 +193,7 @@ private:
     ///> True si l'animation de l'explosion  viens de commencer (permet de jouer les sons,ect...)
     bool m_explosionBegan;
     ///> True si l'avion loot un item bonus
-    bool m_spawnedPickup;
     ///> True si l'avions peut lacher un item bonus
-    bool m_pickupsEnabled;
     ///> Niveau de la vitesse de tir
     int m_fireRateLevel;
     ///> Niveau du nombre de tir
@@ -213,7 +201,6 @@ private:
     ///> Nombre de munition
     int m_missileAmmo;
     ///> Commmande pour lacher un intem bonus
-    Command m_dropPickupCommand;
     ///> Distance parcourue pas les balles
     float m_travelledDistance;
     ///> direction des balles
@@ -221,7 +208,6 @@ private:
     ///> affichage de la vie de l'avion
     TextNode* m_healthDisplay;
     ///> Affichage du nombre de missile
-    TextNode* m_missileDisplay;
     ///> identifiant de l'avion
     int m_identifier;
 };
