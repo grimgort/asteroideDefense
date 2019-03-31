@@ -1,0 +1,8 @@
+<map id="Base::updateCurrent" name="Base::updateCurrent">
+<area shape="rect" id="node2" href="$class_base.html#a490b8facfa7fe9a2dd1c851783943a9d" title="Met a jour le texte (point de vie de la base) " alt="" coords="205,5,336,32"/>
+<area shape="rect" id="node3" href="$class_entity.html#a938cddf03ff5239be09195452142c5e6" title="Demande si l&#39;entité est détruite. " alt="" coords="426,31,559,57"/>
+<area shape="rect" id="node4" href="$class_base.html#ae44bd147ff72d59b1bd31652ecaf6d68" title="Joue un son avec l&#39;ID effect. " alt="" coords="195,107,347,133"/>
+<area shape="rect" id="node7" href="$class_entity.html#a3d9ad14643b61864cf60ea7f0738146b" title="Met à jour la nouvelle position de l&#39;entité " alt="" coords="198,157,343,184"/>
+<area shape="rect" id="node5" href="$class_scene_node.html#a43061f972f26184b271e6c56723a29c2" title="Retourne la position absolu du noeud dans le niveau. " alt="" coords="395,107,591,133"/>
+<area shape="rect" id="node6" href="$class_scene_node.html#aedae712e618334745fea3c934d51a390" title="Retourne le transform du noeud mère (niveau) " alt="" coords="639,107,845,133"/>
+</map>

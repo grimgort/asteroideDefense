@@ -9,6 +9,7 @@
 #include <TextNode.h>
 #include <Animation.h>
 
+
 #include <SFML/Graphics/Sprite.hpp>
 
 /*
@@ -149,6 +150,9 @@ public:
     /// \return
     /////////////////////////////////////////////////
 
+    int getGold();
+    void setDisplayGold(float x,float y);
+
 private:
     /*
         Dessine la texture de l'avion sur la fenêtre target(RenderTarget) avec les éventuel transformation de "RenderStates".
@@ -210,6 +214,10 @@ private:
     ///> Affichage du nombre de missile
     ///> identifiant de l'avion
     int m_identifier;
+    ///> player gold (for a game)
+    int m_gold ;
+    ///> gold display
+    TextNode* m_goldDisplay;
 };
 
 #endif // AIRCRAFT_H

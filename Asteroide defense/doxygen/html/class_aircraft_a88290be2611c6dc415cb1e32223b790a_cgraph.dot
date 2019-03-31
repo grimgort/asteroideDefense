@@ -1,0 +1,13 @@
+digraph "Aircraft::Aircraft"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node0 [label="Aircraft::Aircraft",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="SceneNode::attachChild",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene_node.html#acdfa2c2ba28bce076c886eaba2d9e650",tooltip="Rajoute un noeud enfant. "];
+  Node0 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Aircraft::getCategory",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_aircraft.html#a01f9042934c08ef18b62351e6bca320d"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Aircraft::isAllied",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_aircraft.html#ab8503b05e0f3ede5986e7f0d4754afe0",tooltip="Dit si l&#39;avion est allié ou pas. "];
+}

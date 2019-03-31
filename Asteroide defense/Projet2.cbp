@@ -89,7 +89,6 @@
 		<Unit filename="include/Particle.h" />
 		<Unit filename="include/ParticleNode.h" />
 		<Unit filename="include/PauseState.h" />
-		<Unit filename="include/Pickup.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/PostEffect.h" />
 		<Unit filename="include/PresentationState.h" />
@@ -140,7 +139,6 @@
 		<Unit filename="src/ParallelTask.cpp" />
 		<Unit filename="src/ParticleNode.cpp" />
 		<Unit filename="src/PauseState.cpp" />
-		<Unit filename="src/Pickup.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/PostEffect.cpp" />
 		<Unit filename="src/PresentationState.cpp" />

@@ -1,0 +1,20 @@
+digraph "Aircraft::updateCurrent"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node43 [label="Aircraft::updateCurrent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node43 -> Node44 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node44 [label="Entity::isDestroyed",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_entity.html#a938cddf03ff5239be09195452142c5e6",tooltip="Demande si l&#39;entité est détruite. "];
+  Node43 -> Node45 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node45 [label="Aircraft::playLocalSound",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_aircraft.html#a604ac5c8004f6a94d5b9222ed0c4c79a"];
+  Node45 -> Node46 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node46 [label="SceneNode::getWorldPosition",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene_node.html#a43061f972f26184b271e6c56723a29c2",tooltip="Retourne la position absolu du noeud dans le niveau. "];
+  Node46 -> Node47 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node47 [label="SceneNode::getWorldTransform",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene_node.html#aedae712e618334745fea3c934d51a390",tooltip="Retourne le transform du noeud mère (niveau) "];
+  Node43 -> Node48 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node48 [label="Aircraft::isAllied",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_aircraft.html#ab8503b05e0f3ede5986e7f0d4754afe0",tooltip="Dit si l&#39;avion est alli� ou pas. "];
+  Node43 -> Node46 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node43 -> Node49 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node49 [label="Entity::updateCurrent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_entity.html#a3d9ad14643b61864cf60ea7f0738146b",tooltip="Met à jour la nouvelle position de l&#39;entité "];
+}

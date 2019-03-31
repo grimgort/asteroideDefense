@@ -72,7 +72,7 @@ Player::Player (sf::TcpSocket* socket, sf::Int32 identifier,
     , m_currentMissionStatus (MissionRunning)
     , m_identifier (identifier)
     , m_socket (socket)
-{
+    {
     //Définit l'action à associé à l'entrée clavier
     initializeActions();
 
@@ -196,6 +196,8 @@ Player::MissionStatus Player::getMissionStatus() const
 {
     return m_currentMissionStatus;
 }
+
+
 
 /*
     Définit les actions induite par les commandes d'entrée(clavier)

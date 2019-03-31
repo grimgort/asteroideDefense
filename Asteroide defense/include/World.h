@@ -338,6 +338,7 @@ private:
     SoundPlayer& m_sounds;
 
     SceneNode m_sceneGraph;
+    SceneNode m_sceneCollision;
     //m_sceneLayers est un conteneur composé de sceneNode associé à un layer count.
     //Ici, il y a donc un sceneNode pour background, un autre pour Air, etc...
     std::array<SceneNode*, LayerCount> m_sceneLayers;

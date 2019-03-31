@@ -1,0 +1,6 @@
+<map id="Base" name="Base">
+<area shape="rect" id="node2" href="$class_entity.html" title="Classe representant l&#39;entité " alt="" coords="125,157,181,184"/>
+<area shape="rect" id="node3" href="$class_scene_node.html" title="Classe representant le sceneNode. " alt="" coords="125,81,215,108"/>
+<area shape="rect" id="node7" href="$class_text_node.html" title="TextNode" alt="" coords="205,157,282,184"/>
+<area shape="rect" id="node8" href="$class_animation.html" title="Animation" alt="" coords="333,157,413,184"/>
+</map>

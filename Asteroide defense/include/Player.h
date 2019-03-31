@@ -9,6 +9,7 @@
 #include <SFML/Network/TcpSocket.hpp>
 
 #include <map>
+#include <Gold.h>
 
 class CommandQueue;
 
@@ -56,6 +57,7 @@ private:
     MissionStatus m_currentMissionStatus;
     int m_identifier;
     sf::TcpSocket* m_socket;
+
 };
 
 #endif // PLAYER_H

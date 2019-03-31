@@ -41,8 +41,8 @@ Application::Application()
                   "media/Sansation.ttf");  //chargement de la fonte sous l'identifiant "Main"
 
     //Chargement de l'icone de la fenêtre
-    m_images.load(Image::Icon,"media/Images/Icon.png");
-    m_window.setIcon(256,256,m_images.get(Image::Icon).getPixelsPtr());
+//    m_images.load(Image::Icon,"media/Images/Icon.png");
+//    m_window.setIcon(256,256,m_images.get(Image::Icon).getPixelsPtr());
 
     // Chargement des textures de l'écran de présentation
     m_textures.load(Textures::PresentationScreen,"media/Textures/Presentation.png");

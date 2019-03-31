@@ -71,7 +71,6 @@ void World::update (sf::Time dt)
     //Déplace la vue en fonction de la vitesse de l'avion.
     //Si on atteint de bord de la map, la vue reste statique et donc seul l'avion bouge.
 
-    //Il faut trouver un moyen pour que la vue de l'avion soit réintégrée à sa place initiale
     FOREACH (Aircraft * a, m_playerAircrafts)
     {
         //on récupére la vitesse et la position global de l'avion.
@@ -79,35 +78,38 @@ void World::update (sf::Time dt)
         sf::FloatRect position = a->getBoundingRect();
         int identifier = a->getIdentifier();
 
+
+
+
         if (identifier == 1)
         {
-            //Déplacement en x
-            m_worldView.move (velocity.x * dt.asSeconds() *
-                              m_scrollSpeedCompensation, 0.f);
-
             //Si on est trop à gauche
-            if (m_worldView.getCenter().x - m_worldView.getSize().x / 2.f <
+            if (position.left - m_worldView.getSize().x / 2.f <
                     m_worldBounds.left)
             {
-
                 m_worldView.setCenter (m_worldBounds.left + m_worldView.getSize().x /
                                        2.f, m_worldView.getCenter().y);
             }
             //Si on est trop à droite
-            else if (m_worldView.getCenter().x + m_worldView.getSize().x / 2.f >
+            else if (position.left+position.width + m_worldView.getSize().x / 2.f >
                      m_worldBounds.left + m_worldBounds.width)
             {
 
                 m_worldView.setCenter (m_worldBounds.left + m_worldBounds.width -
                                        m_worldView.getSize().x / 2.f, m_worldView.getCenter().y);
             }
+            else
+            {
+                //Déplacement en x
+                m_worldView.move (velocity.x * dt.asSeconds() *
+                                  m_scrollSpeedCompensation, 0.f);
 
-            //Déplacement en y
-            m_worldView.move (0.f,
-                              velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+            }
+
+
 
             //Si on est trop en haut
-            if (m_worldView.getCenter().y - m_worldView.getSize().y / 2.f <
+            if (position.top - m_worldView.getSize().y / 2.f <
                     m_worldBounds.top)
             {
 
@@ -115,7 +117,8 @@ void World::update (sf::Time dt)
                                        m_worldBounds.top + m_worldView.getSize().y / 2.f);
             }
             //Si on est trop en bas
-            else if (m_worldView.getCenter().y + m_worldView.getSize().y / 2.f >
+            else if (position.top-position.height
+                      + m_worldView.getSize().y / 2.f >
                      m_worldBounds.top + m_worldBounds.height)
             {
 
@@ -123,6 +126,15 @@ void World::update (sf::Time dt)
                                        m_worldBounds.top + m_worldBounds.height - m_worldView.getSize().y /
                                        2.f);
             }
+            else
+            {
+               //Déplacement en y
+                m_worldView.move (0.f,
+                                  velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
+            }
+            float xposition;
+            xposition = m_worldView.getSize().x/2.f;
+            a->setDisplayGold(xposition, 100.f);
         }
         // Correspond à l'avion 2 du split screen. A améliorer.
         else if (identifier == 2)
@@ -130,42 +142,50 @@ void World::update (sf::Time dt)
             m_worldView.setViewport (sf::FloatRect (0, 0, 0.5f, 1));
             m_viewTeam2.setViewport (sf::FloatRect (0.5f, 0, 0.5f, 1));
             //Déplacement en x
-            m_viewTeam2.move (velocity.x * dt.asSeconds() *
-                              m_scrollSpeedCompensation, 0.f);
 
-            if (m_viewTeam2.getCenter().x - m_viewTeam2.getSize().x / 2.f <
+
+            if (position.left - m_viewTeam2.getSize().x / 2.f <
                     m_worldBounds.left)
             {
 
                 m_viewTeam2.setCenter (m_worldBounds.left + m_viewTeam2.getSize().x /
                                        2.f, m_viewTeam2.getCenter().y);
             }
-            else if (m_viewTeam2.getCenter().x + m_viewTeam2.getSize().x / 2.f >
+            else if (position.left + position.width + m_viewTeam2.getSize().x / 2.f >
                      m_worldBounds.left + m_worldBounds.width)
             {
 
                 m_viewTeam2.setCenter (m_worldBounds.left + m_worldBounds.width -
                                        m_viewTeam2.getSize().x / 2.f, m_viewTeam2.getCenter().y);
             }
+            else
+            {
+                            m_viewTeam2.move (velocity.x * dt.asSeconds() *
+                              m_scrollSpeedCompensation, 0.f);
+            }
 
-            //Déplacement en y
-            m_viewTeam2.move (0.f,
-                              velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
 
-            if (m_viewTeam2.getCenter().y - m_viewTeam2.getSize().y / 2.f <
+
+            if (position.top - m_viewTeam2.getSize().y / 2.f <
                     m_worldBounds.top)
             {
 
                 m_viewTeam2.setCenter (m_viewTeam2.getCenter().x,
                                        m_worldBounds.top + m_viewTeam2.getSize().y / 2.f);
             }
-            else if (m_viewTeam2.getCenter().y + m_viewTeam2.getSize().y / 2.f >
+            else if (position.top - position.height + m_viewTeam2.getSize().y / 2.f >
                      m_worldBounds.top + m_worldBounds.height)
             {
 
                 m_viewTeam2.setCenter (m_viewTeam2.getCenter().x,
                                        m_worldBounds.top + m_worldBounds.height - m_viewTeam2.getSize().y /
                                        2.f);
+            }
+            else
+            {
+                //Déplacement en y
+                m_viewTeam2.move (0.f,
+                              velocity.y * dt.asSeconds() * m_scrollSpeedCompensation);
             }
         }
 

@@ -13,6 +13,7 @@
 #include <iostream>
 #include <time.h>
 
+
 using namespace std::placeholders;
 
 /*
@@ -52,6 +53,7 @@ Aircraft::Aircraft (Type type
     , m_travelledDistance (0.f)
     , m_directionIndex (0)
     , m_identifier (0)
+    , m_gold(1000)
 {
     m_explosion.setFrameSize (sf::Vector2i (256, 256));
     m_explosion.setNumFrames (16);
@@ -76,6 +78,11 @@ Aircraft::Aircraft (Type type
     std::unique_ptr<TextNode> healthDisplay (new TextNode (fonts, ""));
     m_healthDisplay = healthDisplay.get();
     attachChild (std::move (healthDisplay));
+
+    std::unique_ptr<TextNode> goldDisplay (new TextNode (fonts, ""));
+    m_goldDisplay = goldDisplay.get();
+    attachChild (std::move (goldDisplay));
+
 
     updateTexts();
 }
@@ -347,6 +354,10 @@ void Aircraft::updateTexts()
     { m_healthDisplay->setString (toString (getHitpoints()) + "HP"); }
 
     m_healthDisplay->setPosition (0.f, 50.f);
+
+    m_goldDisplay->setString (toString(m_gold) + " Gold");
+
+//    m_goldDisplay->setPosition (0.f, 100.f);
     //Pourquoi cette ligne?
     //m_healthDisplay->setRotation (-getRotation());
 }
@@ -365,4 +376,14 @@ void Aircraft::updateRollAnimation()
 
         m_sprite.setTextureRect (textureRect);
     }
+}
+
+int Aircraft::getGold()
+{
+    return m_gold;
+}
+
+void Aircraft::setDisplayGold(float x,float y)
+{
+    m_goldDisplay->setPosition(x, y);
 }
